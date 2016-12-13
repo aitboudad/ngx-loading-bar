@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es5",
+    "declaration": true,
+    "moduleResolution": "node",
+    "removeComments": true,
+    "sourceMap": true,
+    "noImplicitAny": false,
+    "baseUrl": "src",
+    "lib": ["dom", "es6"],
+    "typeRoots": [
+      "./node_modules/@types"
+    ]
+  },
+  "awesomeTypescriptLoaderOptions": {
+    "useWebpackText": true
+  },
+  "include": [
+    "src/**/*.ts",
+    "demo/**/*.ts"
+  ],
+  "compileOnSave": false
+}
