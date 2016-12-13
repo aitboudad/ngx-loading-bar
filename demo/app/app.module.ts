@@ -1,8 +1,3 @@
-// polyfills
-import 'core-js/es6';
-import 'core-js/es7/reflect';
-import 'zone.js/dist/zone';
-
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';

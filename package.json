@@ -1,7 +1,9 @@
 {
   "name": "ng-loading-bar",
   "version": "0.0.1",
-  "main": "index.js",
+  "main": "bundles/ng-loading-bar.umd.js",
+  "module": "lib/src/index.js",
+  "typings": "lib/src/index.d.ts",
   "repository": {
     "url": "https://github.com/aitboudad/ng-loading-bar.git",
     "type": "git"

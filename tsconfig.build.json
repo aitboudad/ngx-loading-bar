@@ -9,7 +9,7 @@
     "experimentalDecorators": true,
     "removeComments": true,
     "baseUrl": "src",
-    "outDir": "lib",
+    "outDir": "lib/src",
     "paths": [],
     "lib": ["dom", "es6"],
     "typeRoots": [
