@@ -18,7 +18,7 @@ import { AppComponent } from './app';
   imports: [
     BrowserModule,
     HttpModule,
-    NgLoadingBarModule,
+    NgLoadingBarModule.forRoot(),
   ],
   declarations: [ AppComponent ],
   bootstrap: [ AppComponent ],
@@ -46,6 +46,5 @@ export class AppComponent {}
 
 #### 4. include the supplied CSS file (or create your own).
   - `loading-bar.css`
-  
-  
+
 Based on https://github.com/sir-valentin/Angular2LoadingBar.git

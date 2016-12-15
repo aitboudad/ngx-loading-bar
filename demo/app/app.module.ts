@@ -12,7 +12,7 @@ import { InMemHeroService } from './hero-data';
   ],
   imports: [
     BrowserModule,
-    NgLoadingBarModule,
+    NgLoadingBarModule.forRoot(),
     HttpModule,
     InMemoryWebApiModule.forRoot(InMemHeroService, { delay: 500 }),
   ],

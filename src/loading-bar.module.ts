@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { HttpModule, Http, XHRBackend, RequestOptions } from '@angular/http';
 import { NgLoadingBarHttp } from './loading-bar.http';
 import { NgLoadingBarComponent } from './loading-bar.component';
@@ -14,11 +14,17 @@ export function httpFactory(xhrBackend: XHRBackend, requestOptions: RequestOptio
     imports: [
         HttpModule,
     ],
-    providers: [
-        { provide: Http, useFactory: httpFactory, deps: [XHRBackend, RequestOptions] },
-    ],
     exports: [
         NgLoadingBarComponent,
     ],
 })
-export class NgLoadingBarModule {}
+export class NgLoadingBarModule {
+    static forRoot(): ModuleWithProviders {
+      return {
+        ngModule: NgLoadingBarModule,
+        providers: [
+            { provide: Http, useFactory: httpFactory, deps: [XHRBackend, RequestOptions] },
+        ],
+      };
+    }
+}

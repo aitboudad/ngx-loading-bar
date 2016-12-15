@@ -4,12 +4,11 @@
     "target": "es5",
     "moduleResolution": "node",
     "declaration": true,
-    "sourceMap": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "removeComments": true,
     "baseUrl": "src",
-    "outDir": "lib/src",
+    "outDir": "lib",
     "paths": [],
     "lib": ["dom", "es6"],
     "typeRoots": [
@@ -20,7 +19,7 @@
     "src/index.ts"
   ],
   "angularCompilerOptions": {
-    "genDir": "lib",
+    "skipTemplateCodegen": true,
     "strictMetadataEmit": true
   }
 }
