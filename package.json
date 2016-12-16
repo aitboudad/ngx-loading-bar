@@ -1,6 +1,6 @@
 {
   "name": "ng-loading-bar",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "main": "bundles/ng-loading-bar.umd.js",
   "module": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -71,5 +71,7 @@
     "zone.js": "^0.7.2"
   },
   "author": "Abdellatif Ait boudad",
+  "description": "Automatic page loading / progress bar for Angular 2",
+  "keywords": ["angular", "angular2", "ng", "ng2", "loading", "loadingbar", "progress", "progressbar"],
   "license": "MIT"
 }

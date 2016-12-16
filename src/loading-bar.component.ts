@@ -29,10 +29,12 @@ export class NgLoadingBarComponent implements AfterViewInit {
     private _startTimeout: any;
 
     constructor(private _renderer: Renderer, @Inject(Http) http: NgLoadingBarHttp) {
-        http.pending.subscribe((progress: any) => {
-            if (progress.started) this.start();
-            if (progress.completed) this.complete();
-        });
+        if (http instanceof NgLoadingBarHttp) {
+            http.pending.subscribe((progress: any) => {
+                if (progress.started) this.start();
+                if (progress.completed) this.complete();
+            });
+        }
     }
 
     ngAfterViewInit() {
