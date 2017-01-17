@@ -1,4 +1,4 @@
-import { Inject, Component, ViewChild, Renderer, AfterViewInit } from '@angular/core';
+import { Inject, Component, ViewChild, Renderer, AfterViewInit, Input } from '@angular/core';
 import { Http } from '@angular/http';
 import { NgLoadingBarHttp } from './loading-bar.http';
 
@@ -14,8 +14,9 @@ export class NgLoadingBarComponent implements AfterViewInit {
     @ViewChild('loadingBarContainer') _loadingBarContainer: any;
     @ViewChild('loadingBar') _loadingBar: any;
 
+    @Input() includeSpinner: boolean = true;
+
     private _autoIncrement: boolean = true;
-    private _includeSpinner: boolean = true;
     private _includeBar: boolean = true;
     private _latencyThreshold: number = 10;
     private _startSize: number = 0.02;
@@ -60,7 +61,7 @@ export class NgLoadingBarComponent implements AfterViewInit {
                 this.show(this._loadingBarContainer);
             }
 
-            if (this._includeSpinner) {
+            if (this.includeSpinner) {
                 this.show(this._spinner);
             }
 
