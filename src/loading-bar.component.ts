@@ -91,18 +91,19 @@ export class NgLoadingBarComponent implements AfterViewInit {
     }
 
     private complete(): void {
+        setTimeout(() => {
+            this.set(1);
 
-        this.set(1);
+            clearTimeout(this._completeTimeout);
+            clearTimeout(this._startTimeout);
 
-        clearTimeout(this._completeTimeout);
-        clearTimeout(this._startTimeout);
-
-        // Attempt to aggregate any start/complete calls within 500ms:
-        this._completeTimeout = setTimeout(() => {
-            this._started = false;
-            this.hide(this._loadingBarContainer);
-            this.hide(this._spinner);
-        }, 500);
+            // Attempt to aggregate any start/complete calls within 500ms:
+            this._completeTimeout = setTimeout(() => {
+                this._started = false;
+                this.hide(this._loadingBarContainer);
+                this.hide(this._spinner);
+            }, 500);
+        }, this._latencyThreshold);
     }
 
     /**

@@ -1,6 +1,6 @@
 {
   "name": "ng-loading-bar",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "main": "bundles/ng-loading-bar.umd.js",
   "module": "lib/index.js",
   "typings": "lib/index.d.ts",
