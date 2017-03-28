@@ -1,6 +1,6 @@
 {
   "name": "ng-loading-bar",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "main": "bundles/ng-loading-bar.umd.js",
   "module": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -9,8 +9,8 @@
     "type": "git"
   },
   "peerDependencies": {
-    "@angular/core": "^2.0.0",
-    "@angular/http": "^2.0.0"
+    "@angular/core": "^2.0.0 || ^4.0.0",
+    "@angular/http": "^2.0.0 || ^4.0.0"
   },
   "scripts": {
     "ngc": "./node_modules/.bin/ngc",
