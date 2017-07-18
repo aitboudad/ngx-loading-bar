@@ -1,4 +1,4 @@
-import { Inject, Component, ViewChild, Renderer, AfterViewInit, Input } from '@angular/core';
+import { Inject, Component, ViewChild, Renderer2, AfterViewInit, Input } from '@angular/core';
 import { Http } from '@angular/http';
 import { NgLoadingBarHttp } from './loading-bar.http';
 
@@ -29,7 +29,7 @@ export class NgLoadingBarComponent implements AfterViewInit {
 
     private _startTimeout: any;
 
-    constructor(private _renderer: Renderer, @Inject(Http) http: NgLoadingBarHttp) {
+    constructor(private _renderer: Renderer2, @Inject(Http) http: NgLoadingBarHttp) {
         if (http instanceof NgLoadingBarHttp) {
             http.pending.subscribe((progress: any) => {
                 if (progress.started) this.start();
@@ -145,6 +145,6 @@ export class NgLoadingBarComponent implements AfterViewInit {
         this.setElementStyle(el, 'display', 'none');
     }
     private setElementStyle(el: any, styleName: string, styleValue: string): void {
-        this._renderer.setElementStyle(el.nativeElement, styleName, styleValue);
+        this._renderer.setStyle(el.nativeElement, styleName, styleValue);
     }
 }
