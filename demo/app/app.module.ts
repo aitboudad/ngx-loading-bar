@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpModule } from '@angular/http';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { NgLoadingBarModule } from '../../src';
 import { App } from './app';
 import { InMemHeroService } from './hero-data';
+import { HttpModule } from '@angular/http';
+
 
 @NgModule({
   declarations: [
@@ -12,7 +13,7 @@ import { InMemHeroService } from './hero-data';
   ],
   imports: [
     BrowserModule,
-    NgLoadingBarModule.forRoot(),
+    NgLoadingBarModule.forRoot({ overrideHttp: true }),
     HttpModule,
     InMemoryWebApiModule.forRoot(InMemHeroService, { delay: 500 }),
   ],

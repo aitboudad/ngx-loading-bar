@@ -1,3 +1,10 @@
 <div>Hello world</div>
-<button (click)="startHttpRequest()" type="button" name="button">Start</button>
+<button (click)="startLoadingBarHttpRequest()" type="button" name="button">Start Loading Bar Http</button>
+<button (click)="startHttpRequest()" type="button" name="button">Start Http</button>
+<ul><li *ngFor="let hero of heroes">{{hero.name}}</li></ul>
+
+<hr />
+<button (click)="startTimer()" type="button" name="button">Start Timer</button>
+<h4>{{timer}}</h4>
+
 <ng-loading-bar></ng-loading-bar>

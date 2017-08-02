@@ -1,8 +1,7 @@
-import { Injector } from '@angular/core';
-import { Http, Request, Response, RequestOptionsArgs } from '@angular/http';
+import { LoadingBarService } from './loading-bar.service';
 import { Injectable } from '@angular/core';
+import { ConnectionBackend, Http, Request, RequestOptions, RequestOptionsArgs, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/share';
 
 export interface LoadingBarRequestOptionsArgs extends RequestOptionsArgs {
@@ -11,36 +10,18 @@ export interface LoadingBarRequestOptionsArgs extends RequestOptionsArgs {
 
 @Injectable()
 export class NgLoadingBarHttp extends Http {
-    pending = new Subject();
-    private _pendingRequests: number = 0;
+    constructor(_backend: ConnectionBackend, _defaultOptions: RequestOptions, protected _loadingBarService: LoadingBarService) {
+        super(_backend, _defaultOptions);
+    }
 
-    request(url: string|Request, options?: LoadingBarRequestOptionsArgs): Observable<Response> {
-        const response = super.request(url, options).share();
+    request(url: string | Request, options?: LoadingBarRequestOptionsArgs): Observable<Response> {
+        const response$ = super.request(url, options);
         if (options && options.ignoreLoadingBar === true) {
-            return response;
+            return response$;
         }
 
-        this.requestStarted();
-        response.subscribe(
-            (x) => {},
-            (err) => this.requestEnded(),
-            () => this.requestEnded(),
-        );
-
-        return response;
-    }
-
-    private requestStarted() {
-        this.pending.next({
-            started: this._pendingRequests === 0,
-            pendingRequests: ++this._pendingRequests,
-        });
-    }
-
-    private requestEnded() {
-        this.pending.next({
-            completed: this._pendingRequests === 1,
-            pendingRequests: --this._pendingRequests,
-        });
+        // NB: If we subscribe here, request would be sent while user hasn't decided to do it yet (http.get is cold)
+        this._loadingBarService.startLoading(response$);
+        return response$;
     }
 }
