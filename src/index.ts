@@ -6,4 +6,4 @@ export {
     NgLoadingBarModule,
     NgLoadingBarHttp,
     NgLoadingBarComponent,
-}
+};
