@@ -1,15 +1,14 @@
-import { LoadingBarService } from './loading-bar.service';
+import { LoadingBarService } from '@ngx-loading-bar/core';
 import { Injectable } from '@angular/core';
 import { ConnectionBackend, Http, Request, RequestOptions, RequestOptionsArgs, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/share';
 
 export interface LoadingBarRequestOptionsArgs extends RequestOptionsArgs {
     ignoreLoadingBar?: boolean;
 }
 
 @Injectable()
-export class NgLoadingBarHttp extends Http {
+export class LoadingBarHttp extends Http {
     constructor(_backend: ConnectionBackend, _defaultOptions: RequestOptions, protected _loadingBarService: LoadingBarService) {
         super(_backend, _defaultOptions);
     }

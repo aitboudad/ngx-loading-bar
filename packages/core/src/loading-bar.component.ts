@@ -8,7 +8,7 @@ import { LoadingBarService } from './loading-bar.service';
         <div id="loading-bar" #loadingBarContainer><div class="bar" #loadingBar><div class="peg"></div></div></div>
     `,
 })
-export class NgLoadingBarComponent implements AfterViewInit {
+export class LoadingBarComponent implements AfterViewInit {
     @ViewChild('loadingBarSpinner') _spinner: any;
     @ViewChild('loadingBarContainer') _loadingBarContainer: any;
     @ViewChild('loadingBar') _loadingBar: any;

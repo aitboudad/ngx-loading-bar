@@ -1,0 +1,13 @@
+{
+    "name": "@ngx-loading-bar/http",
+    "version": "1.0.0-alpha.1",
+    "description": "",
+    "license": "MIT",
+    "dependencies": {
+        "tslib": "^1.7.1",
+        "@ngx-loading-bar/core": "1.0.0-alpha.1"
+    },
+    "peerDependencies": {
+        "@angular/http": "^4.0"
+    }
+}

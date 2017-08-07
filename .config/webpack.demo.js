@@ -5,16 +5,19 @@ const path = require('path');
 
 module.exports = {
   entry: {
-    app: './main.bootstrap.ts',
-    vendor: ['@angular/core'],
+    app: './main.bootstrap',
   },
   devtool: 'source-map',
   context: path.join(__dirname, '..', 'demo'),
   resolve: {
-    extensions: ['.ts', '.webpack.js', '.web.js', '.js'],
+    extensions: ['.ts', '.js', '.html'],
     alias: {
-      'ng-loading-bar': 'src/index.ts',
+      '@ngx-loading-bar/core': path.join(__dirname, '..', 'packages/core'),
+      '@ngx-loading-bar/http': path.join(__dirname, '..', 'packages/http'),
     },
+    modules: [
+      'node_modules',
+    ]
   },
   module: {
     loaders: [
@@ -25,10 +28,6 @@ module.exports = {
   plugins: [
     new CheckerPlugin(),
     new DashboardPlugin(),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      filename: 'vendor.js',
-    }),
   ],
   output: {
     path: path.join(__dirname, '..', 'build'),

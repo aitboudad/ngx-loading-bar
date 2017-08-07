@@ -8,17 +8,20 @@
     "removeComments": true,
     "sourceMap": true,
     "noImplicitAny": false,
-    "baseUrl": "src",
+    "baseUrl": "packages",
     "lib": ["dom", "es6"],
     "typeRoots": [
       "./node_modules/@types"
-    ]
+    ],
+    "paths": {
+      "@ngx-loading-bar/*": ["./*"]
+    }
   },
   "awesomeTypescriptLoaderOptions": {
     "useWebpackText": true
   },
   "include": [
-    "src/**/*.ts",
+    "packages/**/*.ts",
     "demo/**/*.ts"
   ],
   "compileOnSave": false

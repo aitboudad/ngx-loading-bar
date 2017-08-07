@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Http } from '@angular/http';
-import { LoadingBarService } from '../../src/loading-bar.service';
+import { LoadingBarService } from '@ngx-loading-bar/core';
 import { Observable } from 'rxjs/Observable';
 
 import 'rxjs/add/observable/interval';
@@ -28,12 +28,11 @@ export class App {
         request$.subscribe(
             (heroes) => this.heroes = heroes,
             (err) => this.loadingService.endLoading(),
-            () => this.loadingService.endLoading()
+            () => this.loadingService.endLoading(),
         );
 
         // We start loading manually only when we've subscribed
         this.loadingService.startLoading();
-
     }
 
     startLoadingBarHttpRequest() {
@@ -49,7 +48,5 @@ export class App {
 
         // We're sure that subscription has been made, we can start loading bar service
         this.loadingService.startLoading(timer$);
-
-
     }
 }
