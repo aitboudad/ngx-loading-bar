@@ -2,7 +2,7 @@ import { Component, ViewChild, Renderer2, AfterViewInit, Input } from '@angular/
 import { LoadingBarService } from './loading-bar.service';
 
 @Component({
-    selector: 'ng-loading-bar',
+    selector: 'ng-loading-bar, ngx-loading-bar',
     template: `
         <div id="loading-bar-spinner" #loadingBarSpinner><div class="spinner-icon"></div></div>
         <div id="loading-bar" #loadingBarContainer><div class="bar" #loadingBar><div class="peg"></div></div></div>

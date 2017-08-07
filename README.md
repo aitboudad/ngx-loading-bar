@@ -1,24 +1,24 @@
 ## Quick Start
 
-#### 1. Install ng-loading-bar
+#### 1. Install @ngx-loading-bar/http
 ```bash
-  npm install ng-loading-bar --save
+  npm install @ngx-loading-bar/http --save
 ```
 
-#### 2. Import the `NgLoadingBarModule`:
+#### 2. Import the `LoadingBarHttpModule`:
 
 ```ts
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
-import { NgLoadingBarModule } from 'ng-loading-bar';
+import { LoadingBarHttpModule } from '@ngx-loading-bar/http';
 import { AppComponent } from './app';
 
 @NgModule({
   imports: [
     BrowserModule,
     HttpModule,
-    NgLoadingBarModule.forRoot(),
+    LoadingBarHttpModule,
   ],
   declarations: [ AppComponent ],
   bootstrap: [ AppComponent ],
@@ -28,7 +28,7 @@ export class AppModule {
 
 ```
 
-#### 3. Include `ng-loading-bar` in your app component:
+#### 3. Include `ngx-loading-bar` in your app component:
 
 ```ts
 import { Component } from '@angular/core';
@@ -37,7 +37,7 @@ import { Component } from '@angular/core';
   selector: 'app',
   template: `
     ...
-    <ng-loading-bar></ng-loading-bar>
+    <ngx-loading-bar></ngx-loading-bar>
   `,
 })
 export class AppComponent {}
@@ -45,6 +45,7 @@ export class AppComponent {}
 ```
 
 #### 4. include the supplied CSS file (or create your own).
-  - `loading-bar.css`
+  - [loading-bar.css](loading-bar.css)
+
 
 Based on https://github.com/sir-valentin/Angular2LoadingBar.git
