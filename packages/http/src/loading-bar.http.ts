@@ -9,7 +9,7 @@ export interface LoadingBarRequestOptionsArgs extends RequestOptionsArgs {
 
 @Injectable()
 export class LoadingBarHttp extends Http {
-    constructor(_backend: ConnectionBackend, _defaultOptions: RequestOptions, protected _loadingBarService: LoadingBarService) {
+    constructor(_backend: ConnectionBackend, _defaultOptions: RequestOptions, private _loadingBarService: LoadingBarService) {
         super(_backend, _defaultOptions);
     }
 

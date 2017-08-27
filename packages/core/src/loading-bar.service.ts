@@ -15,11 +15,7 @@ export class LoadingBarService implements OnDestroy {
     pending = new Subject<LoadingBarStatus>();
     private _pendingRequests: number = 0;
 
-    ngOnDestroy() {
-        this.pending.complete();
-    }
-
-    public startLoading(source$?: Observable<any>) {
+    startLoading(source$?: Observable<any>) {
         if (source$) {
             share.call(source$).subscribe(this.getLoadingObserver());
         }
@@ -29,18 +25,22 @@ export class LoadingBarService implements OnDestroy {
         });
     }
 
-    public endLoading() {
+    endLoading() {
         this.pending.next({
             completed: this._pendingRequests === 1,
             pendingRequests: --this._pendingRequests,
         });
     }
 
-    public getLoadingObserver(): Observer<any> {
+    getLoadingObserver(): Observer<any> {
         return {
             next: (x) => x,
             error: (err) => this.endLoading(),
             complete: () => this.endLoading(),
         };
+    }
+
+    ngOnDestroy() {
+        this.pending.complete();
     }
 }
