@@ -1,11 +1,11 @@
 {
     "name": "@ngx-loading-bar/http",
-    "version": "1.0.0-alpha.1",
+    "version": "LOADING-BAR-VERSION",
     "description": "",
     "license": "MIT",
     "dependencies": {
         "tslib": "^1.7.1",
-        "@ngx-loading-bar/core": "1.0.0-alpha.1"
+        "@ngx-loading-bar/core": "LOADING-BAR-VERSION"
     },
     "peerDependencies": {
         "@angular/http": "^4.0"
