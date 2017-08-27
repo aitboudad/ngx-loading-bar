@@ -8,10 +8,6 @@
     "url": "https://github.com/aitboudad/ng-loading-bar.git",
     "type": "git"
   },
-  "peerDependencies": {
-    "@angular/core": "^4.0.0",
-    "@angular/http": "^4.0.0"
-  },
   "scripts": {
     "lint": "./node_modules/.bin/tslint 'src/**/*.ts' 'demo/**/*.ts'",
     "prepublish": "npm run build",

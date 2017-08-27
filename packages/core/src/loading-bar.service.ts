@@ -1,13 +1,23 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import { Observer } from 'rxjs/Observer';
 import { Observable } from 'rxjs/Observable';
 import { share } from 'rxjs/operator/share';
 
+export interface LoadingBarStatus {
+    started?: boolean;
+    completed?: boolean;
+    pendingRequests: number;
+}
+
 @Injectable()
-export class LoadingBarService {
-    pending = new Subject();
+export class LoadingBarService implements OnDestroy {
+    pending = new Subject<LoadingBarStatus>();
     private _pendingRequests: number = 0;
+
+    ngOnDestroy() {
+        this.pending.complete();
+    }
 
     public startLoading(source$?: Observable<any>) {
         if (source$) {

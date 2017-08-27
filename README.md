@@ -165,7 +165,7 @@ export class App {
 This behavior is because the Loading bar module overrides default http service by setting up a subscription to the request. 
 This subscription fires up the HTTP request. 
 
-If this behavior does'nt suit you, you should manage loading bar manually as in the component startHttpRequest above.
+If this behavior doesn't suit you, you should manage loading bar manually as in the component startHttpRequest above.
 
 
 Based on https://github.com/sir-valentin/Angular2LoadingBar.git

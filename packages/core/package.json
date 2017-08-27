@@ -7,6 +7,6 @@
         "tslib": "^1.7.1"
     },
     "peerDependencies": {
-        "@angular/core": "^4.0"
+        "@angular/common": "^4.0"
     }
 }
