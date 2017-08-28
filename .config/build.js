@@ -3,6 +3,7 @@ const fs = require("fs"),
         'core',
         'http',
         'http-client',
+        'router',
     ];
 
 // update `LOADING-BAR-VERSION` in package.json for all sub-packages

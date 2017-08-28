@@ -6,7 +6,6 @@ import { App } from './app';
 import { InMemHeroService } from './hero-data';
 import { HttpModule } from '@angular/http';
 
-
 @NgModule({
   declarations: [
     App,

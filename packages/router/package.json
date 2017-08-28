@@ -1,0 +1,13 @@
+{
+    "name": "@ngx-loading-bar/router",
+    "version": "LOADING-BAR-VERSION",
+    "description": "",
+    "license": "MIT",
+    "dependencies": {
+        "tslib": "^1.7.1",
+        "@ngx-loading-bar/core": "LOADING-BAR-VERSION"
+    },
+    "peerDependencies": {
+        "@angular/router": "^4.0"
+    }
+}
