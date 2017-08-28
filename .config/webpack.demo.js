@@ -14,6 +14,7 @@ module.exports = {
     alias: {
       '@ngx-loading-bar/core': path.join(__dirname, '..', 'packages/core'),
       '@ngx-loading-bar/http': path.join(__dirname, '..', 'packages/http'),
+      '@ngx-loading-bar/http-client': path.join(__dirname, '..', 'packages/http-client'),
     },
     modules: [
       'node_modules',

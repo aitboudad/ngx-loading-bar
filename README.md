@@ -1,6 +1,6 @@
 ## Quick Start
 
-#### 1. Install @ngx-loading-bar/http
+#### 1. Install @ngx-loading-bar/http (or `@ngx-loading-bar/http-client` if you're willing to use the new HttpClient)
 ```bash
   npm install @ngx-loading-bar/http --save
 ```
@@ -10,15 +10,17 @@
 ```ts
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpModule } from '@angular/http';
 import { LoadingBarHttpModule } from '@ngx-loading-bar/http';
+// for HttpClient import LoadingBarHttpClientModule instead:
+// import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 import { AppComponent } from './app';
 
 @NgModule({
   imports: [
     BrowserModule,
-    HttpModule,
     LoadingBarHttpModule,
+    // for HttpClient use:
+    // LoadingBarHttpClientModule
   ],
   declarations: [ AppComponent ],
   bootstrap: [ AppComponent ],

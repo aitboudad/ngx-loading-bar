@@ -1,6 +1,6 @@
-import { LoadingBarModule, LoadingBarService } from '@ngx-loading-bar/core';
-import { NgModule, ModuleWithProviders } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { HttpModule, Http, XHRBackend, RequestOptions } from '@angular/http';
+import { LoadingBarModule, LoadingBarService } from '@ngx-loading-bar/core';
 import { LoadingBarHttp } from './loading-bar.http';
 
 export function httpFactory(xhrBackend: XHRBackend, requestOptions: RequestOptions, loadingBarService: LoadingBarService): Http {
