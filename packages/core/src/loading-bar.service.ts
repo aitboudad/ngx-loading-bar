@@ -16,16 +16,21 @@ export class LoadingBarService implements OnDestroy {
     private _pendingRequests: number = 0;
 
     startLoading(source$?: Observable<any>) {
-        if (source$) {
-            share.call(source$).subscribe(this.getLoadingObserver());
-        }
         this.pending.next({
             started: this._pendingRequests === 0,
             pendingRequests: ++this._pendingRequests,
         });
+
+        if (source$) {
+            share.call(source$).subscribe(this.getLoadingObserver());
+        }
     }
 
     endLoading() {
+        if (this._pendingRequests === 0) {
+            return;
+        }
+
         this.pending.next({
             completed: this._pendingRequests === 1,
             pendingRequests: --this._pendingRequests,
