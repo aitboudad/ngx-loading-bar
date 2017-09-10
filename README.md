@@ -65,7 +65,7 @@ import { AppComponent } from './app';
   imports: [
     BrowserModule,
     HttpModule,
-    LoadingBarModule,
+    LoadingBarModule.forRoot(),
   ],
   declarations: [ AppComponent ],
   bootstrap: [ AppComponent ],

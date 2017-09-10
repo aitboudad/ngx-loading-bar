@@ -6,7 +6,7 @@ import { LoadingBarInterceptor } from './loading-bar.interceptor';
 @NgModule({
     imports: [
         HttpClientModule,
-        LoadingBarModule,
+        LoadingBarModule.forRoot(),
     ],
     exports: [
         HttpClientModule,

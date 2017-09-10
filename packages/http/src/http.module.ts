@@ -10,7 +10,7 @@ export function httpFactory(xhrBackend: XHRBackend, requestOptions: RequestOptio
 @NgModule({
     imports: [
         HttpModule,
-        LoadingBarModule,
+        LoadingBarModule.forRoot(),
     ],
     exports: [
         HttpModule,

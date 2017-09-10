@@ -5,7 +5,7 @@ import { LoadingBarModule, LoadingBarService } from '@ngx-loading-bar/core';
 @NgModule({
     imports: [
         RouterModule,
-        LoadingBarModule,
+        LoadingBarModule.forRoot(),
     ],
     exports: [
         RouterModule,
