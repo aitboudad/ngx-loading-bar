@@ -8,6 +8,6 @@
         "@ngx-loading-bar/core": "LOADING-BAR-VERSION"
     },
     "peerDependencies": {
-        "@angular/router": "^4.0"
+        "@angular/router": ">=4.0.0"
     }
 }
