@@ -22,7 +22,10 @@ export class LoadingBarService implements OnDestroy {
         });
 
         if (source$) {
-            share.call(source$).subscribe(this.getLoadingObserver());
+            source$ = share.call(source$);
+            source$.subscribe(this.getLoadingObserver());
+
+            return source$;
         }
     }
 

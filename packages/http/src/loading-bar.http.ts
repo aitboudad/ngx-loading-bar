@@ -20,8 +20,6 @@ export class LoadingBarHttp extends Http {
         }
 
         // NB: If we subscribe here, request would be sent while user hasn't decided to do it yet (http.get is cold)
-        this._loadingBarService.startLoading(response$);
-
-        return response$;
+        return this._loadingBarService.startLoading(response$);
     }
 }
