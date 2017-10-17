@@ -1,3 +1,14 @@
+# @ngx-loading-bar
+
+A fully automatic loading bar with zero configuration for angular app (http, http-client and router).
+
+
+## Packages
+- [@ngx-loading-bar/router](./packages/router/README.md) - Display loading bar when navigating between routes.
+- [@ngx-loading-bar/http-client](./packages/http-client/README.md) - Display the progress of your `@angular/common/http` requests.
+- [@ngx-loading-bar/http](./packages/http/README.md) - Display the progress of your `@angular/http` requests.
+- [@ngx-loading-bar/core](./packages/core/README.md) - Core module to manage the progress bar manually.
+
 ## Quick Start
 
 #### 1. Install @ngx-loading-bar/http (or `@ngx-loading-bar/http-client` if you're willing to use the new HttpClient)
@@ -168,4 +179,7 @@ This subscription fires up the HTTP request.
 If this behavior doesn't suit you, you should manage loading bar manually as in the component startHttpRequest above.
 
 
-Based on https://github.com/sir-valentin/Angular2LoadingBar.git
+# Credits 
+
+- [angular-loading-bar](https://github.com/chieffancypants/angular-loading-bar)
+- https://github.com/sir-valentin/Angular2LoadingBar.git
