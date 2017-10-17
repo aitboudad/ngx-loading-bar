@@ -88,42 +88,41 @@ import 'rxjs/add/operator/take';
 import 'rxjs/add/operator/map';
 
 @Component({
-    selector: 'ng-loading-bar-app',
+    selector: 'app-loading-bar',
     templateUrl: './app.html',
 })
 export class App {
-
     heroes: Array<any>;
     timer: number;
 
-
-    constructor(private _http: Http, private loadingService: LoadingBarService) {
-    }
+    constructor(private _http: Http, private loadingBar: LoadingBarService) {}
 
     startHttpRequest() {
-        const request$ =
-            this._http.get('/app/heroes')
-                .map((response) => response.json().data);
+        const request$ = this._http.get('/app/heroes')
+            .map((response) => response.json().data);
 
         request$.subscribe(
             (heroes) => this.heroes = heroes,
-            (err) => this.loadingService.endLoading(), // Stop loading service
-            () => this.loadingService.endLoading()
+            (err) => this.loadingBar.complete(), // Stop loading service
+            () => this.loadingBar.complete()
         );
 
         // Start loading service
-        this.loadingService.startLoading();
+        this.loadingService.start();
     }
     
     startTimer() {
         const timer$ = Observable
             .interval(1000)
             .take(10);
-        timer$
-            .subscribe((value) => this.timer = value + 1);
 
-        // If no need to do specific work on each coming event, we just pass the obervable to startLoading method
-        this.loadingService.startLoading(timer$);   
+        timer$.subscribe(
+            (value) => this.timer = value + 1,
+            (err) => this.loadingBar.complete(), // Stop loading service
+            () => this.loadingBar.complete()
+        );
+
+        this.loadingService.start(timer$);
     }
 }
 
@@ -146,7 +145,6 @@ import { Http } from '@angular/http';
     templateUrl: './app.html',
 })
 export class App {
-
     private request$;
 
     constructor(private _http: Http) {

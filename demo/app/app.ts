@@ -12,12 +12,10 @@ import 'rxjs/add/operator/map';
     templateUrl: './app.html',
 })
 export class App {
-
     heroes: Array<any>;
     timer: number;
 
-    constructor(private _http: Http, private loadingService: LoadingBarService) {
-    }
+    constructor(private _http: Http, private loadingService: LoadingBarService) {}
 
     startHttpRequest() {
         const request$ =
@@ -27,12 +25,12 @@ export class App {
 
         request$.subscribe(
             (heroes) => this.heroes = heroes,
-            (err) => this.loadingService.endLoading(),
-            () => this.loadingService.endLoading(),
+            (err) => this.loadingService.complete(),
+            () => this.loadingService.complete(),
         );
 
         // We start loading manually only when we've subscribed
-        this.loadingService.startLoading();
+        this.loadingService.start();
     }
 
     startLoadingBarHttpRequest() {
@@ -43,10 +41,14 @@ export class App {
         const timer$ = Observable
             .interval(1000)
             .take(10);
-        timer$
-            .subscribe((value) => this.timer = value + 1);
+
+        timer$.subscribe(
+            (value) => this.timer = value + 1,
+            (err) => this.loadingService.complete(),
+            () => this.loadingService.complete(),
+        );
 
         // We're sure that subscription has been made, we can start loading bar service
-        this.loadingService.startLoading(timer$);
+        this.loadingService.start();
     }
 }

@@ -6,7 +6,7 @@ import 'rxjs/add/operator/do';
 
 @Injectable()
 export class LoadingBarInterceptor implements HttpInterceptor {
-    constructor(private _loadingBarService: LoadingBarService) {}
+    constructor(private loadingBar: LoadingBarService) {}
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         // https://github.com/angular/angular/issues/18155
@@ -18,14 +18,14 @@ export class LoadingBarInterceptor implements HttpInterceptor {
         return next.handle(req).do(
             (event) => {
                 if (event.type === HttpEventType.Sent) {
-                    this._loadingBarService.startLoading();
+                    this.loadingBar.start();
                 }
 
                 if (event instanceof HttpResponse) {
-                    this._loadingBarService.endLoading();
+                    this.loadingBar.complete();
                 }
             },
-            () => this._loadingBarService.endLoading(),
+            () => this.loadingBar.complete(),
         );
     }
 }

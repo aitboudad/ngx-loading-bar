@@ -16,11 +16,11 @@ export class LoadingBarRouterModule {
     constructor(router: Router, loadingBar: LoadingBarService) {
         router.events.subscribe(event => {
             if (event instanceof NavigationStart) {
-                loadingBar.startLoading();
+                loadingBar.start();
             }
 
             if ((event instanceof NavigationError || event instanceof NavigationEnd || event instanceof NavigationCancel)) {
-                loadingBar.endLoading();
+                loadingBar.complete();
             }
         });
     }
