@@ -84,7 +84,7 @@ export class App {
         );
 
         // Start loading service
-        this.loadingService.start();
+        this.loadingBar.start();
     }
     
     startTimer() {
@@ -98,7 +98,7 @@ export class App {
             () => this.loadingBar.complete()
         );
 
-        this.loadingService.start(timer$);
+        this.loadingBar.start(timer$);
     }
 }
 
