@@ -6,7 +6,8 @@
     "type": "git"
   },
   "scripts": {
-    "lint": "./node_modules/.bin/tslint 'src/**/*.ts' 'demo/**/*.ts'",
+    "lint": "tslint 'src/**/*.ts' 'demo/**/*.ts'",
+    "lint-fix": "tslint --fix 'src/**/*.ts' 'demo/**/*.ts' -p tsconfig.json",
     "prepublish": "npm run build",
     "postinstall": "patch --forward node_modules/ng-packagr/lib/steps/ngc.js .config/ng-packagr.patch || true",
     "build": "npm run build-core && npm run build-http && npm run build-http-client && npm run build-router && node .config/build.js",
@@ -15,8 +16,8 @@
     "build-http-client": "ng-packagr -p packages/http-client/ng-package.json",
     "build-router": "ng-packagr -p packages/router/ng-package.json",
     "demo": "node_modules/.bin/webpack-dashboard --title ng-loading-bar-demo -- node_modules/.bin/webpack-dev-server --quiet --port 9000 --content-base demo --config .config/webpack.demo.js --open",
-    "test": "./node_modules/.bin/karma start",
-    "test-watch": "./node_modules/.bin/karma start --no-single-run --auto-watch"
+    "test": "karma start",
+    "test-watch": "karma start --no-single-run --auto-watch"
   },
   "devDependencies": {
     "@angular/common": "^4.4.6",
