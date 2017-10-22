@@ -1,7 +1,8 @@
 {
     "name": "@ngx-loading-bar/router",
     "version": "LOADING-BAR-VERSION",
-    "description": "",
+    "description": "Automatic page loading / progress bar for Angular",
+    "keywords": ["angular", "angular2", "ng", "ng2", "loading", "loadingbar", "progress", "progressbar"],
     "license": "MIT",
     "dependencies": {
         "tslib": "^1.7.1",
