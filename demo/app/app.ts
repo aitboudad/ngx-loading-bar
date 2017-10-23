@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { LoadingBarService } from '@ngx-loading-bar/core';
 import { Observable } from 'rxjs/Observable';
 
@@ -12,35 +13,28 @@ import 'rxjs/add/operator/map';
     templateUrl: './app.html',
 })
 export class App {
-    heroes: Array<any>;
+    httpDataResponse: any[];
+    httpClientDataResponse: any[];
     timer: number;
 
-    constructor(private _http: Http, private loadingService: LoadingBarService) {}
+    constructor(
+        private http: Http,
+        private httpClient: HttpClient,
+        private loadingService: LoadingBarService,
+    ) {}
 
     startHttpRequest() {
-        const request$ =
-            this._http.get('/app/heroes')
-                .map((response) => response.json().data);
-        // Since module overrideHttp option is set to false, loading bar won't be displayed automatically
-
-        request$.subscribe(
-            (heroes) => this.heroes = heroes,
-            (err) => this.loadingService.complete(),
-            () => this.loadingService.complete(),
-        );
-
-        // We start loading manually only when we've subscribed
-        this.loadingService.start();
+        this.http.get('/app/heroes').subscribe(heroes => this.httpDataResponse = heroes.json());
     }
 
-    startLoadingBarHttpRequest() {
-        this._http.get('/app/heroes');
+    startHttpClientRequest() {
+        this.httpClient.get('/app/heroes').subscribe((heroes: any[]) => this.httpClientDataResponse = heroes);
     }
 
     startTimer() {
         const timer$ = Observable
             .interval(1000)
-            .take(10);
+            .take(3);
 
         timer$.subscribe(
             (value) => this.timer = value + 1,
