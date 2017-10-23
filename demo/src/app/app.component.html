@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="row">
+    <div class="text-center col">
+      <h1>@ngx-loading-bar/*</h1>
+      <ngx-loading-bar></ngx-loading-bar>
+      <router-outlet></router-outlet>
+      <p>
+        Automatic loading bar with zero configuration (http, http-client and router)
+      </p>
+      <img width="300" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+    </div>
+    <div class="col">
+      <h3 class="text-center">
+        Number of pending requests:
+        <span class="badge badge-secondary">{{ count }}</span>
+      </h3>
+      <ul>
+        <li>
+          Load request using `@angular/common/http`
+          <div>
+            <button class="btn btn-sm btn-primary" (click)="startHttpClientRequest()" type="button" name="button">Load</button>
+            <ul>
+              <li *ngFor="let user of users">{{user.name}}</li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          Load request using `@angular/http`
+          <div>
+            <button class="btn btn-sm btn-primary" (click)="startHttpRequest()" type="button" name="button">Load</button>
+          </div>
+        </li>
+        <li>
+          Display loading-bar on route navigation `@angular/router`
+          <div>
+            <a class="btn btn-sm btn-primary" role="button" [routerLink]="['home']">
+              page '/home'
+            </a>
+            <a class="btn btn-sm btn-primary" role="button" [routerLink]="['']">
+              page '/'
+            </a>
+            <ul>
+              <li *ngFor="let hero of httpDataResponse">{{hero.name}}</li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          Manage manually loading bar
+          <div>
+            <button class="btn btn-sm btn-primary" (click)="complete()" type="button" name="button">Complete</button>
+            <button class="btn btn-sm btn-primary" (click)="start()" type="button" name="button">Start</button>
+          </div>
+        </li>
+        <li>
+          Manage manually loading bar: using rxjs observable (timer 3 seconds)
+          <div>
+            <button class="btn btn-sm btn-primary" (click)="startTimer()" type="button" name="button">Start Timer ({{ timer }})</button>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -49,3 +49,8 @@ export class AppComponent {}
 
 #### 4. include the supplied CSS file (or create your own).
   - [loading-bar.css](./../../loading-bar.css)
+
+## Related packages
+- [@ngx-loading-bar/router](./../../packages/router/README.md) - Display loading bar when navigating between routes.
+- [@ngx-loading-bar/http](./../../packages/http/README.md) - Display the progress of your `@angular/http` requests.
+- [@ngx-loading-bar/core](./../../packages/core/README.md) - Core module to manage the progress bar manually.

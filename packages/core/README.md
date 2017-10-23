@@ -11,24 +11,18 @@ A fully automatic loading bar with zero configuration for angular app (http, htt
 
 ```ts
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
+
 import { LoadingBarModule } from '@ngx-loading-bar/core';
-import { AppComponent } from './app';
 
 @NgModule({
+  ...
   imports: [
-    BrowserModule,
-    RouterModule.forRoot(...),
+    ...
 
     LoadingBarModule.forRoot(),
   ],
-  declarations: [ AppComponent ],
-  bootstrap: [ AppComponent ],
 })
-export class AppModule {
-}
-
+export class AppModule {}
 ```
 
 #### 3. Include `ngx-loading-bar` in your app component:
@@ -55,51 +49,31 @@ export class AppComponent {}
 
 ```ts
 import { Component } from '@angular/core';
-import { Http } from '@angular/http';
 import { LoadingBarService } from '@ngx-loading-bar/core';
-import { Observable } from 'rxjs/Observable';
-
-import 'rxjs/add/observable/interval';
-import 'rxjs/add/operator/take';
-import 'rxjs/add/operator/map';
 
 @Component({
-    selector: 'app-loading-bar',
-    templateUrl: './app.html',
+  selector: 'app',
+  template: `
+    ...
+    <ngx-loading-bar></ngx-loading-bar>
+    <button (click)="startLoading()">start</button>
+    <button (click)="stopLoading()">stop</button>
+  `,
 })
 export class App {
-    heroes: Array<any>;
-    timer: number;
+    constructor(private loadingBar: LoadingBarService) {}
 
-    constructor(private _http: Http, private loadingBar: LoadingBarService) {}
-
-    startHttpRequest() {
-        const request$ = this._http.get('/app/heroes')
-            .map((response) => response.json().data);
-
-        request$.subscribe(
-            (heroes) => this.heroes = heroes,
-            (err) => this.loadingBar.complete(), // Stop loading service
-            () => this.loadingBar.complete()
-        );
-
-        // Start loading service
+    startLoading() {
         this.loadingBar.start();
     }
     
-    startTimer() {
-        const timer$ = Observable
-            .interval(1000)
-            .take(10);
-
-        timer$.subscribe(
-            (value) => this.timer = value + 1,
-            (err) => this.loadingBar.complete(), // Stop loading service
-            () => this.loadingBar.complete()
-        );
-
-        this.loadingBar.start(timer$);
+    stopLoading() {
+        this.loadingBar.complete();
     }
 }
-
 ```
+
+## Related packages
+- [@ngx-loading-bar/router](./../../packages/router/README.md) - Display loading bar when navigating between routes.
+- [@ngx-loading-bar/http-client](./../../packages/http-client/README.md) - Display the progress of your `@angular/common/http` requests.
+- [@ngx-loading-bar/http](./../../packages/http/README.md) - Display the progress of your `@angular/http` requests.
