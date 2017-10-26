@@ -1,14 +1,18 @@
 {
-    "name": "@ngx-loading-bar/http",
-    "version": "LOADING-BAR-VERSION",
-    "description": "Automatic page loading / progress bar for Angular",
-    "keywords": ["angular", "angular2", "ng", "ng2", "loading", "loadingbar", "progress", "progressbar"],
-    "license": "MIT",
-    "dependencies": {
-        "tslib": "^1.7.1",
-        "@ngx-loading-bar/core": "LOADING-BAR-VERSION"
-    },
-    "peerDependencies": {
-        "@angular/http": ">=4.0.0"
-    }
+  "name": "@ngx-loading-bar/http",
+  "version": "LOADING-BAR-VERSION",
+  "description": "Automatic page loading / progress bar for Angular",
+  "keywords": ["angular", "angular2", "ng", "ng2", "loading", "loadingbar", "progress", "progressbar"],
+  "license": "MIT",
+  "repository": {
+    "url": "https://github.com/aitboudad/ngx-loading-bar.git",
+    "type": "git"
+  },
+  "dependencies": {
+    "tslib": "^1.7.1",
+    "@ngx-loading-bar/core": "LOADING-BAR-VERSION"
+  },
+  "peerDependencies": {
+    "@angular/http": ">=4.0.0"
+  }
 }

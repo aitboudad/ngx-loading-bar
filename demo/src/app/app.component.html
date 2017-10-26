@@ -18,26 +18,25 @@
         <li>
           Load request using `@angular/common/http`
           <div>
-            <button class="btn btn-sm btn-primary" (click)="startHttpClientRequest()" type="button" name="button">Load</button>
-            <ul>
-              <li *ngFor="let user of users">{{user.name}}</li>
-            </ul>
+            <button class="btn btn-sm btn-outline-primary" (click)="startHttpClientRequest()" type="button" name="button">Load</button>
           </div>
         </li>
         <li>
           Load request using `@angular/http`
           <div>
-            <button class="btn btn-sm btn-primary" (click)="startHttpRequest()" type="button" name="button">Load</button>
+            <button class="btn btn-sm btn-outline-primary" (click)="startHttpRequest()" type="button" name="button">Load</button>
           </div>
         </li>
         <li>
           Display loading-bar on route navigation `@angular/router`
           <div>
-            <a class="btn btn-sm btn-primary" role="button" [routerLink]="['home']">
-              page '/home'
-            </a>
-            <a class="btn btn-sm btn-primary" role="button" [routerLink]="['']">
+            <a class="btn btn-sm btn-outline-primary" role="button" [routerLink]="['']" routerLinkActive="disabled" [routerLinkActiveOptions]="{exact:
+true}">
               page '/'
+            </a>
+            <a class="btn btn-sm btn-outline-primary" role="button" [routerLink]="['home']" routerLinkActive="disabled" [routerLinkActiveOptions]="{exact:
+true}">
+              page '/test'
             </a>
             <ul>
               <li *ngFor="let hero of httpDataResponse">{{hero.name}}</li>
@@ -47,14 +46,14 @@
         <li>
           Manage manually loading bar
           <div>
-            <button class="btn btn-sm btn-primary" (click)="complete()" type="button" name="button">Complete</button>
-            <button class="btn btn-sm btn-primary" (click)="start()" type="button" name="button">Start</button>
+            <button class="btn btn-sm btn-outline-primary" (click)="start()" type="button" name="button">Start</button>
+            <button class="btn btn-sm btn-outline-primary" (click)="complete()" type="button" name="button">Complete</button>
           </div>
         </li>
         <li>
           Manage manually loading bar: using rxjs observable (timer 3 seconds)
           <div>
-            <button class="btn btn-sm btn-primary" (click)="startTimer()" type="button" name="button">Start Timer ({{ timer }})</button>
+            <button class="btn btn-sm btn-outline-primary" (click)="startTimer()" type="button" name="button">Start Timer ({{ timer }})</button>
           </div>
         </li>
       </ul>
