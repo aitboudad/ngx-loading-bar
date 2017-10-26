@@ -1,6 +1,6 @@
 {
   "name": "@ngx-loading-bar/common",
-  "version": "1.0.0-alpha.12",
+  "version": "1.0.0-alpha.13",
   "license": "MIT",
   "author": "Abdellatif Ait boudad",
   "description": "Automatic page loading / progress bar for Angular 2",
@@ -23,7 +23,7 @@
     "lint-fix": "tslint --fix 'src/**/*.ts' 'demo/**/*.ts' -p tsconfig.json",
     "prepublish": "npm run build",
     "postinstall": "patch --forward node_modules/ng-packagr/lib/steps/ngc.js .config/ng-packagr.patch || true",
-    "release": "npm run build && node .config/publish.js",
+    "release": "standard-version --prerelease alpha && npm run build && node .config/publish.js",
     "build": "npm run build-core && npm run build-http && npm run build-http-client && npm run build-router && node .config/build.js",
     "build-core": "ng-packagr -p packages/core/ng-package.json && cp loading-bar.css dist/core",
     "build-http": "ng-packagr -p packages/http/ng-package.json",
@@ -47,6 +47,7 @@
     "core-js": "^2.5.1",
     "ng-packagr": "^1.4.1",
     "rxjs": "~5.4.3",
+    "standard-version": "^4.2.0",
     "tslint": "^5.8.0",
     "typescript": "^2.5.3",
     "zone.js": "^0.8.18"
