@@ -1,7 +1,2 @@
-import { LoadingBarHttpModule } from './http.module';
-import { LoadingBarHttp } from './loading-bar.http';
-
-export {
-    LoadingBarHttpModule,
-    LoadingBarHttp,
-};
+export { LoadingBarHttpModule } from './http.module';
+export { LoadingBarHttp } from './loading-bar.http';
