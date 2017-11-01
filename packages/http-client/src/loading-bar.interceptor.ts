@@ -21,6 +21,9 @@ export class LoadingBarInterceptor implements HttpInterceptor {
         if (!started && event.type === HttpEventType.Sent) {
           started = true;
           this.loadingBar.start();
+        } else if (started && event.type === HttpEventType.Response) {
+          started = false;
+          this.loadingBar.complete();
         }
       },
       () => started && this.loadingBar.complete(),

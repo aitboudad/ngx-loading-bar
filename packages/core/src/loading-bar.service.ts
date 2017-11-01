@@ -9,14 +9,11 @@ export interface LoadingBarStatus {
 
 @Injectable()
 export class LoadingBarService implements OnDestroy {
-  pending = new Subject<LoadingBarStatus>();
+  pending = new Subject<number>();
   private _pendingRequests = 0;
 
   start() {
-    this.pending.next({
-      started: this._pendingRequests === 0,
-      pendingRequests: ++this._pendingRequests,
-    });
+    this.pending.next(++this._pendingRequests);
   }
 
   complete() {
@@ -24,10 +21,7 @@ export class LoadingBarService implements OnDestroy {
       return;
     }
 
-    this.pending.next({
-      completed: this._pendingRequests === 1,
-      pendingRequests: --this._pendingRequests,
-    });
+    this.pending.next(--this._pendingRequests);
   }
 
   ngOnDestroy() {

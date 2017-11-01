@@ -44,6 +44,7 @@ export class AppComponent {
     this.users = [];
     this.httpClient
       .get('https://jsonplaceholder.typicode.com/users')
+      .take(1)
       .subscribe((heroes: any[]) => this.users = heroes);
   }
 

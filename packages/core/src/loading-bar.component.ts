@@ -25,12 +25,12 @@ export class LoadingBarComponent {
   private _startTimeout: any;
 
   constructor(loadingBarService: LoadingBarService) {
-    loadingBarService.pending.subscribe((progress) => {
-      if (progress.started) {
+    loadingBarService.pending.subscribe((pendingRequests) => {
+      if (pendingRequests !== 0 && !this.started) {
         this.start();
       }
 
-      if (progress.completed) {
+      if (pendingRequests === 0) {
         this.complete();
       }
     });
