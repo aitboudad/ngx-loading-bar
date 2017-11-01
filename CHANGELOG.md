@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.0-alpha.14"></a>
+# [1.0.0-alpha.14](https://github.com/aitboudad/ngx-loading-bar/compare/v1.0.0-alpha.13...v1.0.0-alpha.14) (2017-11-01)
+
+
+### Bug Fixes
+
+* **#19:** complete on HttpEventType.Response. ([dda728f](https://github.com/aitboudad/ngx-loading-bar/commit/dda728f))
+
+
+
 <a name="1.0.0-alpha.13"></a>
 # 1.0.0-alpha.13 (2017-10-26)
 
