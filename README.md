@@ -1,6 +1,6 @@
 # @ngx-loading-bar
 
-A fully automatic loading bar with zero configuration for angular app (http, http-client and router).
+A fully automatic loading bar with zero configuration for Angular app (http, http-client and router).
 
 ## Packages
 - [@ngx-loading-bar/router](./packages/router/README.md) - Display loading bar when navigating between routes.

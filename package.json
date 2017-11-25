@@ -3,7 +3,7 @@
   "version": "1.0.0-alpha.14",
   "license": "MIT",
   "author": "Abdellatif Ait boudad",
-  "description": "Automatic page loading / progress bar for Angular 2",
+  "description": "A fully automatic loading bar / progress bar with zero configuration for Angular app (http, http-client and router).",
   "keywords": [
     "angular",
     "angular2",
@@ -24,6 +24,7 @@
     "prepublish": "npm run build",
     "postinstall": "patch --forward node_modules/ng-packagr/lib/steps/ngc.js .config/ng-packagr.patch || true",
     "release": "standard-version --prerelease alpha && npm run build && node .config/publish.js",
+    "start": "ng serve --port 4501",
     "build": "npm run build-core && npm run build-http && npm run build-http-client && npm run build-router && node .config/build.js",
     "build-core": "ng-packagr -p packages/core/ng-package.json && cp loading-bar.css dist/core",
     "build-http": "ng-packagr -p packages/http/ng-package.json",
@@ -31,25 +32,31 @@
     "build-router": "ng-packagr -p packages/router/ng-package.json"
   },
   "dependencies": {
-    "@angular/cli": "^1.4.9",
-    "@angular/common": "^4.4.6",
-    "@angular/compiler": "^4.4.6",
-    "@angular/compiler-cli": "^4.4.6",
-    "@angular/core": "^4.4.6",
-    "@angular/forms": "^4.4.6",
-    "@angular/http": "^4.4.6",
-    "@angular/platform-browser": "^4.4.6",
-    "@angular/platform-browser-dynamic": "^4.4.6",
-    "@angular/router": "^4.4.6",
-    "@types/jasmine": "^2.6.2",
-    "@types/node": "^8.0.47",
-    "codelyzer": "^3.2.2",
+    "@angular/cli": "^1.5.4",
+    "@angular/common": "4.4.6",
+    "@angular/compiler": "4.4.6",
+    "@angular/compiler-cli": "4.4.6",
+    "@angular/core": "4.4.6",
+    "@angular/forms": "4.4.6",
+    "@angular/http": "4.4.6",
+    "@angular/platform-browser": "4.4.6",
+    "@angular/platform-browser-dynamic": "4.4.6",
+    "@angular/router": "4.4.6",
+    "@types/jasmine": "^2.8.2",
+    "@types/node": "^8.0.53",
+    "codelyzer": "^4.0.1",
     "core-js": "^2.5.1",
-    "ng-packagr": "^1.4.1",
+    "cz-conventional-changelog": "^2.1.0",
+    "ng-packagr": "1.4.1",
     "rxjs": "~5.4.3",
     "standard-version": "^4.2.0",
     "tslint": "^5.8.0",
-    "typescript": "^2.5.3",
+    "typescript": "^2.6.1",
     "zone.js": "^0.8.18"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }

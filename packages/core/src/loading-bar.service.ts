@@ -1,12 +1,6 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 
-export interface LoadingBarStatus {
-  started?: boolean;
-  completed?: boolean;
-  pendingRequests: number;
-}
-
 @Injectable()
 export class LoadingBarService implements OnDestroy {
   pending = new Subject<number>();
