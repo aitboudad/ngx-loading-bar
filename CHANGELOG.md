@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.0-alpha.15"></a>
+# [1.0.0-alpha.15](https://github.com/aitboudad/ngx-loading-bar/compare/v1.0.0-alpha.14...v1.0.0-alpha.15) (2017-11-25)
+
+
+### Features
+
+* **core:** emit progress value instead of pending requests ([db382c7](https://github.com/aitboudad/ngx-loading-bar/commit/db382c7))
+* **demo:** add material progress-bar example. ([e7ea934](https://github.com/aitboudad/ngx-loading-bar/commit/e7ea934))
+
+
+
 <a name="1.0.0-alpha.14"></a>
 # [1.0.0-alpha.14](https://github.com/aitboudad/ngx-loading-bar/compare/v1.0.0-alpha.13...v1.0.0-alpha.14) (2017-11-01)
 
