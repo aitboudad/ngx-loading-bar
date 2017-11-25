@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { LoadingBarHttpModule } from '@ngx-loading-bar/http';
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
@@ -18,6 +21,11 @@ import { HelloComponent } from './hello.component';
       { path: '', component: HelloComponent },
       { path: 'home', component: HelloComponent },
     ]),
+
+    BrowserAnimationsModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+
     LoadingBarHttpModule,
     LoadingBarHttpClientModule,
     LoadingBarRouterModule,

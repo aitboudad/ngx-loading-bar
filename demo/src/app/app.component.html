@@ -56,6 +56,10 @@ true}">
             <button class="btn btn-sm btn-outline-primary" (click)="startTimer()" type="button" name="button">Start Timer ({{ timer }})</button>
           </div>
         </li>
+        <li>
+          Using <a href="https://material.angular.io/components/progress-bar/overview">Material Progress bar</a>
+          <mat-progress-bar mode="determinate" [value]="loadingService.progress$|async"></mat-progress-bar>
+        </li>
       </ul>
     </div>
   </div>
