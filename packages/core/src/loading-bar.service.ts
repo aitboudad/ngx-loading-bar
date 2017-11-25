@@ -51,10 +51,10 @@ export class LoadingBarService implements OnDestroy {
   }
 
   /**
- * Set the loading bar's width to a certain percent.
- *
- * @param n any value between 0 and 100
- */
+   * Set the loading bar's width to a certain percent.
+   *
+   * @param n any value between 0 and 100
+   */
   private set(n) {
     this._value = n;
     this.progress$.next(n);

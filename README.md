@@ -128,15 +128,37 @@ import { LoadingBarService } from '@ngx-loading-bar/core';
   `,
 })
 export class App {
-    constructor(private loadingBar: LoadingBarService) {}
+  constructor(private loadingBar: LoadingBarService) {}
 
-    startLoading() {
-        this.loadingBar.start();
-    }
-    
-    stopLoading() {
-        this.loadingBar.complete();
-    }
+  startLoading() {
+    this.loadingBar.start();
+  }
+  
+  stopLoading() {
+    this.loadingBar.complete();
+  }
+}
+```
+
+## Integration with [Material Progress bar](https://material.angular.io/components/progress-bar/overview)
+
+```ts
+import { Component } from '@angular/core';
+import { LoadingBarService } from '@ngx-loading-bar/core';
+
+@Component({
+  selector: 'app',
+  template: `
+    ...
+    <mat-progress-bar mode="determinate" [value]="loadingBar.progress$|async"></mat-progress-bar>
+  `,
+})
+export class App {
+  progress$;
+
+  constructor(loadingBar: LoadingBarService) {
+    this.progress$ = loadingBar.progress$;
+  }
 }
 ```
 
