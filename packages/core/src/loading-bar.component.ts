@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { LoadingBarService } from './loading-bar.service';
 
 @Component({
@@ -9,6 +9,7 @@ import { LoadingBarService } from './loading-bar.service';
       <div id="loading-bar" *ngIf="includeBar"><div class="bar" [style.width]="progress + '%'"><div class="peg"></div></div></div>
     </ng-container>
   `,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoadingBarComponent {
   @Input() includeSpinner = true;
