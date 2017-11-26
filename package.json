@@ -24,7 +24,7 @@
     "prepublish": "npm run build",
     "postinstall": "patch --forward node_modules/ng-packagr/lib/steps/ngc.js .config/ng-packagr.patch || true",
     "release": "standard-version --prerelease alpha && npm run build && node .config/publish.js",
-    "start": "ng serve --port 4501",
+    "start": "ng serve --port 4501 --open",
     "build": "npm run build-core && npm run build-http && npm run build-http-client && npm run build-router && node .config/build.js",
     "build-core": "ng-packagr -p packages/core/ng-package.json && cp loading-bar.css dist/core",
     "build-http": "ng-packagr -p packages/http/ng-package.json",
