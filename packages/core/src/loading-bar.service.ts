@@ -18,7 +18,7 @@ export class LoadingBarService implements OnDestroy {
 
   start() {
     this._pending.next(++this._pendingRequests);
-    if (this._value === 0 || this._value === 100) {
+    if (this._value === 0) {
       // Inserts the loading bar element into the dom, and sets it to 2%
       this.set(2);
     }
@@ -35,12 +35,7 @@ export class LoadingBarService implements OnDestroy {
       if (this._value > 0) {
         this.set(100);
         // Attempt to aggregate any start/complete calls within 500ms:
-        setTimeout(() => {
-          if (this._value === 100) {
-            this.progress$.next(0);
-            this._value = 0;
-          }
-        }, 500);
+        setTimeout(() => this.set(0), 500);
       }
     }
   }
@@ -56,6 +51,10 @@ export class LoadingBarService implements OnDestroy {
    * @param n any value between 0 and 100
    */
   private set(n) {
+    if (n === 0 && this._pendingRequests > 0) {
+      n = 2;
+    }
+
     this._value = n;
     this.progress$.next(n);
 
@@ -63,7 +62,7 @@ export class LoadingBarService implements OnDestroy {
     // progress but make sure to cancel the previous timeouts so we don't
     // have multiple incs running at the same time.
     clearTimeout(this._incTimeout);
-    if (this._value < 100) {
+    if (this._value > 0 && this._value < 100) {
       this._incTimeout = setTimeout(() => this.increment(), 250);
     }
   }
