@@ -1,6 +1,6 @@
 {
   "name": "@ngx-loading-bar/core",
-  "version": "1.0.0-alpha.16",
+  "version": "1.0.0-alpha.17",
   "license": "MIT",
   "author": "Abdellatif Ait boudad",
   "description": "A fully automatic loading bar / progress bar with zero configuration for Angular app (http, http-client and router).",

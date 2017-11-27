@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.0-alpha.17"></a>
+# [1.0.0-alpha.17](https://github.com/aitboudad/ngx-loading-bar/compare/v1.0.0-alpha.16...v1.0.0-alpha.17) (2017-11-27)
+
+
+### Bug Fixes
+
+* **core:** add debounce to avoid ExpressionChangedAfterItHasBeenCheckedError ([a704544](https://github.com/aitboudad/ngx-loading-bar/commit/a704544)), closes [#32](https://github.com/aitboudad/ngx-loading-bar/issues/32)
+
+
+### Features
+
+* **core:** remove `ng-loading-bar` selector ([3489a4a](https://github.com/aitboudad/ngx-loading-bar/commit/3489a4a))
+
+
+
 <a name="1.0.0-alpha.16"></a>
 # [1.0.0-alpha.16](https://github.com/aitboudad/ngx-loading-bar/compare/v1.0.0-alpha.15...v1.0.0-alpha.16) (2017-11-27)
 
