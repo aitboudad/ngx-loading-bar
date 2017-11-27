@@ -1,9 +1,11 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
+import { debounceTime } from 'rxjs/operator/debounceTime';
 
 @Injectable()
 export class LoadingBarService implements OnDestroy {
-  readonly progress$ = new Subject<number>();
+  private _progress$ = new Subject<number>();
+  readonly progress$ = debounceTime.call(this._progress$);
 
   private _pending = new Subject<number>();
   private _pendingRequests = 0;
@@ -56,7 +58,7 @@ export class LoadingBarService implements OnDestroy {
     }
 
     this._value = n;
-    this.progress$.next(n);
+    this._progress$.next(n);
 
     // increment loadingbar to give the illusion that there is always
     // progress but make sure to cancel the previous timeouts so we don't

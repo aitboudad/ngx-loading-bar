@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 import { Http } from '@angular/http';
 import { HttpClient } from '@angular/common/http';
 import { LoadingBarService } from '@ngx-loading-bar/core';
@@ -18,19 +18,23 @@ import 'rxjs/add/operator/map';
     }
   `]
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
   users: any[];
   timer = 0;
 
   constructor(
     private http: Http,
     private httpClient: HttpClient,
-    private loadingService: LoadingBarService,
+    private loader: LoadingBarService,
   ) {}
+
+  ngAfterViewInit(): void {
+    // this.startHttpRequest();
+  }
 
   get count() {
     // warning: do not use `_pendingRequests`, it's used here for demo purpose only
-    return this.loadingService['_pendingRequests'];
+    return this.loader['_pendingRequests'];
   }
 
   startHttpRequest() {
@@ -49,11 +53,11 @@ export class AppComponent {
   }
 
   start() {
-    this.loadingService.start();
+    this.loader.start();
   }
 
   complete() {
-    this.loadingService.complete();
+    this.loader.complete();
   }
 
   startTimer() {
@@ -63,11 +67,11 @@ export class AppComponent {
 
     timer$.subscribe(
       (value) => this.timer = value + 1,
-      (err) => this.loadingService.complete(),
-      () => this.loadingService.complete(),
+      (err) => this.loader.complete(),
+      () => this.loader.complete(),
     );
 
     // We're sure that subscription has been made, we can start loading bar service
-    this.loadingService.start();
+    this.loader.start();
   }
 }
