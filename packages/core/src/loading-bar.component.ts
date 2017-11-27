@@ -2,7 +2,7 @@ import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { LoadingBarService } from './loading-bar.service';
 
 @Component({
-  selector: 'ng-loading-bar, ngx-loading-bar',
+  selector: 'ngx-loading-bar',
   template: `
     <ng-container *ngIf="(loader.progress$|async) as progress">
       <div id="loading-bar-spinner" *ngIf="includeSpinner"><div class="spinner-icon"></div></div>
