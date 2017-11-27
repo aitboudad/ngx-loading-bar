@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.0-alpha.16"></a>
+# [1.0.0-alpha.16](https://github.com/aitboudad/ngx-loading-bar/compare/v1.0.0-alpha.15...v1.0.0-alpha.16) (2017-11-27)
+
+
+### Bug Fixes
+
+* **core:** avoid start during complete timeout ([000a94e](https://github.com/aitboudad/ngx-loading-bar/commit/000a94e))
+
+
+### Features
+
+* **core:** allow turn the loading bar off. ([2dc123b](https://github.com/aitboudad/ngx-loading-bar/commit/2dc123b))
+
+
+
 <a name="1.0.0-alpha.15"></a>
 # [1.0.0-alpha.15](https://github.com/aitboudad/ngx-loading-bar/compare/v1.0.0-alpha.14...v1.0.0-alpha.15) (2017-11-25)
 
