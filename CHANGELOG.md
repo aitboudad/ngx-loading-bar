@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.0-alpha.18"></a>
+# [1.0.0-alpha.18](https://github.com/aitboudad/ngx-loading-bar/compare/v1.0.0-alpha.17...v1.0.0-alpha.18) (2017-11-28)
+
+
+### Bug Fixes
+
+* **http:** ensure request is cancelled on unsuscribe. ([ecea4bf](https://github.com/aitboudad/ngx-loading-bar/commit/ecea4bf)), closes [#33](https://github.com/aitboudad/ngx-loading-bar/issues/33)
+
+
+### BREAKING CHANGES
+
+* **http:** http service observables doesn't use subscribe anymore to track request which means you must ensure to subscribe in order to load request
+
+##### Before
+```ts
+  this.http.get('URL');
+```
+##### After
+```ts
+  this.http.get('URL').subscribe(v => {})
+```
+
+
+
 <a name="1.0.0-alpha.17"></a>
 # [1.0.0-alpha.17](https://github.com/aitboudad/ngx-loading-bar/compare/v1.0.0-alpha.16...v1.0.0-alpha.17) (2017-11-27)
 
