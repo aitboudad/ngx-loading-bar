@@ -150,56 +150,13 @@ import { LoadingBarService } from '@ngx-loading-bar/core';
   selector: 'app',
   template: `
     ...
-    <mat-progress-bar mode="determinate" [value]="loadingBar.progress$|async"></mat-progress-bar>
+    <mat-progress-bar mode="determinate" [value]="loader.progress$|async"></mat-progress-bar>
   `,
 })
 export class App {
-  progress$;
-
-  constructor(loadingBar: LoadingBarService) {
-    this.progress$ = loadingBar.progress$;
-  }
+  constructor(public loader: LoadingBarService) {}
 }
 ```
-
-## Advanced
-
-When you import LoadingBarHttpModule, http service observables become hot. That means that a HTTP request 
-is sent as soon as a call to http.get (for example) has been made.
-
-```ts
-
-import { Component } from '@angular/core';
-import { Http } from '@angular/http';
-
-
-@Component({
-    selector: 'ng-loading-bar-app',
-    templateUrl: './app.html',
-})
-export class App {
-    private request$;
-
-    constructor(private _http: Http) {
-        // http request is sent here
-        this.request$ = _http.get('/app/heroes');
-    }
-
-    startLoadingBarHttpRequest() {
-        if (false) {
-            // Request has been sent to server 
-            this.request$.subscribe();
-        }
-    }
-}
-
-```
-
-This behavior is because the Loading bar module overrides default http service by setting up a subscription to the request. 
-This subscription fires up the HTTP request. 
-
-If this behavior doesn't suit you, you should manage loading bar manually as in the component startHttpRequest above.
-
 
 # Credits 
 
