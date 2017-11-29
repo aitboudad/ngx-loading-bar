@@ -5,7 +5,7 @@ import { debounceTime } from 'rxjs/operator/debounceTime';
 @Injectable()
 export class LoadingBarService implements OnDestroy {
   private _progress$ = new Subject<number>();
-  readonly progress$ = debounceTime.call(this._progress$);
+  readonly progress$: Subject<number> = debounceTime.call(this._progress$);
 
   private _pending = new Subject<number>();
   private _pendingRequests = 0;
