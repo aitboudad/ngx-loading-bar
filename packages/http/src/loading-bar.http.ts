@@ -23,8 +23,8 @@ export class LoadingBarHttp extends Http {
 
     // NB: If we subscribe here, request would be sent while user hasn't decided to do it yet (http.get is cold)
     return _do.call(response$,
-      (x) => this.loadingBar.start(),
-      (err) => this.loadingBar.complete(),
+      () => this.loadingBar.start(),
+      () => this.loadingBar.complete(),
       () => this.loadingBar.complete()
     );
   }
