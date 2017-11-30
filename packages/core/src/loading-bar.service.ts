@@ -4,22 +4,15 @@ import { debounceTime } from 'rxjs/operator/debounceTime';
 
 @Injectable()
 export class LoadingBarService implements OnDestroy {
-  private _progress$ = new Subject<number>();
-  readonly progress$: Subject<number> = debounceTime.call(this._progress$);
+  readonly progress$: Subject<number> = debounceTime.call(new Subject<number>());
 
   private _pending = new Subject<number>();
   private _pendingRequests = 0;
   private _value = 0;
   private _incTimeout: any;
 
-  get pending() {
-    console.warn(`LoadingBarService: 'pending' is deprecated and will removed in the next version use 'progress$' instead which return a value between 0 and 100.`);
-
-    return this._pending;
-  }
-
   start() {
-    this._pending.next(++this._pendingRequests);
+    ++this._pendingRequests;
     if (this._value === 0) {
       // Inserts the loading bar element into the dom, and sets it to 2%
       this.set(2);
@@ -31,8 +24,7 @@ export class LoadingBarService implements OnDestroy {
       return;
     }
 
-    this._pending.next(--this._pendingRequests);
-
+    --this._pendingRequests;
     if (this._pendingRequests === 0 && this._value !== 100) {
       if (this._value > 0) {
         this.set(100);
@@ -43,7 +35,6 @@ export class LoadingBarService implements OnDestroy {
   }
 
   ngOnDestroy() {
-    this._pending.complete();
     this.progress$.complete();
   }
 
@@ -58,7 +49,7 @@ export class LoadingBarService implements OnDestroy {
     }
 
     this._value = n;
-    this._progress$.next(n);
+    this.progress$.next(n);
 
     // increment loadingbar to give the illusion that there is always
     // progress but make sure to cancel the previous timeouts so we don't
