@@ -19,7 +19,7 @@
     "type": "git"
   },
   "scripts": {
-    "lint": "tslint 'src/**/*.ts' 'demo/**/*.ts'",
+    "lint": "tslint 'src/**/*.ts' 'demo/**/*.ts' -p tsconfig.json",
     "lint:fix": "tslint --fix 'src/**/*.ts' 'demo/**/*.ts' -p tsconfig.json",
     "prepublish": "npm run build",
     "postinstall": "patch --forward node_modules/ng-packagr/lib/steps/ngc.js .config/ng-packagr.patch || true",
@@ -30,6 +30,7 @@
     "build:http": "ng-packagr -p packages/http/ng-package.json",
     "build:http-client": "ng-packagr -p packages/http-client/ng-package.json",
     "build:router": "ng-packagr -p packages/router/ng-package.json",
+    "gh-pages": "ng build --prod --no-aot --base-href=\"/ngx-loading-bar/\" && ngh --dir dist/app --repo=https://GH_TOKEN@github.com/aitboudad/ngx-loading-bar.git",
     "test": "jest --coverage",
     "test:watch": "jest --watch"
   },
@@ -49,6 +50,7 @@
     "@angular/router": "4.4.6",
     "@types/jest": "^21.1.8",
     "@types/node": "^8.0.53",
+    "angular-cli-ghpages": "^0.5.2",
     "codelyzer": "^4.0.1",
     "core-js": "^2.5.1",
     "cz-conventional-changelog": "^2.1.0",
@@ -58,7 +60,7 @@
     "rxjs": "~5.4.3",
     "standard-version": "^4.2.0",
     "tslint": "^5.8.0",
-    "typescript": "^2.6.1",
+    "typescript": "^2.6.2",
     "zone.js": "^0.8.18"
   },
   "jest": {
