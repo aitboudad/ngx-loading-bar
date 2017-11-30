@@ -17,9 +17,6 @@
       "@ngx-loading-bar/*": ["./*"]
     }
   },
-  "awesomeTypescriptLoaderOptions": {
-    "useWebpackText": true
-  },
   "include": [
     "packages/**/*.ts",
     "demo/**/*.ts"

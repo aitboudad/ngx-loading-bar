@@ -25,7 +25,7 @@ export class AppComponent implements AfterViewInit {
   constructor(
     private http: Http,
     private httpClient: HttpClient,
-    private loader: LoadingBarService,
+    public loader: LoadingBarService,
   ) {}
 
   ngAfterViewInit(): void {
