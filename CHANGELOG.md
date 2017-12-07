@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.0-rc.0"></a>
+# [1.0.0-rc.0](https://github.com/aitboudad/ngx-loading-bar/compare/v1.0.0-alpha.18...v1.0.0-rc.0) (2017-12-07)
+
+
+### Features
+
+* **core:** remove deprecated property `LoadingBarService:pending` ([#36](https://github.com/aitboudad/ngx-loading-bar/issues/36)) ([3779ff9](https://github.com/aitboudad/ngx-loading-bar/commit/3779ff9))
+* **demo:** deploy in gh-pages. ([#35](https://github.com/aitboudad/ngx-loading-bar/issues/35)) ([671ec93](https://github.com/aitboudad/ngx-loading-bar/commit/671ec93))
+
+
+
 <a name="1.0.0-alpha.18"></a>
 # [1.0.0-alpha.18](https://github.com/aitboudad/ngx-loading-bar/compare/v1.0.0-alpha.17...v1.0.0-alpha.18) (2017-11-28)
 
