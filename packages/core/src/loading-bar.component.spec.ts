@@ -44,6 +44,15 @@ describe('LoadingBarComponent', () => {
     expect(getElement('#loading-bar .bar').style.width).toEqual('10%');
   });
 
+  it('should allow to set custom color', () => {
+    loader.progress$.next(10);
+    component.color = 'red';
+    fixture.detectChanges();
+
+    expect(getElement('#loading-bar').style.color).toEqual('red');
+    expect(getElement('#loading-bar-spinner').style.color).toEqual('red');
+  });
+
   it('should hide spinner using `includeSpinner` input', () => {
     loader.progress$.next(10);
     component.includeSpinner = false;

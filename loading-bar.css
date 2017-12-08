@@ -8,6 +8,7 @@
   -moz-transition: 350ms linear all;
   -o-transition: 350ms linear all;
   transition: 350ms linear all;
+  color: #29d;
 }
 
 #loading-bar .bar {
@@ -35,10 +36,11 @@
   top: 0;
   height: 2px;
   opacity: .45;
-  -moz-box-shadow: #29d 1px 0 6px 1px;
-  -ms-box-shadow: #29d 1px 0 6px 1px;
-  -webkit-box-shadow: #29d 1px 0 6px 1px;
-  box-shadow: #29d 1px 0 6px 1px;
+  -moz-box-shadow: 1px 0 6px 1px;
+  -ms-box-shadow: 1px 0 6px 1px;
+  -webkit-box-shadow: 1px 0 6px 1px;
+  box-shadow: 1px 0 6px 1px;
+  color: inherit;
   -moz-border-radius: 100%;
   -webkit-border-radius: 100%;
   border-radius: 100%;
@@ -56,9 +58,9 @@
   width: 14px;
   height: 14px;
 
-  border:  solid 2px transparent;
-  border-top-color:  #29d;
-  border-left-color: #29d;
+  border: solid 2px transparent;
+  border-top-color: inherit;
+  border-left-color: inherit;
   border-radius: 50%;
 
   -webkit-animation: loading-bar-spinner 400ms linear infinite;
