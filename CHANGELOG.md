@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.0-rc.1"></a>
+# [1.0.0-rc.1](https://github.com/aitboudad/ngx-loading-bar/compare/v1.0.0-rc.0...v1.0.0-rc.1) (2017-12-08)
+
+
+### Features
+
+* **core:** allow change bar color ([#38](https://github.com/aitboudad/ngx-loading-bar/issues/38)) ([2461d41](https://github.com/aitboudad/ngx-loading-bar/commit/2461d41)), closes [#37](https://github.com/aitboudad/ngx-loading-bar/issues/37)
+
+
+
 <a name="1.0.0-rc.0"></a>
 # [1.0.0-rc.0](https://github.com/aitboudad/ngx-loading-bar/compare/v1.0.0-alpha.18...v1.0.0-rc.0) (2017-12-07)
 
