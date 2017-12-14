@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.0-rc.2"></a>
+# [1.0.0-rc.2](https://github.com/aitboudad/ngx-loading-bar/compare/v1.0.0-rc.1...v1.0.0-rc.2) (2017-12-14)
+
+
+### Features
+
+* **style:** move css into loading-bar component ([5a1854e](https://github.com/aitboudad/ngx-loading-bar/commit/5a1854e))
+
+
+
 <a name="1.0.0-rc.1"></a>
 # [1.0.0-rc.1](https://github.com/aitboudad/ngx-loading-bar/compare/v1.0.0-rc.0...v1.0.0-rc.1) (2017-12-08)
 
