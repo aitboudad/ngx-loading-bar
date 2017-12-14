@@ -12,9 +12,20 @@ A fully automatic loading bar with zero configuration for Angular app (http, htt
 - online demo: https://angular-sypacw.stackblitz.io
 - [demo-app](./demo): Example utilizing all @ngx-loading-bar libraries.
 
-## Quick Start
 
-#### 1. Install one or all @ngx-loading-bar libraries:
+Table of contents
+=================
+  * [Getting started](#getting-started)
+    * [1. Install @ngx-loading-bar](#1-install-ngx-loading-bar)
+    * [2. Import the installed libraries](#2-import-the-installed-libraries)
+    * [3. Include `ngx-loading-bar` in your app component](#3-include-ngx-loading-bar-in-your-app-component)
+  * [Manually manage loading service](#manually-manage-loading-service)
+  * [Integration with Material Progress bar](#integration-with-material-progress-bar)
+  * [Credits](#credits)
+
+## Getting started
+
+#### 1. Install @ngx-loading-bar:
 
 ```bash
   # if you use `@angular/common/http`
@@ -30,7 +41,7 @@ A fully automatic loading bar with zero configuration for Angular app (http, htt
   npm install @ngx-loading-bar/core --save
 ```
 
-#### 2. Import the installed libraries (`LoadingBarHttpClientModule`, `LoadingBarHttpModule`, `LoadingBarRouterModule` or `LoadingBarModule`):
+#### 2. Import the installed libraries:
 
 ```ts
 import { NgModule } from '@angular/core';
@@ -87,6 +98,18 @@ import { Component } from '@angular/core';
 export class AppComponent {}
 
 ```
+
+## Customize `ngx-loading-bar`
+
+You can pass the following inputs to customize the view:
+
+
+| Input          | Description                                        |
+| -------------  | -------------------------------------------------- |
+| color          | The color of loading bar. Default value is `#29d`. |
+| includeSpinner | Hide or show the Spinner. Default value is `true`. |
+| includeBar     | Hide or show the Bar. Default value is `true`.     |
+
 
 ## Manually manage loading service 
 
