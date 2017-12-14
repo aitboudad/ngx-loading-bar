@@ -88,10 +88,6 @@ export class AppComponent {}
 
 ```
 
-#### 4. include the supplied CSS file (or create your own).
-  - [loading-bar.css](loading-bar.css)
-  
-
 ## Manually manage loading service 
 
 #### 1. Import the `LoadingBarModule`

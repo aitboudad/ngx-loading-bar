@@ -13,7 +13,9 @@ import { LoadingBarService } from './loading-bar.service';
       </div>
     </ng-container>
   `,
+  preserveWhitespaces: false,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  styleUrls: ['./loading-bar.component.scss'],
 })
 export class LoadingBarComponent {
   @Input() includeSpinner = true;
