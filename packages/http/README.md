@@ -47,9 +47,6 @@ export class AppComponent {}
 
 ```
 
-#### 4. include the supplied CSS file (or create your own).
-  - [loading-bar.css](./../../loading-bar.css)
-
 ## Related packages
 - [@ngx-loading-bar/router](./../../packages/router/README.md) - Display loading bar when navigating between routes.
 - [@ngx-loading-bar/http-client](./../../packages/http-client/README.md) - Display the progress of your `@angular/common/http` requests.

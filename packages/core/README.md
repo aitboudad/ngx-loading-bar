@@ -41,10 +41,6 @@ export class AppComponent {}
 
 ```
 
-#### 4. include the supplied CSS file (or create your own).
-  - [loading-bar.css](./../../loading-bar.css)
-
-
 #### 5. Inject/Use LoadingBarService
 
 ```ts
