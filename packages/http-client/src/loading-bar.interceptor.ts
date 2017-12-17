@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HttpEventType } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { _do } from 'rxjs/operator/do';
+import { _finally } from 'rxjs/operator/finally';
 
 @Injectable()
 export class LoadingBarInterceptor implements HttpInterceptor {
@@ -16,7 +17,8 @@ export class LoadingBarInterceptor implements HttpInterceptor {
     }
 
     let started = false;
-    return _do.call(next.handle(req),
+
+    return _finally.call(_do.call(next.handle(req),
       (event) => {
         if (!started && event.type === HttpEventType.Sent) {
           started = true;
@@ -26,8 +28,6 @@ export class LoadingBarInterceptor implements HttpInterceptor {
           this.loadingBar.complete();
         }
       },
-      () => started && this.loadingBar.complete(),
-      () => started && this.loadingBar.complete(),
-    );
+    ), () => started && this.loadingBar.complete());
   }
 }
