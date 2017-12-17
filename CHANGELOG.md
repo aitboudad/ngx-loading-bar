@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.0-rc.3"></a>
+# [1.0.0-rc.3](https://github.com/aitboudad/ngx-loading-bar/compare/v1.0.0-rc.2...v1.0.0-rc.3) (2017-12-17)
+
+
+### Bug Fixes
+
+* **http-client:** ensure request is closed on unsubscribe. ([#41](https://github.com/aitboudad/ngx-loading-bar/issues/41)) ([9171ad8](https://github.com/aitboudad/ngx-loading-bar/commit/9171ad8)), closes [#40](https://github.com/aitboudad/ngx-loading-bar/issues/40)
+
+
+
 <a name="1.0.0-rc.2"></a>
 # [1.0.0-rc.2](https://github.com/aitboudad/ngx-loading-bar/compare/v1.0.0-rc.1...v1.0.0-rc.2) (2017-12-14)
 
