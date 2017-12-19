@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.0"></a>
+# [1.0.0](https://github.com/aitboudad/ngx-loading-bar/compare/v1.0.0-rc.3...v1.0.0) (2017-12-19)
+
+
+
 <a name="1.0.0-rc.3"></a>
 # [1.0.0-rc.3](https://github.com/aitboudad/ngx-loading-bar/compare/v1.0.0-rc.2...v1.0.0-rc.3) (2017-12-17)
 
