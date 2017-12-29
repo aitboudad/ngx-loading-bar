@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { ConnectionBackend, Http, Request, RequestOptions, RequestOptionsArgs, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { _do } from 'rxjs/operator/do';
-
+import { _finally } from 'rxjs/operator/finally';
 
 export interface LoadingBarRequestOptionsArgs extends RequestOptionsArgs {
   ignoreLoadingBar?: boolean;
@@ -21,10 +21,13 @@ export class LoadingBarHttp extends Http {
       return response$;
     }
 
-    return _do.call(response$,
-      () => this.loadingBar.start(),
-      () => this.loadingBar.complete(),
-      () => this.loadingBar.complete()
+    let started = false;
+    return _finally.call(
+      _do.call(response$, () => {
+        this.loadingBar.start();
+        started = true;
+      }),
+      () => started && this.loadingBar.complete()
     );
   }
 }
