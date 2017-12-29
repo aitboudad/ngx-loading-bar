@@ -1,6 +1,6 @@
 {
   "name": "@ngx-loading-bar/core",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "author": "Abdellatif Ait boudad",
   "description": "A fully automatic loading bar / progress bar with zero configuration for Angular app (http, http-client and router).",
@@ -23,7 +23,7 @@
     "lint:fix": "tslint --fix 'src/**/*.ts' 'demo/**/*.ts' -p tsconfig.json",
     "prepublish": "npm run build",
     "postinstall": "patch --forward node_modules/ng-packagr/lib/steps/ngc.js .config/ng-packagr.patch || true",
-    "release": "standard-version --release-as minor && npm run build && node .config/publish.js",
+    "release": "standard-version --release-as patch && npm run build && node .config/publish.js",
     "start": "ng serve --port 4501 --open",
     "build": "npm run build:core && npm run build:http && npm run build:http-client && npm run build:router && node .config/build.js",
     "build:core": "ng-packagr -p packages/core/ng-package.json && cp loading-bar.css dist/core",

@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.1"></a>
+## [1.0.1](https://github.com/aitboudad/ngx-loading-bar/compare/v1.0.0...v1.0.1) (2017-12-29)
+
+
+### Bug Fixes
+
+* **http:** fixed Infinite loading when using Observable.zip. ([#44](https://github.com/aitboudad/ngx-loading-bar/issues/44)) ([060150a](https://github.com/aitboudad/ngx-loading-bar/commit/060150a)), closes [#43](https://github.com/aitboudad/ngx-loading-bar/issues/43)
+
+
+
 <a name="1.0.0"></a>
 # [1.0.0](https://github.com/aitboudad/ngx-loading-bar/compare/v1.0.0-rc.3...v1.0.0) (2017-12-19)
 
