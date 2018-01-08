@@ -77,7 +77,7 @@ import { AppComponent } from './app';
     // LoadingBarHttpClientModule
 
     // for Core use:
-    // LoadingBarHttpClientModule.forRoot()
+    // LoadingBarModule.forRoot()
   ],
 })
 export class AppModule {}
