@@ -19,6 +19,7 @@ Table of contents
     * [1. Install @ngx-loading-bar](#1-install-ngx-loading-bar)
     * [2. Import the installed libraries](#2-import-the-installed-libraries)
     * [3. Include `ngx-loading-bar` in your app component](#3-include-ngx-loading-bar-in-your-app-component)
+  * [Ignoring particular requests](#ignoring-particular-requests)
   * [Manually manage loading service](#manually-manage-loading-service)
   * [Integration with Material Progress bar](#integration-with-material-progress-bar)
   * [Credits](#credits)
@@ -110,6 +111,29 @@ You can pass the following inputs to customize the view:
 | includeSpinner | Hide or show the Spinner. Default value is `true`. |
 | includeBar     | Hide or show the Bar. Default value is `true`.     |
 
+
+## Ignoring particular requests
+
+The loading bar can also be forced to ignore certain requests, for example, when long-polling or periodically sending debugging information back to the server.
+
+#### http-client:
+Http client doesn't allow passing [custom option](https://github.com/angular/angular/issues/18155), in order to achieve that we made a temporary solution (by passing the option throught the header) that will be removed once http-client come with a proper solution.
+
+```ts
+// ignore a particular $http GET:
+httpClient.get('/status', {
+  headers: { ignoreLoadingBar: '' }
+});
+```
+
+#### http:
+
+```ts
+// ignore a particular $http GET:
+http.get('/status', {
+  options: { params: { ignoreLoadingBar: true } }
+});
+```
 
 ## Manually manage loading service 
 

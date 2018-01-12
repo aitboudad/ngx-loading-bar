@@ -11,9 +11,8 @@ export class LoadingBarInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     // https://github.com/angular/angular/issues/18155
-    const meta = (req as any).metadata || {};
-    if (meta && meta.ignoreLoadingBar === true) {
-      return next.handle(req);
+    if (req.headers.has('ignoreLoadingBar')) {
+      return next.handle(req.clone({ headers: req.headers.delete('ignoreLoadingBar') }));
     }
 
     let started = false;
