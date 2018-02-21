@@ -22,12 +22,14 @@ export class LoadingBarHttp extends Http {
     }
 
     let started = false;
-    return _finally.call(
-      _do.call(response$, () => {
-        this.loadingBar.start();
-        started = true;
-      }),
-      () => started && this.loadingBar.complete()
+    const responseSubscribe = response$.subscribe.bind(response$);
+    response$.subscribe = (...args) => {
+      this.loadingBar.start();
+      started = true;
+      return responseSubscribe(...args);
+    };
+
+    return _finally.call(response$, () => started && this.loadingBar.complete()
     );
   }
 }
