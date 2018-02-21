@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.1.2"></a>
+## [1.1.2](https://github.com/aitboudad/ngx-loading-bar/compare/v1.1.1...v1.1.2) (2018-02-21)
+
+
+### Bug Fixes
+
+* **http:** ensure start loading-bar on subscribe. ([#59](https://github.com/aitboudad/ngx-loading-bar/issues/59)) ([fb210bc](https://github.com/aitboudad/ngx-loading-bar/commit/fb210bc))
+
+
+
 <a name="1.1.1"></a>
 ## [1.1.1](https://github.com/aitboudad/ngx-loading-bar/compare/v1.1.0...v1.1.1) (2018-02-02)
 
