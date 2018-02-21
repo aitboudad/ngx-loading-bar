@@ -16,6 +16,17 @@ export class LoadingBarHttp extends Http {
   }
 
   request(url: string | Request, options?: LoadingBarRequestOptionsArgs): Observable<Response> {
+    let headers = options && options.headers;
+    if (!headers && url && (<Request> url).headers) {
+      headers = (<Request> url).headers;
+    }
+
+    if (headers && headers.has('ignoreLoadingBar')) {
+      headers.delete('ignoreLoadingBar');
+
+      return super.request(url, options);
+    }
+
     const response$ = super.request(url, options);
     if (options && options.ignoreLoadingBar === true) {
       return response$;

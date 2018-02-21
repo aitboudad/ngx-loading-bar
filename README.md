@@ -131,7 +131,7 @@ httpClient.get('/status', {
 ```ts
 // ignore a particular $http GET:
 http.get('/status', {
-  options: { params: { ignoreLoadingBar: true } }
+  { headers: new Headers({ ignoreLoadingBar: '' }) }
 });
 ```
 
