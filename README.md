@@ -110,6 +110,8 @@ You can pass the following inputs to customize the view:
 | color          | The color of loading bar. Default value is `#29d`. |
 | includeSpinner | Hide or show the Spinner. Default value is `true`. |
 | includeBar     | Hide or show the Bar. Default value is `true`.     |
+| height         | The diameter of loading bar                        |
+| diameter       | The diameter of the progress spinner.              |
 
 
 ## Ignoring particular requests
