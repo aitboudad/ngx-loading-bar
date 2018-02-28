@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.3.0"></a>
+# [1.3.0](https://github.com/aitboudad/ngx-loading-bar/compare/v1.2.0...v1.3.0) (2018-02-28)
+
+
+### Features
+
+* **core:** allow setting height and diameter for loading bar/spinner. ([#63](https://github.com/aitboudad/ngx-loading-bar/issues/63)) ([d1112d5](https://github.com/aitboudad/ngx-loading-bar/commit/d1112d5)), closes [#62](https://github.com/aitboudad/ngx-loading-bar/issues/62)
+
+
+
 <a name="1.2.0"></a>
 # [1.2.0](https://github.com/aitboudad/ngx-loading-bar/compare/v1.1.2...v1.2.0) (2018-02-21)
 
