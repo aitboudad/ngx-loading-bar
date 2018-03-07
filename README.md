@@ -105,13 +105,13 @@ export class AppComponent {}
 You can pass the following inputs to customize the view:
 
 
-| Input          | Description                                        |
-| -------------  | -------------------------------------------------- |
-| color          | The color of loading bar. Default value is `#29d`. |
-| includeSpinner | Hide or show the Spinner. Default value is `true`. |
-| includeBar     | Hide or show the Bar. Default value is `true`.     |
-| height         | The diameter of loading bar                        |
-| diameter       | The diameter of the progress spinner.              |
+| Input          | Description                                                    |
+| -------------- | -------------------------------------------------------------- |
+| color          | The color of loading bar. Default value is `#29d`.             |
+| includeSpinner | Hide or show the Spinner. Default value is `true`.             |
+| includeBar     | Hide or show the Bar. Default value is `true`.                 |
+| height         | The height of loading bar. Default value is `2px`.             |
+| diameter       | The diameter of the progress spinner. Default value is `14px`. |
 
 
 ## Ignoring particular requests

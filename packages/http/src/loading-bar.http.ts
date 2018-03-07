@@ -2,7 +2,6 @@ import { LoadingBarService } from '@ngx-loading-bar/core';
 import { Injectable } from '@angular/core';
 import { ConnectionBackend, Http, Request, RequestOptions, RequestOptionsArgs, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import { _do } from 'rxjs/operator/do';
 import { _finally } from 'rxjs/operator/finally';
 
 export interface LoadingBarRequestOptionsArgs extends RequestOptionsArgs {
@@ -40,7 +39,6 @@ export class LoadingBarHttp extends Http {
       return responseSubscribe(...args);
     };
 
-    return _finally.call(response$, () => started && this.loadingBar.complete()
-    );
+    return _finally.call(response$, () => started && this.loadingBar.complete());
   }
 }
