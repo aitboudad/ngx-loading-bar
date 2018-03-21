@@ -17,10 +17,14 @@ import { LoadingBarService } from './loading-bar.service';
   `,
   preserveWhitespaces: false,
   styleUrls: ['./loading-bar.component.scss'],
+  host: {
+    '[class.fixed]': 'loading-bar-fixed',
+  }
 })
 export class LoadingBarComponent {
   @Input() includeSpinner = true;
   @Input() includeBar = true;
+  @Input() fixed = true;
   @Input() color;
   @Input() height;
   @Input() diameter;
