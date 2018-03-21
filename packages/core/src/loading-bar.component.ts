@@ -18,7 +18,7 @@ import { LoadingBarService } from './loading-bar.service';
   preserveWhitespaces: false,
   styleUrls: ['./loading-bar.component.scss'],
   host: {
-    '[class.fixed]': 'loading-bar-fixed',
+    '[class.loading-bar-fixed]': 'fixed',
   }
 })
 export class LoadingBarComponent {
