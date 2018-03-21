@@ -112,6 +112,7 @@ You can pass the following inputs to customize the view:
 | includeBar     | Hide or show the Bar. Default value is `true`.                 |
 | height         | The height of loading bar. Default value is `2px`.             |
 | diameter       | The diameter of the progress spinner. Default value is `14px`. |
+| fixed          | set loading bar on the top of the screen or inside a container. Default value is `true`. |
 
 
 ## Ignoring particular requests
