@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.5.0"></a>
+# [1.5.0](https://github.com/aitboudad/ngx-loading-bar/compare/v1.4.0...v1.5.0) (2018-03-23)
+
+
+### Features
+
+* **core:** make set and increment public + allow setting inital value for start. ([#71](https://github.com/aitboudad/ngx-loading-bar/issues/71)) ([08ee17c](https://github.com/aitboudad/ngx-loading-bar/commit/08ee17c)), closes [#68](https://github.com/aitboudad/ngx-loading-bar/issues/68)
+
+
+
 <a name="1.4.0"></a>
 # [1.4.0](https://github.com/aitboudad/ngx-loading-bar/compare/v1.3.1...v1.4.0) (2018-03-21)
 
