@@ -54,7 +54,15 @@ export class AppComponent implements AfterViewInit {
   }
 
   start() {
-    this.loader.start();
+    this.loader.start(10);
+  }
+
+  set() {
+    this.loader.set(50);
+  }
+
+  increment() {
+    this.loader.increment(10);
   }
 
   complete() {

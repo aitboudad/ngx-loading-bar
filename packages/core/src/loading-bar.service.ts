@@ -11,31 +11,31 @@ export class LoadingBarService implements OnDestroy {
   private _value = 0;
   private _incTimeout: any;
 
-  start() {
+  start(initialValue = 2) {
     ++this._pendingRequests;
-    if (this._value === 0) {
+    if (this._value === 0 || this._pendingRequests === 1) {
       // Inserts the loading bar element into the dom, and sets it to 2%
-      this.set(2);
+      this.set(this._pendingRequests === 1 && this._value > 0 ? this._value : initialValue);
     }
   }
 
   complete() {
-    if (this._pendingRequests === 0) {
+    if (this._pendingRequests === 0 && this._value === 0) {
       return;
     }
 
-    --this._pendingRequests;
-    if (this._pendingRequests === 0 && this._value !== 100) {
-      if (this._value > 0) {
-        this.set(100);
-        // Attempt to aggregate any start/complete calls within 500ms:
-        setTimeout(() => this.set(0), 500);
-      }
+    if (this._pendingRequests > 0) {
+      --this._pendingRequests;
     }
-  }
 
-  ngOnDestroy() {
-    this.progress$.complete();
+    if (this._pendingRequests === 0 || (this._pendingRequests === 0 && this._value > 0)) {
+      if (this._value !== 100) {
+        this.set(100);
+      }
+
+      // Attempt to aggregate any start/complete calls within 500ms:
+      setTimeout(() => this.set(0), 500);
+    }
   }
 
   /**
@@ -43,13 +43,17 @@ export class LoadingBarService implements OnDestroy {
    *
    * @param n any value between 0 and 100
    */
-  private set(n) {
+  set(n) {
     if (n === 0 && this._pendingRequests > 0) {
       n = 2;
     }
 
     this._value = n;
     this.progress$.next(n);
+
+    if (this._pendingRequests === 0) {
+      return;
+    }
 
     // increment loadingbar to give the illusion that there is always
     // progress but make sure to cancel the previous timeouts so we don't
@@ -64,8 +68,11 @@ export class LoadingBarService implements OnDestroy {
    * Increments the loading bar by a random amount
    * but slows down as it progresses
    */
-  private increment() {
-    let rnd = 0;
+  increment(rnd = 0) {
+    if (rnd > 0) {
+      this.set(this._value + rnd);
+    }
+
     const stat = this._value;
     if (stat >= 0 && stat < 25) {
       // Start out between 3 - 6% increments
@@ -86,4 +93,9 @@ export class LoadingBarService implements OnDestroy {
 
     this.set(this._value + rnd);
   }
+
+  ngOnDestroy() {
+    this.progress$.complete();
+  }
+
 }
