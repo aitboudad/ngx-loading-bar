@@ -44,7 +44,15 @@ true}">
           Manage manually loading bar
           <div>
             <button class="btn btn-sm btn-outline-primary" (click)="start()" type="button" name="button">Start</button>
+            <button class="btn btn-sm btn-outline-primary" (click)="set()" type="button" name="button">set to 50%</button>
+            <button class="btn btn-sm btn-outline-primary" (click)="increment()" type="button" name="button">increment by 10%</button>
             <button class="btn btn-sm btn-outline-primary" (click)="complete()" type="button" name="button">Complete</button>
+          </div>
+        </li>
+        <li>
+          With disabled fixed position `[fixed]="false"`
+          <div style="height: 20px;">
+            <ngx-loading-bar [color]="'black'" [fixed]="false"></ngx-loading-bar>
           </div>
         </li>
         <li>

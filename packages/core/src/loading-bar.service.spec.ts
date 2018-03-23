@@ -1,10 +1,12 @@
 import { TestBed, inject, fakeAsync, tick, discardPeriodicTasks } from '@angular/core/testing';
 
 import { LoadingBarService } from './loading-bar.service';
+import { Subscription } from 'rxjs/Subscription';
 
 describe('LoadingBarService', () => {
   let loader: LoadingBarService;
   let progessValue: number;
+  let progressSubscription: Subscription;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -14,12 +16,56 @@ describe('LoadingBarService', () => {
 
   beforeEach(inject([LoadingBarService], (loaderService: LoadingBarService) => {
     loader = loaderService;
-    loaderService.progress$.subscribe(v => progessValue = v);
+    progressSubscription = loaderService.progress$.subscribe(v => progessValue = v);
   }));
+
+  afterEach(() => {
+    progressSubscription.unsubscribe();
+  });
 
   it('should ignore complete if not started', fakeAsync(() => {
     loader.complete();
     expect(progessValue).toBeUndefined();
+  }));
+
+  it('should allow setting an initial starter value', fakeAsync(() => {
+    loader.start(50);
+    tick();
+    expect(progessValue).toEqual(50);
+    loader.complete();
+
+    tick(500);
+  }));
+
+  it('should allow set custom progress value after start', fakeAsync(() => {
+    loader.start();
+    loader.set(60);
+    tick();
+    expect(progessValue).toEqual(60);
+    loader.complete();
+
+    tick(500);
+  }));
+
+  it('should take account of the set value when started', fakeAsync(() => {
+    loader.set(50);
+    loader.start();
+    tick();
+    expect(progessValue).toEqual(50);
+    loader.complete();
+
+    tick(500);
+  }));
+
+  it('should increment the progress value when started', fakeAsync(() => {
+    loader.set(50);
+    loader.start();
+    loader.increment(10);
+    tick();
+    expect(progessValue).toBeGreaterThan(60);
+    loader.complete();
+
+    tick(500);
   }));
 
   it('should complete after all pending requests is completed', fakeAsync(() => {
