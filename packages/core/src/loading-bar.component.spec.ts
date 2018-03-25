@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed, inject } from '@angular/core/testing';
-import { Subject } from 'rxjs/Subject';
+import { Subject } from 'rxjs';
 
 import { LoadingBarComponent } from './loading-bar.component';
 import { LoadingBarService } from './loading-bar.service';

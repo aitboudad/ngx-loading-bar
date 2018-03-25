@@ -1,7 +1,7 @@
 import { TestBed, inject, fakeAsync, tick, discardPeriodicTasks } from '@angular/core/testing';
 
 import { LoadingBarService } from './loading-bar.service';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 
 describe('LoadingBarService', () => {
   let loader: LoadingBarService;

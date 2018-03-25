@@ -1,12 +1,9 @@
-import { Component, AfterViewInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Http } from '@angular/http';
 import { HttpClient } from '@angular/common/http';
 import { LoadingBarService } from '@ngx-loading-bar/core';
-import { Observable } from 'rxjs/Observable';
-
-import 'rxjs/add/observable/interval';
-import 'rxjs/add/operator/take';
-import 'rxjs/add/operator/map';
+import { Observable, interval } from 'rxjs';
+import { map, take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -19,8 +16,7 @@ import 'rxjs/add/operator/map';
     }
   `]
 })
-export class AppComponent implements AfterViewInit {
-  users: any[];
+export class AppComponent {
   timer = 0;
 
   constructor(
@@ -29,28 +25,21 @@ export class AppComponent implements AfterViewInit {
     public loader: LoadingBarService,
   ) {}
 
-  ngAfterViewInit(): void {
-    // this.startHttpRequest();
-  }
-
   get count() {
     // warning: do not use `_pendingRequests`, it's used here for demo purpose only
     return this.loader['_pendingRequests'];
   }
 
   startHttpRequest() {
-    this.users = [];
     this.http
       .get('https://jsonplaceholder.typicode.com/users')
-      .subscribe(heroes => this.users = heroes.json());
+      .subscribe();
   }
 
   startHttpClientRequest() {
-    this.users = [];
     this.httpClient
       .get('https://jsonplaceholder.typicode.com/users')
-      .take(1)
-      .subscribe((heroes: any[]) => this.users = heroes);
+      .subscribe();
   }
 
   start() {
@@ -70,11 +59,7 @@ export class AppComponent implements AfterViewInit {
   }
 
   startTimer() {
-    const timer$ = Observable
-      .interval(1000)
-      .take(3);
-
-    timer$.subscribe(
+    interval(1000).pipe(take(3)).subscribe(
       (value) => this.timer = value + 1,
       (err) => this.loader.complete(),
       () => this.loader.complete(),
