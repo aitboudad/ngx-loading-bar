@@ -10,7 +10,7 @@
     "test.ts"
   ],
   "include": [
-    "**/*.spec.ts",
-    "**/*.d.ts"
+    "packages/**/*.spec.ts",
+    "packages/**/*.d.ts"
   ]
 }

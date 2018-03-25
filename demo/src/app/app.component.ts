@@ -2,9 +2,7 @@ import { Component, AfterViewInit, ChangeDetectionStrategy } from '@angular/core
 import { Http } from '@angular/http';
 import { HttpClient } from '@angular/common/http';
 import { LoadingBarService } from '@ngx-loading-bar/core';
-import { Observable } from 'rxjs/Observable';
-import { of as observableOf } from 'rxjs/observable/of';
-import { interval } from 'rxjs/observable/interval';
+import { Observable, of as observableOf, interval } from 'rxjs';
 import { map, take, delay, withLatestFrom, finalize, tap } from 'rxjs/operators';
 
 @Component({
@@ -31,7 +29,7 @@ export class AppComponent implements AfterViewInit {
     private http: Http,
     private httpClient: HttpClient,
     public loader: LoadingBarService,
-  ) {}
+  ) { }
 
   ngAfterViewInit(): void {
     // this.startHttpRequest();

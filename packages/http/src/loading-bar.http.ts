@@ -1,8 +1,8 @@
 import { LoadingBarService } from '@ngx-loading-bar/core';
 import { Injectable } from '@angular/core';
 import { ConnectionBackend, Http, Request, RequestOptions, RequestOptionsArgs, Response } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
-import { _finally } from 'rxjs/operator/finally';
+import { Observable } from 'rxjs';
+import { finalize } from 'rxjs/operators';
 
 export interface LoadingBarRequestOptionsArgs extends RequestOptionsArgs {
   ignoreLoadingBar?: boolean;
@@ -39,6 +39,8 @@ export class LoadingBarHttp extends Http {
       return responseSubscribe(...args);
     };
 
-    return _finally.call(response$, () => started && this.loadingBar.complete());
+    return response$.pipe(
+      finalize(() => started && this.loadingBar.complete()),
+    );
   }
 }

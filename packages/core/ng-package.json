@@ -1,11 +1,7 @@
 {
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
   "lib": {
-    "entryFile": "src/index.ts",
-    "externals": {
-      "rxjs/operator/share": "Rx.Observable.prototype"
-    }
+    "entryFile": "src/index.ts"
   },
-  "dest": "../../dist/core",
-  "workingDirectory": "../../.ng_build"
+  "dest": "../../dist/core"
 }

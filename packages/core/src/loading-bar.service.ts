@@ -1,12 +1,11 @@
 import { Injectable, OnDestroy } from '@angular/core';
-import { Subject } from 'rxjs/Subject';
-import { debounceTime } from 'rxjs/operator/debounceTime';
+import { Subject, Observable } from 'rxjs';
+import { debounceTime } from 'rxjs/operators';
 
 @Injectable()
 export class LoadingBarService implements OnDestroy {
-  readonly progress$: Subject<number> = debounceTime.call(new Subject<number>());
+  readonly progress$ = (new Subject<number>()).pipe(debounceTime(0)) as Subject<number>;
 
-  private _pending = new Subject<number>();
   private _pendingRequests = 0;
   private _value = 0;
   private _incTimeout: any;
@@ -97,5 +96,4 @@ export class LoadingBarService implements OnDestroy {
   ngOnDestroy() {
     this.progress$.complete();
   }
-
 }
