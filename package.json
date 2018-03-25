@@ -1,5 +1,5 @@
 {
-  "name": "@ngx-loading-bar/core",
+  "name": "@ngx-loading-bar/common",
   "version": "2.0.0-alpha.0",
   "license": "MIT",
   "author": "Abdellatif Ait boudad",
@@ -22,7 +22,7 @@
     "postinstall": "patch --forward node_modules/ng-packagr/lib/ng-v5/entry-point/ts/compile-ngc.transform.js .config/ng-packagr.patch || true",
     "lint": "tslint 'src/**/*.ts' 'demo/**/*.ts' -p tsconfig.json",
     "lint:fix": "tslint --fix 'src/**/*.ts' 'demo/**/*.ts' -p tsconfig.json",
-    "release": "npm run build && standard-version --prerelease alpha && node .config/publish.js",
+    "release": "standard-version --prerelease alpha && npm run build && node .config/publish.js",
     "start": "ng serve --port 4501 --open",
     "build": "npm run build:core && npm run build:http && npm run build:http-client && npm run build:router && node .config/build.js",
     "build:core": "ng-packagr -p packages/core/ng-package.json",
