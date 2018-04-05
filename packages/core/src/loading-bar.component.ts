@@ -4,7 +4,7 @@ import { LoadingBarService } from './loading-bar.service';
 @Component({
   selector: 'ngx-loading-bar',
   template: `
-    <ng-container *ngIf="(loader.progress$|async) as progress">
+    <ng-container *ngIf="(value !== null ? value : loader.progress$|async) as progress">
       <div id="loading-bar-spinner" *ngIf="includeSpinner" [style.color]="color">
         <div [style.width]="diameter" [style.height]="diameter" class="spinner-icon"></div>
       </div>
@@ -28,6 +28,7 @@ export class LoadingBarComponent {
   @Input() color;
   @Input() height;
   @Input() diameter;
+  @Input() value = null;
 
   constructor(public loader: LoadingBarService) {}
 }
