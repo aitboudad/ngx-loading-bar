@@ -65,6 +65,11 @@ true}">
           Using <a href="https://material.angular.io/components/progress-bar/overview" target="_blank">Material Progress bar</a>
           <mat-progress-bar mode="determinate" [value]="loader.progress$|async"></mat-progress-bar>
         </li>
+        <li>
+          Only show loader when a request has taken more than 500ms
+
+          <ngx-loading-bar [value]="(delayedProgress$|async) || 0" [color]="'blue'" [fixed]="false"></ngx-loading-bar>
+        </li>
       </ul>
     </div>
   </div>

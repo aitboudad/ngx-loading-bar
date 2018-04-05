@@ -3,10 +3,9 @@ import { Http } from '@angular/http';
 import { HttpClient } from '@angular/common/http';
 import { LoadingBarService } from '@ngx-loading-bar/core';
 import { Observable } from 'rxjs/Observable';
-
-import 'rxjs/add/observable/interval';
-import 'rxjs/add/operator/take';
-import 'rxjs/add/operator/map';
+import { of as observableOf } from 'rxjs/observable/of';
+import { interval } from 'rxjs/observable/interval';
+import { map, take, delay, withLatestFrom, finalize, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -20,8 +19,13 @@ import 'rxjs/add/operator/map';
   `]
 })
 export class AppComponent implements AfterViewInit {
-  users: any[];
   timer = 0;
+
+  delayedProgress$ = this.loader.progress$.pipe(
+    delay(1000),
+    withLatestFrom(this.loader.progress$),
+    map(v => v[1]),
+  );
 
   constructor(
     private http: Http,
@@ -39,18 +43,11 @@ export class AppComponent implements AfterViewInit {
   }
 
   startHttpRequest() {
-    this.users = [];
-    this.http
-      .get('https://jsonplaceholder.typicode.com/users')
-      .subscribe(heroes => this.users = heroes.json());
+    this.http.get('https://jsonplaceholder.typicode.com/users').subscribe();
   }
 
   startHttpClientRequest() {
-    this.users = [];
-    this.httpClient
-      .get('https://jsonplaceholder.typicode.com/users')
-      .take(1)
-      .subscribe((heroes: any[]) => this.users = heroes);
+    this.httpClient.get('https://jsonplaceholder.typicode.com/users').subscribe();
   }
 
   start() {
@@ -70,15 +67,11 @@ export class AppComponent implements AfterViewInit {
   }
 
   startTimer() {
-    const timer$ = Observable
-      .interval(1000)
-      .take(3);
-
-    timer$.subscribe(
-      (value) => this.timer = value + 1,
-      (err) => this.loader.complete(),
-      () => this.loader.complete(),
-    );
+    interval(1000).pipe(
+      take(3),
+      tap(value => { this.timer = value + 1; }),
+      finalize(() => this.loader.complete()),
+    ).subscribe();
 
     // We're sure that subscription has been made, we can start loading bar service
     this.loader.start();
