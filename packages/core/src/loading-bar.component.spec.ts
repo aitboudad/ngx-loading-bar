@@ -61,6 +61,14 @@ describe('LoadingBarComponent', () => {
     expect(getElement('#loading-bar-spinner')).toBeNull();
   });
 
+  it('sould use value input if set', () => {
+    loader.progress$.next(10);
+    component.value = 50;
+    fixture.detectChanges();
+
+    expect(getElement('#loading-bar .bar').style.width).toEqual('50%');
+  });
+
   it('should hide bar using `includeBar` input', () => {
     loader.progress$.next(10);
     component.includeBar = false;
