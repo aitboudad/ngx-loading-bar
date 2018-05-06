@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.0.0"></a>
+# [2.0.0](https://github.com/aitboudad/ngx-loading-bar/compare/v1.6.0...v2.0.0) (2018-05-06)
+
+
+### Features
+
+* **core:** remove loading-bar.css ([446d76b](https://github.com/aitboudad/ngx-loading-bar/commit/446d76b))
+* **core:** Upgrade to Rxjs 6 and drop support of angular v4. ([38eb2c3](https://github.com/aitboudad/ngx-loading-bar/commit/38eb2c3)), closes [#70](https://github.com/aitboudad/ngx-loading-bar/issues/70)
+
+
+### BREAKING CHANGES
+
+* **core:** The file `loading-bar.css` has been removed and not required anymore.
+* **core:** droped Angular 4 support + rxjs version should be updated into
+
+`5.6.0-forward-compat` or `6.0`.
+
+
+
 <a name="2.0.0-alpha.1"></a>
 # [2.0.0-alpha.1](https://github.com/aitboudad/ngx-loading-bar/compare/v2.0.0-alpha.0...v2.0.0-alpha.1) (2018-04-05)
 
