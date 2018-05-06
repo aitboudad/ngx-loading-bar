@@ -20,7 +20,7 @@ All notable changes to this project will be documented in this file. See [standa
 ### BREAKING CHANGES
 
 * **core:** The file `loading-bar.css` has been removed and not required anymore.
-* **core:** droped Angular 4 support + rxjs version should be updated into `5.6.0-forward-compat` or `6.0`.
+* **core:** droped Angular 4 support + rxjs version should be updated into `6.0`.
 
 
 <a name="1.6.0"></a>
