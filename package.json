@@ -31,7 +31,8 @@
     "build:router": "ng-packagr -p packages/router/ng-package.json",
     "gh-pages": "ng build --prod --no-aot --base-href=\"/ngx-loading-bar/\" && ngh --dir dist/app --repo=https://GH_TOKEN@github.com/aitboudad/ngx-loading-bar.git",
     "test": "jest --coverage",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "bundlesize": "bundlesize"
   },
   "dependencies": {
     "@angular/animations": "^5.2.11",
@@ -61,7 +62,8 @@
     "standard-version": "^4.4.0",
     "tslint": "^5.9.0",
     "typescript": "~2.7.2",
-    "zone.js": "^0.8.20"
+    "zone.js": "^0.8.20",
+    "bundlesize": "^0.17.0"
   },
   "jest": {
     "preset": "jest-preset-angular",
@@ -76,5 +78,23 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
-  }
+  },
+  "bundlesize": [
+    {
+      "path": "./dist/core/esm5/ngx-loading-bar-core.js",
+      "maxSize": "2 kB"
+    },
+    {
+      "path": "./dist/http/esm5/ngx-loading-bar-http.js",
+      "maxSize": "1 kB"
+    },
+    {
+      "path": "./dist/http-client/esm5/ngx-loading-bar-http-client.js",
+      "maxSize": "1 kB"
+    },
+    {
+      "path": "./dist/router/esm5/ngx-loading-bar-router.js",
+      "maxSize": "1 kB"
+    }
+  ]
 }

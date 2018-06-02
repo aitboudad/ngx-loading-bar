@@ -4,8 +4,10 @@ node_js:
   - '8'
 
 script:
+  - npm run build
   - npm run test
   - npm run lint
+  - npm run bundlesize
 
 after_success:
   - test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master" && npm run gh-pages
