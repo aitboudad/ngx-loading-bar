@@ -18,6 +18,12 @@ export class LoadingBarService implements OnDestroy {
     }
   }
 
+  stop() {
+    while (this._pendingRequests > 0) {
+      this.complete();
+    }
+  }
+
   complete() {
     if (this._pendingRequests === 0 && this._value === 0) {
       return;

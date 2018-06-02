@@ -64,6 +64,10 @@ export class AppComponent implements AfterViewInit {
     this.loader.complete();
   }
 
+  stop() {
+    this.loader.stop();
+  }
+
   startTimer() {
     interval(1000).pipe(
       take(3),
