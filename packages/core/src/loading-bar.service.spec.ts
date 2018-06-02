@@ -83,6 +83,17 @@ describe('LoadingBarService', () => {
     tick(500);
   }));
 
+  it('should stop all pending requests', fakeAsync(() => {
+    loader.start();
+    loader.start();
+
+    loader.stop();
+    tick();
+    expect(progessValue).toBe(100);
+
+    tick(500);
+  }));
+
   it('should take account of start during complete', fakeAsync(() => {
     loader.start();
     loader.complete();
