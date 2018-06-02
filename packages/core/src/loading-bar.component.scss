@@ -9,7 +9,7 @@
       position: fixed;
     }
 
-    &:first-child {
+    &#loading-bar-spinner {
       position: fixed;
       top: 10px;
       left: 10px;
@@ -54,7 +54,7 @@
     }
 
     // loading-bar-spinner
-    &:first-child {
+    &#loading-bar-spinner {
       display: block;
       position: absolute;
       z-index: 10002;
