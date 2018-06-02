@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.1.0"></a>
+# [2.1.0](https://github.com/aitboudad/ngx-loading-bar/compare/v2.0.0...v2.1.0) (2018-06-02)
+
+
+### Bug Fixes
+
+* **core:** avoid relying on first-child when targting spinner. ([#86](https://github.com/aitboudad/ngx-loading-bar/issues/86)) ([48e4ca9](https://github.com/aitboudad/ngx-loading-bar/commit/48e4ca9)), closes [#85](https://github.com/aitboudad/ngx-loading-bar/issues/85)
+
+
+### Features
+
+* **core:** add stop method to force close the loader ([#87](https://github.com/aitboudad/ngx-loading-bar/issues/87)) ([3a21b9d](https://github.com/aitboudad/ngx-loading-bar/commit/3a21b9d)), closes [#74](https://github.com/aitboudad/ngx-loading-bar/issues/74)
+
+
+
 <a name="2.0.0"></a>
 # [2.0.0](https://github.com/aitboudad/ngx-loading-bar/compare/v1.6.0...v2.0.0) (2018-05-06)
 
