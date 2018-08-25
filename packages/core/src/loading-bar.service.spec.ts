@@ -2,6 +2,7 @@ import { TestBed, inject, fakeAsync, tick, discardPeriodicTasks } from '@angular
 
 import { LoadingBarService } from './loading-bar.service';
 import { Subscription } from 'rxjs';
+import { ɵPLATFORM_SERVER_ID } from '@angular/common';
 
 describe('LoadingBarService', () => {
   let loader: LoadingBarService;
@@ -26,6 +27,17 @@ describe('LoadingBarService', () => {
   it('should ignore complete if not started', fakeAsync(() => {
     loader.complete();
     expect(progessValue).toBeUndefined();
+  }));
+
+  it('should not start if in server platform', fakeAsync(() => {
+    loader = new LoadingBarService(ɵPLATFORM_SERVER_ID);
+    loader.start();
+    tick();
+    expect(progessValue).toEqual(undefined);
+
+    loader.set(10);
+    tick();
+    expect(progessValue).toEqual(undefined);
   }));
 
   it('should allow setting an initial starter value', fakeAsync(() => {
