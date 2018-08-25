@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.2.0"></a>
+# [2.2.0](https://github.com/aitboudad/ngx-loading-bar/compare/v2.1.2...v2.2.0) (2018-08-25)
+
+
+### Features
+
+* **core:** disable loading progress on server side ([#103](https://github.com/aitboudad/ngx-loading-bar/issues/103)) ([3810c06](https://github.com/aitboudad/ngx-loading-bar/commit/3810c06))
+
+
+
 <a name="2.1.2"></a>
 ## [2.1.2](https://github.com/aitboudad/ngx-loading-bar/compare/v2.1.1...v2.1.2) (2018-07-22)
 
