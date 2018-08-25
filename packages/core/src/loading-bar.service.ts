@@ -1,6 +1,8 @@
 import { Injectable, OnDestroy } from '@angular/core';
-import { Subject, Observable } from 'rxjs';
+import { Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
+import { PLATFORM_ID, Inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 @Injectable()
 export class LoadingBarService implements OnDestroy {
@@ -9,6 +11,8 @@ export class LoadingBarService implements OnDestroy {
   private _pendingRequests = 0;
   private _value = 0;
   private _incTimeout: any;
+
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 
   start(initialValue = 2) {
     ++this._pendingRequests;
@@ -50,6 +54,11 @@ export class LoadingBarService implements OnDestroy {
    * @param n any value between 0 and 100
    */
   set(n) {
+    if (!isPlatformBrowser(this.platformId)) {
+      this._pendingRequests = 0;
+      return;
+    }
+
     if (n === 0 && this._pendingRequests > 0) {
       n = 2;
     }
