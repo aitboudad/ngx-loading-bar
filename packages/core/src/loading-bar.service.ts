@@ -4,7 +4,7 @@ import { debounceTime } from 'rxjs/operators';
 import { PLATFORM_ID, Inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class LoadingBarService implements OnDestroy {
   readonly progress$ = (new Subject<number>()).pipe(debounceTime(0)) as Subject<number>;
 

@@ -1,7 +1,6 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoadingBarComponent } from './loading-bar.component';
-import { LoadingBarService } from './loading-bar.service';
 
 @NgModule({
   imports: [CommonModule],
@@ -9,10 +8,10 @@ import { LoadingBarService } from './loading-bar.service';
   exports: [LoadingBarComponent],
 })
 export class LoadingBarModule {
+  /** @deprecated */
   static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: LoadingBarModule,
-      providers: [LoadingBarService],
-    };
+    console.warn('The `LoadingBarModule.forRoot()` calls is deprecated, use `LoadingBarModule` instead');
+
+    return { ngModule: LoadingBarModule };
   }
 }
