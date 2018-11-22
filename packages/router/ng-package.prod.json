@@ -1,7 +1,6 @@
 {
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
-  "dest": "../../dist/@ngx-loading-bar/core",
-  "deleteDestPath": false,
+  "dest": "../../dist/lib",
   "lib": {
     "entryFile": "src/public_api.ts"
   }

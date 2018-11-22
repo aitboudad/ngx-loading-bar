@@ -1,25 +1,30 @@
 {
+  "compileOnSave": false,
   "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "target": "es5",
-    "declaration": true,
-    "moduleResolution": "node",
-    "removeComments": true,
-    "sourceMap": true,
-    "noImplicitAny": false,
-    "baseUrl": "packages",
-    "lib": ["dom", "es6"],
     "typeRoots": [
-      "./node_modules/@types"
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2017",
+      "dom"
     ],
     "paths": {
-      "@ngx-loading-bar/*": ["./*"]
+      "@ngx-loading-bar/*": [
+        "packages/*/public_api"
+      ],
     }
   },
-  "include": [
-    "packages/**/*.ts",
-    "demo/**/*.ts"
-  ],
-  "compileOnSave": false
+  "exclude": [
+    // Skip all dist files
+    "dist/**/*",
+    "node_modules/**/*"
+  ]
 }

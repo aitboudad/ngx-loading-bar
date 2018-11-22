@@ -13,7 +13,6 @@
     "@ngx-loading-bar/core": "LOADING-BAR-VERSION"
   },
   "peerDependencies": {
-    "@angular/router": ">=5.0.0",
-    "rxjs": "^5.6.0-forward-compat.0 || ^6.0.0-beta.0"
+    "@angular/router": ">=7.0.0"
   }
 }
