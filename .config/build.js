@@ -12,5 +12,5 @@ packages.map(package => {
   const packagePath = `dist/@ngx-loading-bar/${package}/package.json`;
 
   package = fs.readFileSync(packagePath, 'utf8');
-  fs.writeFileSync(packagePath, package.replace(/FORMLY-VERSION|0.0.0/g, version));
+  fs.writeFileSync(packagePath, package.replace(/LOADING-BAR-VERSION|0.0.0/g, version));
 });

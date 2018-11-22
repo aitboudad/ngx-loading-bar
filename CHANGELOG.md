@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.0.0"></a>
+# [3.0.0](https://github.com/aitboudad/ngx-loading-bar/compare/v2.2.0...v3.0.0) (2018-11-22)
+
+
+### Features
+
+* deprecate forRoot calls ([#109](https://github.com/aitboudad/ngx-loading-bar/issues/109)) ([546db1e](https://github.com/aitboudad/ngx-loading-bar/commit/546db1e))
+* set peerDependency to angular >=7.0 ([#108](https://github.com/aitboudad/ngx-loading-bar/issues/108)) ([7e72b38](https://github.com/aitboudad/ngx-loading-bar/commit/7e72b38))
+
+
+### BREAKING CHANGES
+
+* The library now requires Angular 7
+
+
+
 <a name="2.2.0"></a>
 # [2.2.0](https://github.com/aitboudad/ngx-loading-bar/compare/v2.1.2...v2.2.0) (2018-08-25)
 
