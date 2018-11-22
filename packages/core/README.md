@@ -19,7 +19,7 @@ import { LoadingBarModule } from '@ngx-loading-bar/core';
   imports: [
     ...
 
-    LoadingBarModule.forRoot(),
+    LoadingBarModule,
   ],
 })
 export class AppModule {}

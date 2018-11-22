@@ -28,7 +28,7 @@
     "build:http": "ng build @ngx-loading-bar/http",
     "build:http-client": "ng build @ngx-loading-bar/http-client",
     "build:router": "ng build @ngx-loading-bar/router",
-    "gh-pages": "ng build --prod --no-aot --base-href=\"/ngx-loading-bar/\" && ngh --dir dist/app --repo=https://GH_TOKEN@github.com/aitboudad/ngx-loading-bar.git",
+    "gh-pages": "ng build --prod --base-href=\"/ngx-loading-bar/\" && ngh --dir dist/app --repo=https://GH_TOKEN@github.com/aitboudad/ngx-loading-bar.git",
     "test": "jest --coverage",
     "test:watch": "jest --watch",
     "bundlesize": "bundlesize"
