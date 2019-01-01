@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.0.0-alpha.0"></a>
+# [4.0.0-alpha.0](https://github.com/aitboudad/ngx-loading-bar/compare/v3.0.0...v4.0.0-alpha.0) (2019-01-01)
+
+
+### Features
+
+* move [@ngx-loading-bar](https://github.com/ngx-loading-bar)/core to peerDependencies ([#113](https://github.com/aitboudad/ngx-loading-bar/issues/113)) ([64bb66c](https://github.com/aitboudad/ngx-loading-bar/commit/64bb66c)), closes [#111](https://github.com/aitboudad/ngx-loading-bar/issues/111)
+* remove deprecated forRoot ([#112](https://github.com/aitboudad/ngx-loading-bar/issues/112)) ([51e450a](https://github.com/aitboudad/ngx-loading-bar/commit/51e450a))
+
+
+### BREAKING CHANGES
+
+* @ngx-loading-bar/core has been moved to peerDependencies which require to install the dependency by yourself:
+
+```bash
+  `npm install @ngx-loading-bar/core`
+```
+
+* the `forRoot` method on `LoadingBarModule` has been removed.
+
+
+
 <a name="3.0.0"></a>
 # [3.0.0](https://github.com/aitboudad/ngx-loading-bar/compare/v2.2.0...v3.0.0) (2018-11-22)
 

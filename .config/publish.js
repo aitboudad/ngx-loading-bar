@@ -7,7 +7,7 @@ const execSync = require('child_process').execSync,
   ];
 
 packages.map(package => {
-    const packagePath = `${__dirname}/../dist/@ngx-loading-bar/${package}`;
+  const packagePath = `${__dirname}/../dist/@ngx-loading-bar/${package}`;
 
-    execSync(`cd ${packagePath} && npm publish`);
+  execSync(`cd ${packagePath} && npm publish --tag next`);
 });
