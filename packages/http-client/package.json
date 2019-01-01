@@ -8,8 +8,7 @@
     "type": "git"
   },
   "license": "MIT",
-  "dependencies": {
-    "tslib": "^1.7.1",
+  "peerDependencies": {
     "@ngx-loading-bar/core": "LOADING-BAR-VERSION"
   }
 }

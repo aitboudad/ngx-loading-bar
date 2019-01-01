@@ -30,13 +30,13 @@ Table of contents
 
 ```bash
   # if you use `@angular/common/http`
-  npm install @ngx-loading-bar/http-client --save
+  npm install @ngx-loading-bar/core @ngx-loading-bar/http-client --save
 
   # if you use `@angular/http`
-  npm install @ngx-loading-bar/http --save
+  npm install @ngx-loading-bar/core @ngx-loading-bar/http --save
 
   # if you use `@angular/router`
-  npm install @ngx-loading-bar/router --save
+  npm install @ngx-loading-bar/core @ngx-loading-bar/router --save
 
   # to manage loading-bar manually
   npm install @ngx-loading-bar/core --save
