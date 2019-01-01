@@ -14,10 +14,16 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### BREAKING CHANGES
 
-* @ngx-loading-bar/core has been moved to peerDependencies which require to install the dependency by yourself:
+* `@ngx-loading-bar/core` has been moved to peerDependencies which require to install the dependency by yourself:
 
+Before:
 ```bash
-  `npm install @ngx-loading-bar/core`
+npm install @ngx-loading-bar/http-client --save
+```
+
+After:
+```bash
+npm install @ngx-loading-bar/core @ngx-loading-bar/http-client --save
 ```
 
 * the `forRoot` method on `LoadingBarModule` has been removed.
