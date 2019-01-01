@@ -1,4 +1,4 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoadingBarComponent } from './loading-bar.component';
 
@@ -7,11 +7,4 @@ import { LoadingBarComponent } from './loading-bar.component';
   declarations: [LoadingBarComponent],
   exports: [LoadingBarComponent],
 })
-export class LoadingBarModule {
-  /** @deprecated */
-  static forRoot(): ModuleWithProviders {
-    console.warn('The `LoadingBarModule.forRoot()` calls is deprecated, use `LoadingBarModule` instead');
-
-    return { ngModule: LoadingBarModule };
-  }
-}
+export class LoadingBarModule {}
