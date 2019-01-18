@@ -15,6 +15,11 @@ import { LoadingBarModule, LoadingBarService } from '@ngx-loading-bar/core';
 export class LoadingBarRouterModule {
   constructor(router: Router, loadingBar: LoadingBarService) {
     router.events.subscribe(event => {
+      const state = this.getCurrentNavigationState(router);
+      if (state && state.ignoreLoadingBar) {
+        return;
+      }
+
       if (event instanceof NavigationStart) {
         loadingBar.start();
       }
@@ -23,5 +28,14 @@ export class LoadingBarRouterModule {
         loadingBar.complete();
       }
     });
+  }
+
+  private getCurrentNavigationState(router: any) {
+    // `getCurrentNavigation` only available in angular `7.2`
+    if (router.getCurrentNavigation) {
+      return router.getCurrentNavigation().extras.state;
+    }
+
+    return {};
   }
 }

@@ -139,6 +139,20 @@ http.get('/status', {
 });
 ```
 
+#### router:
+
+- using the `router.navigateByUrl()` method:
+
+```ts
+this.router.navigateByUrl('/custom-path', { state: { ignoreLoadingBar: true } });
+```
+
+- using the `routerLink` directive:
+
+```html
+<a routerLink="/custom-path" [state]="{ ignoreLoadingBar: true }">Go</a>
+```
+
 ## Manually manage loading service 
 
 #### 1. Import the `LoadingBarModule`
