@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.1.0"></a>
+# [4.1.0](https://github.com/aitboudad/ngx-loading-bar/compare/v4.0.0...v4.1.0) (2019-01-18)
+
+
+### Features
+
+* allow ignoring loading-bar for particular router ([#115](https://github.com/aitboudad/ngx-loading-bar/issues/115)) ([c00b16e](https://github.com/aitboudad/ngx-loading-bar/commit/c00b16e))
+
+
+
 <a name="4.0.0"></a>
 # [4.0.0](https://github.com/aitboudad/ngx-loading-bar/compare/v4.0.0-alpha.0...v4.0.0) (2019-01-01)
 
