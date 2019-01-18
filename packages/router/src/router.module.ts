@@ -32,8 +32,9 @@ export class LoadingBarRouterModule {
 
   private getCurrentNavigationState(router: any) {
     // `getCurrentNavigation` only available in angular `7.2`
-    if (router.getCurrentNavigation) {
-      return router.getCurrentNavigation().extras.state;
+    const currentNavigation = router.getCurrentNavigation && router.getCurrentNavigation();
+    if (currentNavigation && currentNavigation.extras) {
+      return currentNavigation.extras.state;
     }
 
     return {};
