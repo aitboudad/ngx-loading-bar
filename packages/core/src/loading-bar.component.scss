@@ -13,6 +13,11 @@
       position: fixed;
       top: 10px;
       left: 10px;
+
+      [dir="rtl"] & {
+        right: 10px;
+        left: unset;
+      }
     }
 
     .peg {
@@ -37,6 +42,11 @@
       height: 2px;
       border-bottom-right-radius: 1px;
       border-top-right-radius: 1px;
+
+      [dir="rtl"] & {
+        right: 0;
+        left: unset;
+      }
     }
 
     /* Fancy blur effect */
