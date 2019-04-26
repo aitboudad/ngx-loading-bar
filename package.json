@@ -31,7 +31,8 @@
     "gh-pages": "ng build --prod --base-href=\"/ngx-loading-bar/\" && ngh --dir dist/app --repo=https://GH_TOKEN@github.com/aitboudad/ngx-loading-bar.git",
     "test": "jest --coverage",
     "test:watch": "jest --watch",
-    "bundlesize": "bundlesize"
+    "bundlesize": "bundlesize",
+    "github-release": "conventional-github-releaser -p angular -t $GH_TOKEN --draft"
   },
   "dependencies": {
     "@angular/animations": "^7.1.4",
@@ -66,6 +67,7 @@
     "@angular-devkit/build-ng-packagr": "^0.11.4",
     "@types/jest": "^23.3.11",
     "@types/node": "^10.12.18",
+    "conventional-github-releaser": "^3.1.2",
     "tsickle": "^0.34.0"
   },
   "jest": {
