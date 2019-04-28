@@ -1,6 +1,15 @@
-# @ngx-loading-bar
+<div align="center">
+  <h2>@ngx-loading-bar</h2>
+  <br />
+  A fully automatic loading bar with zero configuration for Angular app (http, http-client and router).
+  <br /><br />
 
-A fully automatic loading bar with zero configuration for Angular app (http, http-client and router).
+  [![Npm version](https://badge.fury.io/js/%40ngx-loading-bar%2Fcore.svg)](https://npmjs.org/package/@ngx-loading-bar/core)
+  [![Downloads](https://img.shields.io/npm/dm/@ngx-loading-bar/core.svg)](https://npmjs.org/package/@ngx-loading-bar/core)
+  [![Build Status](https://api.travis-ci.org/aitboudad/ngx-loading-bar.svg?branch=master)](https://api.travis-ci.org/aitboudad/ngx-loading-bar.svg?branch=master)
+</div>
+
+---
 
 ## Packages
 - [@ngx-loading-bar/router](./packages/router/README.md) - Display loading bar when navigating between routes.
