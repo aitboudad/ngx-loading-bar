@@ -36,8 +36,8 @@ export class AppComponent implements AfterViewInit {
   }
 
   get count() {
-    // warning: do not use `_pendingRequests`, it's used here for demo purpose only
-    return this.loader['_pendingRequests'];
+    // warning: do not use `state`, it's used here for demo purpose only
+    return this.loader['state'].requests || 0;
   }
 
   startHttpRequest() {
