@@ -74,7 +74,7 @@ describe('LoadingBarService', () => {
     loader.start();
     loader.increment(10);
     tick();
-    expect(progessValue).toBeGreaterThan(60);
+    expect(progessValue).toEqual(60);
     loader.complete();
 
     tick(500);
@@ -112,7 +112,7 @@ describe('LoadingBarService', () => {
     loader.start();
 
     tick(500);
-    expect(progessValue).toBe(2);
+    expect(progessValue).toBeGreaterThan(2);
 
 
     loader.complete();
