@@ -14,7 +14,6 @@
 ## Packages
 - [@ngx-loading-bar/router](./packages/router/README.md) - Display loading bar when navigating between routes.
 - [@ngx-loading-bar/http-client](./packages/http-client/README.md) - Display the progress of your `@angular/common/http` requests.
-- [@ngx-loading-bar/http](./packages/http/README.md) - Display the progress of your `@angular/http` requests.
 - [@ngx-loading-bar/core](./packages/core/README.md) - Core module to manage the progress bar manually.
 
 ## Demo
@@ -41,9 +40,6 @@ Table of contents
   # if you use `@angular/common/http`
   npm install @ngx-loading-bar/core @ngx-loading-bar/http-client --save
 
-  # if you use `@angular/http`
-  npm install @ngx-loading-bar/core @ngx-loading-bar/http --save
-
   # if you use `@angular/router`
   npm install @ngx-loading-bar/core @ngx-loading-bar/router --save
 
@@ -57,16 +53,14 @@ Table of contents
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+// for HttpClient import:
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 
-// for Http import LoadingBarHttpModule:
-// import { LoadingBarHttpModule } from '@ngx-loading-bar/http';
+// for Router import:
+import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 
-// for Router import LoadingBarRouterModule:
-// import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
-
-// for Core import LoadingBarModule:
-// import { LoadingBarModule } from '@ngx-loading-bar/core';
+// for Core import:
+import { LoadingBarModule } from '@ngx-loading-bar/core';
 
 import { AppComponent } from './app';
 
@@ -75,19 +69,14 @@ import { AppComponent } from './app';
   imports: [
     ...
 
-    LoadingBarHttpClientModule
-
-    // for Http use:
-    // LoadingBarHttpModule,
+    // for HttpClient use:
+    LoadingBarHttpClientModule,
 
     // for Router use:
-    // LoadingBarRouterModule
-
-    // for HttpClient use:
-    // LoadingBarHttpClientModule
+    LoadingBarRouterModule
 
     // for Core use:
-    // LoadingBarModule.forRoot()
+    LoadingBarModule
   ],
 })
 export class AppModule {}
@@ -136,15 +125,6 @@ Http client doesn't allow passing [custom option](https://github.com/angular/ang
 // ignore a particular $http GET:
 httpClient.get('/status', {
   headers: { ignoreLoadingBar: '' }
-});
-```
-
-#### http:
-
-```ts
-// ignore a particular $http GET:
-http.get('/status', {
-  { headers: new Headers({ ignoreLoadingBar: '' }) }
 });
 ```
 

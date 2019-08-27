@@ -133,46 +133,6 @@
         }
       }
     },
-    "@ngx-loading-bar/http": {
-      "root": "packages/http",
-      "sourceRoot": "packages/http/src",
-      "projectType": "library",
-      "prefix": "lib",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
-          "options": {
-            "tsConfig": "packages/http/tsconfig.lib.json",
-            "project": "packages/http/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "project": "packages/http/ng-package.prod.json"
-            }
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "packages/http/src/test.ts",
-            "tsConfig": "packages/http/tsconfig.spec.json",
-            "karmaConfig": "packages/http/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "packages/http/tsconfig.lib.json",
-              "packages/http/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
-    },
     "@ngx-loading-bar/http-client": {
       "root": "packages/http-client",
       "sourceRoot": "packages/http-client/src",

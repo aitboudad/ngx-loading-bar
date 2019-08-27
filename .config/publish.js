@@ -1,7 +1,6 @@
 const execSync = require('child_process').execSync,
   packages = [
     'core',
-    'http',
     'http-client',
     'router',
   ];
