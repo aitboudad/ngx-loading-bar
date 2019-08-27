@@ -1,8 +1,7 @@
 import { Component, AfterViewInit, ChangeDetectionStrategy } from '@angular/core';
-import { Http } from '@angular/http';
 import { HttpClient } from '@angular/common/http';
 import { LoadingBarService } from '@ngx-loading-bar/core';
-import { Observable, of as observableOf, interval } from 'rxjs';
+import { interval } from 'rxjs';
 import { map, take, delay, withLatestFrom, finalize, tap } from 'rxjs/operators';
 
 @Component({
@@ -16,7 +15,7 @@ import { map, take, delay, withLatestFrom, finalize, tap } from 'rxjs/operators'
     }
   `]
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent {
   timer = 0;
 
   delayedProgress$ = this.loader.progress$.pipe(
@@ -26,22 +25,13 @@ export class AppComponent implements AfterViewInit {
   );
 
   constructor(
-    private http: Http,
     private httpClient: HttpClient,
     public loader: LoadingBarService,
   ) { }
 
-  ngAfterViewInit(): void {
-    // this.startHttpRequest();
-  }
-
   get count() {
     // warning: do not use `state`, it's used here for demo purpose only
     return this.loader['state'].requests || 0;
-  }
-
-  startHttpRequest() {
-    this.http.get('https://jsonplaceholder.typicode.com/users').subscribe();
   }
 
   startHttpClientRequest() {
