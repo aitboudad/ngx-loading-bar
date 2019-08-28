@@ -208,6 +208,10 @@ export class App {
 }
 ```
 
+## Lazy Loading modules
+
+If you're using Lazy Loaded Modules in your app, please use LoadingBarRouterModule, because although a request is being fired in the nework console to fetch your lazy load module.js file, it won't trigger the LoadingBarHttpClientModule.
+
 # Credits 
 
 - [angular-loading-bar](https://github.com/chieffancypants/angular-loading-bar)
