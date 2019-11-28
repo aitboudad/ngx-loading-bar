@@ -1,16 +1,9 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "../out-tsc/spec",
-    "module": "commonjs",
-    "target": "es5",
-    "allowJs": true
-  },
-  "files": [
-    "test.ts"
-  ],
-  "include": [
-    "packages/**/*.spec.ts",
-    "packages/**/*.d.ts"
-  ]
+    "types": ["jest", "node"],
+    "noImplicitAny": false,
+    "esModuleInterop": true,
+    "emitDecoratorMetadata": true
+  }
 }

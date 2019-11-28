@@ -3,12 +3,6 @@
   "dest": "../../dist/@ngx-loading-bar/router",
   "deleteDestPath": false,
   "lib": {
-    "entryFile": "src/public_api.ts",
-    "externals": {
-      "@ngx-loading-bar/core": "@ngx-loading-bar/core"
-    }
-  },
-  "whitelistedNonPeerDependencies": [
-    "@ngx-loading-bar/core"
-  ]
+    "entryFile": "src/public_api.ts"
+  }
 }

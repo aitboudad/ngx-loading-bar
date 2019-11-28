@@ -1,7 +1,14 @@
-dist: trusty
 language: node_js
+sudo: false
+dist: trusty
+cache:
+  directories:
+    - $HOME/.npm
 node_js:
-  - '8'
+  - "12"
+
+install:
+  - npm ci
 
 script:
   - npm run build

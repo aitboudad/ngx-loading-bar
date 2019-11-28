@@ -13,7 +13,7 @@ import { map, take, delay, withLatestFrom, finalize, tap } from 'rxjs/operators'
       padding: 64px 32px;
       display: block;
     }
-  `]
+  `],
 })
 export class AppComponent {
   timer = 0;

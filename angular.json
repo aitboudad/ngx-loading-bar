@@ -104,11 +104,6 @@
           "options": {
             "tsConfig": "packages/core/tsconfig.lib.json",
             "project": "packages/core/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "project": "packages/core/ng-package.prod.json"
-            }
           }
         },
         "test": {
@@ -144,11 +139,6 @@
           "options": {
             "tsConfig": "packages/http-client/tsconfig.lib.json",
             "project": "packages/http-client/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "project": "packages/http-client/ng-package.prod.json"
-            }
           }
         },
         "test": {
@@ -184,11 +174,6 @@
           "options": {
             "tsConfig": "packages/router/tsconfig.lib.json",
             "project": "packages/router/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "project": "packages/router/ng-package.prod.json"
-            }
           }
         },
         "test": {
@@ -216,7 +201,7 @@
   },
   "defaultProject": "@ngx-loading-bar-demo",
   "cli": {
-    "packageManager": "yarn"
+    "packageManager": "npm"
   },
   "schematics": {
     "@schematics/angular:component": {
