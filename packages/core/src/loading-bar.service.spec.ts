@@ -26,18 +26,18 @@ describe('LoadingBarService', () => {
 
   it('should ignore complete if not started', fakeAsync(() => {
     loader.complete();
-    expect(progessValue).toBeUndefined();
+    expect(progessValue).toEqual(0);
   }));
 
   it('should not start if in server platform', fakeAsync(() => {
     loader = new LoadingBarService(ɵPLATFORM_SERVER_ID);
     loader.start();
     tick();
-    expect(progessValue).toEqual(undefined);
+    expect(progessValue).toEqual(0);
 
     loader.set(10);
     tick();
-    expect(progessValue).toEqual(undefined);
+    expect(progessValue).toEqual(0);
   }));
 
   it('should allow setting an initial starter value', fakeAsync(() => {
@@ -69,12 +69,25 @@ describe('LoadingBarService', () => {
     tick(500);
   }));
 
-  it('should increment the progress value when started', fakeAsync(() => {
+  it('should not auto increment if not started', fakeAsync(() => {
+    loader.set(50);
+    loader.increment(10);
+    tick();
+    expect(progessValue).toEqual(60);
+    tick(250);
+    expect(progessValue).toEqual(60);
+
+    tick(500);
+  }));
+
+  it('should auto increment the progress value when started', fakeAsync(() => {
     loader.set(50);
     loader.start();
     loader.increment(10);
     tick();
     expect(progessValue).toEqual(60);
+    tick(250);
+    expect(progessValue).toBeGreaterThan(60);
     loader.complete();
 
     tick(500);

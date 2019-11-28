@@ -1,4 +1,4 @@
-import { Component, Input, ChangeDetectionStrategy, ViewEncapsulation } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { LoadingBarService } from './loading-bar.service';
 
 @Component({
@@ -26,7 +26,7 @@ export class LoadingBarComponent {
   @Input() includeSpinner = true;
   @Input() includeBar = true;
   @Input() fixed = true;
-  @Input() color;
+  @Input() color: string;
   @Input() height;
   @Input() diameter;
   @Input() value = null;

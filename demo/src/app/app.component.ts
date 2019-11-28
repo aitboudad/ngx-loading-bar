@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { LoadingBarService } from '@ngx-loading-bar/core';
 import { interval } from 'rxjs';
@@ -28,11 +28,6 @@ export class AppComponent {
     private httpClient: HttpClient,
     public loader: LoadingBarService,
   ) { }
-
-  get count() {
-    // warning: do not use `state`, it's used here for demo purpose only
-    return this.loader['state'].requests || 0;
-  }
 
   startHttpClientRequest() {
     this.httpClient.get('https://jsonplaceholder.typicode.com/users').subscribe();
