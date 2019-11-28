@@ -1,4 +1,4 @@
-import { TestBed, inject, fakeAsync, tick, discardPeriodicTasks } from '@angular/core/testing';
+import { TestBed, inject, fakeAsync, tick } from '@angular/core/testing';
 
 import { LoadingBarService } from './loading-bar.service';
 import { Subscription } from 'rxjs';
@@ -36,6 +36,21 @@ describe('LoadingBarService', () => {
     expect(progessValue).toEqual(0);
 
     loader.set(10);
+    tick();
+    expect(progessValue).toEqual(0);
+  }));
+
+  it('should prevent start when the timer is not triggered yet', fakeAsync(() => {
+    loader = new LoadingBarService(ɵPLATFORM_SERVER_ID);
+    loader.start();
+    loader.complete();
+    expect(progessValue).toEqual(0);
+
+
+    loader.start();
+    loader.stop();
+    expect(progessValue).toEqual(0);
+
     tick();
     expect(progessValue).toEqual(0);
   }));
@@ -111,6 +126,7 @@ describe('LoadingBarService', () => {
   it('should stop all pending requests', fakeAsync(() => {
     loader.start();
     loader.start();
+    tick();
 
     loader.stop();
     tick();

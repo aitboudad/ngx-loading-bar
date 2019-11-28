@@ -1,13 +1,18 @@
 import { Subject, timer, of, Observable } from 'rxjs';
-import { map, switchMap, take, tap, startWith } from 'rxjs/operators';
+import { map, switchMap, take, tap, startWith, shareReplay } from 'rxjs/operators';
 
 interface ILoadingBarState {
   action: 'start' | 'complete' | 'set' | 'stop' | 'increment';
   value: number;
+  initialValue: number;
 }
 
 export class LoadingBarState {
-  private state = { action: null, value: 0 };
+  private state: ILoadingBarState = {
+    action: null,
+    value: 0,
+    initialValue: 0,
+  };
   private requests = null;
   private disabled = false;
   private stream$ = new Subject<ILoadingBarState>();
@@ -16,6 +21,7 @@ export class LoadingBarState {
     return this.stream$.asObservable().pipe(
       switchMap((s) => this.timer$(s)),
       startWith({ action: null, value: 0 }),
+      shareReplay(),
       map((s: ILoadingBarState) => s.value),
     );
   }
@@ -25,7 +31,7 @@ export class LoadingBarState {
       return;
     }
 
-    this.next({ action: 'start', value: initialValue });
+    this.next({ action: 'start', initialValue });
   }
 
   stop() {
@@ -51,21 +57,14 @@ export class LoadingBarState {
   private next(state: Partial<ILoadingBarState>, emitEvent = true) {
     switch (state.action) {
       case 'start':
-        if (this.state.value) {
-          state.value = this.state.value;
-        }
-
         this.requests = (this.requests || 0) + 1;
         break;
       case 'complete':
-        if (this.requests <= 0) {
+        this.requests = (this.requests || 1) - 1;
+        if (this.requests > 0) {
           return;
         }
 
-        this.requests = (this.requests || 1) - 1;
-        if (this.requests === 0) {
-          state.action = 'stop';
-        }
         break;
       case 'stop':
         this.requests = 0;
@@ -74,7 +73,6 @@ export class LoadingBarState {
         if (state.action === 'increment') {
           state.value = this._increment(state.value);
         }
-        state.action = this.requests > 0 ? 'start' : 'set';
         break;
     }
 
@@ -92,16 +90,29 @@ export class LoadingBarState {
 
   private timer$ = (s: ILoadingBarState) => {
     let state$: Observable<Partial<ILoadingBarState>> = of(s);
-    if (s.action === 'stop') {
-      // Attempt to aggregate any start/complete calls within 500ms:
-      state$ = s.value === 0 ? of({ ...s }) : timer(0, 500).pipe(
-        take(2),
-        map(t => ({ value: t === 1 ? 0 : 100 })),
-      );
-    } else if (s.action === 'start') {
-      state$ = timer(0, 250).pipe(
-        map(t => (t === 0 ? { ...s } : { ...s, value: this._increment() })),
-      );
+    switch (s.action) {
+      case 'start':
+      case 'increment':
+      case 'set': {
+        if (this.requests > 0) {
+          state$ = timer(0, 250).pipe(
+            map(t => t === 0
+              ? { ...s, value: this.state.value || s.initialValue }
+              : { ...s, value: this._increment() }
+            ),
+          );
+        }
+        break;
+      }
+      case 'complete':
+      case 'stop': {
+        // Attempt to aggregate any start/complete calls within 500ms:
+        state$ = s.value === 0 ? of({ ...s }) : timer(0, 500).pipe(
+          take(2),
+          map(t => ({ value: t === 0 ? 100 : 0 })),
+        );
+        break;
+      }
     }
 
     return state$.pipe(
