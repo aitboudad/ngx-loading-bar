@@ -73,7 +73,7 @@ import { AppComponent } from './app';
     LoadingBarHttpClientModule,
 
     // for Router use:
-    LoadingBarRouterModule
+    LoadingBarRouterModule,
 
     // for Core use:
     LoadingBarModule
