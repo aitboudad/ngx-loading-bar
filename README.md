@@ -28,6 +28,7 @@ Table of contents
     * [2. Import the installed libraries](#2-import-the-installed-libraries)
     * [3. Include `ngx-loading-bar` in your app component](#3-include-ngx-loading-bar-in-your-app-component)
   * [Ignoring particular requests](#ignoring-particular-requests)
+  * [Manage multi loading bars separately](#manage-multi-Loading-bars-separately)
   * [Manually manage loading service](#manually-manage-loading-service)
   * [Integration with Material Progress bar](#integration-with-material-progress-bar)
   * [Credits](#credits)
@@ -112,6 +113,7 @@ You can pass the following inputs to customize the view:
 | diameter       | The diameter of the progress spinner. Default value is `14px`. |
 | fixed          | set loading bar on the top of the screen or inside a container. Default value is `true`. |
 | value          | Set the value of the progress bar.                             |
+| ref            | Select the ref of a loading bar instance to display (`http`, `router`, ...)  |
 
 
 ## Ignoring particular requests
@@ -140,6 +142,34 @@ this.router.navigateByUrl('/custom-path', { state: { ignoreLoadingBar: true } })
 
 ```html
 <a routerLink="/custom-path" [state]="{ ignoreLoadingBar: true }">Go</a>
+```
+
+## Manage multi loading bars separately
+
+In some case you may want to differentiate the reason why the loading bar is showing for example show the loading bar when an HttpClient request is being made, and a full page darkening overlay with a spinner when the router is routing to a new page in that case either use `ref` input or `LoadingBarService` to control a specific loading bar instance:
+
+- using `ref` input:
+
+```html
+<!-- loading bar for router -->
+<ngx-loading-bar ref="router"></ngx-loading-bar>
+
+<!-- loading bar for http -->
+<ngx-loading-bar ref="http"></ngx-loading-bar>
+```
+
+- using `LoadingBarService` service:
+
+```ts
+// select the router loader instance
+const state = this.loader.useRef('router');
+
+// control state
+state.start();
+state.complete();
+
+// get the progress value
+const value$ = state.value$;
 ```
 
 ## Manually manage loading service 
@@ -173,20 +203,13 @@ import { LoadingBarService } from '@ngx-loading-bar/core';
   template: `
     ...
     <ngx-loading-bar></ngx-loading-bar>
-    <button (click)="startLoading()">start</button>
-    <button (click)="stopLoading()">stop</button>
+    <button (click)="loader.start()">start</button>
+    <button (click)="loader.complete()">Complete</button>
   `,
 })
 export class App {
+  loader = this.loadingBar.useRef();
   constructor(private loadingBar: LoadingBarService) {}
-
-  startLoading() {
-    this.loadingBar.start();
-  }
-  
-  stopLoading() {
-    this.loadingBar.complete();
-  }
 }
 ```
 
@@ -200,7 +223,7 @@ import { LoadingBarService } from '@ngx-loading-bar/core';
   selector: 'app',
   template: `
     ...
-    <mat-progress-bar mode="determinate" [value]="loader.progress$|async"></mat-progress-bar>
+    <mat-progress-bar mode="determinate" [value]="loader.value$|async"></mat-progress-bar>
   `,
 })
 export class App {

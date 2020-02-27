@@ -6,6 +6,7 @@ import { finalize } from 'rxjs/operators';
 
 @Injectable()
 export class LoadingBarInterceptor implements HttpInterceptor {
+  private state = this.loader.useRef('http');
   constructor(private loader: LoadingBarService) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -19,13 +20,13 @@ export class LoadingBarInterceptor implements HttpInterceptor {
     let started = false;
     const responseSubscribe = r.subscribe.bind(r);
     r.subscribe = (...args) => {
-      this.loader.start();
+      this.state.start();
       started = true;
       return responseSubscribe(...args);
     };
 
     return r.pipe(
-      finalize(() => started && this.loader.complete()),
+      finalize(() => started && this.state.complete()),
     );
   }
 }

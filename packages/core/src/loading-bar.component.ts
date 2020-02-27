@@ -1,10 +1,10 @@
-import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { Component, Input, ViewEncapsulation, OnChanges, SimpleChanges } from '@angular/core';
 import { LoadingBarService } from './loading-bar.service';
 
 @Component({
   selector: 'ngx-loading-bar',
   template: `
-    <ng-container *ngIf="(value !== null ? value : loader.progress$|async) as progress">
+    <ng-container *ngIf="(value != null ? value : value$|async) as progress">
       <div id="loading-bar-spinner" *ngIf="includeSpinner" [style.color]="color">
         <div [style.width]="diameter" [style.height]="diameter" class="spinner-icon"></div>
       </div>
@@ -22,14 +22,25 @@ import { LoadingBarService } from './loading-bar.service';
     '[class.loading-bar-fixed]': 'fixed',
   }
 })
-export class LoadingBarComponent {
+export class LoadingBarComponent implements OnChanges {
   @Input() includeSpinner = true;
   @Input() includeBar = true;
   @Input() fixed = true;
   @Input() color: string;
-  @Input() height;
-  @Input() diameter;
-  @Input() value = null;
+  @Input() value: number;
+  @Input() ref: string;
+  @Input() height: string;
+  @Input() diameter: string;
+
+  value$ = this.loader.value$;
 
   constructor(public loader: LoadingBarService) {}
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.ref) {
+      this.value$ = this.ref
+        ? this.loader.useRef(this.ref).value$
+        : this.loader.value$;
+    }
+  }
 }

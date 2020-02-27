@@ -17,14 +17,12 @@ export class LoadingBarState {
   private disabled = false;
   private stream$ = new Subject<ILoadingBarState>();
 
-  asObservable() {
-    return this.stream$.asObservable().pipe(
-      switchMap((s) => this.timer$(s)),
-      startWith({ action: null, value: 0 }),
-      shareReplay(),
-      map((s: ILoadingBarState) => s.value),
-    );
-  }
+  readonly value$ = this.stream$.asObservable().pipe(
+    switchMap((s) => this.timer$(s)),
+    startWith({ action: null, value: 0 }),
+    shareReplay(),
+    map(s => s.value),
+  );
 
   start(initialValue = 2) {
     if (this.disabled) {

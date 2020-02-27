@@ -65,6 +65,11 @@
 
           <ngx-loading-bar [value]="(delayedProgress$|async) || 0" [color]="'blue'" [fixed]="false"></ngx-loading-bar>
         </li>
+        <li>
+          Http requests
+
+          <ngx-loading-bar ref="http" [color]="'blue'" [fixed]="false"></ngx-loading-bar>
+        </li>
       </ul>
     </div>
   </div>

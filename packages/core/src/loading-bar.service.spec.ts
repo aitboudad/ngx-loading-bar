@@ -17,7 +17,7 @@ describe('LoadingBarService', () => {
 
   beforeEach(inject([LoadingBarService], (loaderService: LoadingBarService) => {
     loader = loaderService;
-    progressSubscription = loaderService.progress$.subscribe(v => progessValue = v);
+    progressSubscription = loaderService.value$.subscribe(v => progessValue = v);
   }));
 
   afterEach(() => {

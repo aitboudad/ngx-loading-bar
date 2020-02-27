@@ -30,7 +30,7 @@ describe('LoadingBarComponent', () => {
   it('should be visible when new value is emitted', () => {
     expect(getElement('#loading-bar')).toBeNull();
 
-    loader.progress$.next(1);
+    loader.value$.next(1);
     fixture.detectChanges();
 
     expect(getElement('#loading-bar')).toBeDefined();
@@ -38,14 +38,14 @@ describe('LoadingBarComponent', () => {
   });
 
   it('should set the width by the emitted value', () => {
-    loader.progress$.next(10);
+    loader.value$.next(10);
     fixture.detectChanges();
 
     expect(getElement('#loading-bar .bar').style.width).toEqual('10%');
   });
 
   it('should allow to set custom color', () => {
-    loader.progress$.next(10);
+    loader.value$.next(10);
     component.color = 'red';
     fixture.detectChanges();
 
@@ -54,7 +54,7 @@ describe('LoadingBarComponent', () => {
   });
 
   it('should hide spinner using `includeSpinner` input', () => {
-    loader.progress$.next(10);
+    loader.value$.next(10);
     component.includeSpinner = false;
     fixture.detectChanges();
 
@@ -62,7 +62,7 @@ describe('LoadingBarComponent', () => {
   });
 
   it('sould use value input if set', () => {
-    loader.progress$.next(10);
+    loader.value$.next(10);
     component.value = 50;
     fixture.detectChanges();
 
@@ -70,7 +70,7 @@ describe('LoadingBarComponent', () => {
   });
 
   it('should hide bar using `includeBar` input', () => {
-    loader.progress$.next(10);
+    loader.value$.next(10);
     component.includeBar = false;
     fixture.detectChanges();
 
@@ -79,5 +79,5 @@ describe('LoadingBarComponent', () => {
 });
 
 export class MockLoadingBarService {
-  progress$ = new Subject<number>();
+  value$ = new Subject<number>();
 }

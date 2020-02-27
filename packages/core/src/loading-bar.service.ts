@@ -2,25 +2,51 @@ import { Injectable } from '@angular/core';
 import { PLATFORM_ID, Inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { LoadingBarState } from './loading-bar.state';
+import { Observable, Subject, combineLatest } from 'rxjs';
+import { switchMap, map } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
 export class LoadingBarService {
-  private state = new LoadingBarState();
-  readonly progress$ = this.state.asObservable();
+  private refs: { [id: string]: LoadingBarState } = {};
+  private streams$ = (new Subject<Observable<number>[]>());
+  readonly value$ = this.streams$.pipe(
+    switchMap(s => combineLatest(...s)),
+    map(v => Math.max(...v))
+  );
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
-    if (!isPlatformBrowser(this.platformId)) {
-      this.state.disable();
+  /** @deprecated use `value$` instead. */
+  get progress$() { return this.value$; }
+
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+
+  /** @deprecated use `useRef` instead. */
+  start(initialValue = 2) { this.useRef().start(initialValue); }
+
+  /** @deprecated use `useRef` instead. */
+  set(value: number) { this.useRef().set(value); }
+
+  /** @deprecated use `useRef` instead. */
+  increment(value?: number) { this.useRef().increment(value); }
+
+  /** @deprecated use `useRef` instead. */
+  complete() { this.useRef().complete(); }
+
+  /** @deprecated use `useRef` instead. */
+  stop() { this.useRef().stop(); }
+
+  useRef(id: string = 'default'): LoadingBarState {
+    if (!this.refs[id]) {
+      this.refs[id] = new LoadingBarState();
+      this.streams$.next(
+        Object.keys(this.refs)
+        .map(s => this.refs[s].value$)
+      );
+
+      if (!isPlatformBrowser(this.platformId)) {
+        this.refs[id].disable();
+      }
     }
+
+    return this.refs[id];
   }
-
-  start(initialValue = 2) { this.state.start(initialValue); }
-
-  stop() { this.state.stop(); }
-
-  complete() { this.state.complete(); }
-
-  set(value: number) { this.state.set(value); }
-
-  increment(value?: number) { this.state.increment(value); }
 }
