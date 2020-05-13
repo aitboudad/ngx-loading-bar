@@ -8,10 +8,12 @@ import { switchMap, map } from 'rxjs/operators';
 @Injectable({ providedIn: 'root' })
 export class LoadingBarService {
   private refs: { [id: string]: LoadingBarState } = {};
-  private streams$ = (new Subject<Observable<number>[]>());
-  readonly value$ = this.streams$.pipe(
-    switchMap(s => combineLatest(...s)),
-    map(v => Math.max(...v))
+  private streams$ = new Subject<void>();
+  readonly value$ = this.streams$.asObservable().pipe(
+    switchMap(() => combineLatest(
+      ...Object.keys(this.refs).map(s => this.refs[s].value$),
+    )),
+    map(v => Math.max(0, ...v)),
   );
 
   /** @deprecated use `value$` instead. */
@@ -37,10 +39,7 @@ export class LoadingBarService {
   useRef(id: string = 'default'): LoadingBarState {
     if (!this.refs[id]) {
       this.refs[id] = new LoadingBarState();
-      this.streams$.next(
-        Object.keys(this.refs)
-        .map(s => this.refs[s].value$)
-      );
+      this.streams$.next();
 
       if (!isPlatformBrowser(this.platformId)) {
         this.refs[id].disable();

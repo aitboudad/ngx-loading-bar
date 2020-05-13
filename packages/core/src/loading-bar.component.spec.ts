@@ -28,20 +28,20 @@ describe('LoadingBarComponent', () => {
   }));
 
   it('should be visible when new value is emitted', () => {
-    expect(getElement('#loading-bar')).toBeNull();
+    expect(getElement('.ngx-bar')).toBeNull();
 
     loader.value$.next(1);
     fixture.detectChanges();
 
-    expect(getElement('#loading-bar')).toBeDefined();
-    expect(getElement('#loading-bar-spinner')).toBeDefined();
+    expect(getElement('.ngx-bar')).toBeDefined();
+    expect(getElement('.ngx-spinner')).toBeDefined();
   });
 
   it('should set the width by the emitted value', () => {
     loader.value$.next(10);
     fixture.detectChanges();
 
-    expect(getElement('#loading-bar .bar').style.width).toEqual('10%');
+    expect(getElement('.ngx-bar').style.width).toEqual('10%');
   });
 
   it('should allow to set custom color', () => {
@@ -49,8 +49,7 @@ describe('LoadingBarComponent', () => {
     component.color = 'red';
     fixture.detectChanges();
 
-    expect(getElement('#loading-bar').style.color).toEqual('red');
-    expect(getElement('#loading-bar-spinner').style.color).toEqual('red');
+    expect(fixture.elementRef.nativeElement.style.color).toEqual('red');
   });
 
   it('should hide spinner using `includeSpinner` input', () => {
@@ -58,7 +57,7 @@ describe('LoadingBarComponent', () => {
     component.includeSpinner = false;
     fixture.detectChanges();
 
-    expect(getElement('#loading-bar-spinner')).toBeNull();
+    expect(getElement('.ngx-spinner')).toBeNull();
   });
 
   it('sould use value input if set', () => {
@@ -66,7 +65,7 @@ describe('LoadingBarComponent', () => {
     component.value = 50;
     fixture.detectChanges();
 
-    expect(getElement('#loading-bar .bar').style.width).toEqual('50%');
+    expect(getElement('.ngx-bar').style.width).toEqual('50%');
   });
 
   it('should hide bar using `includeBar` input', () => {
@@ -74,7 +73,7 @@ describe('LoadingBarComponent', () => {
     component.includeBar = false;
     fixture.detectChanges();
 
-    expect(getElement('#loading-bar')).toBeNull();
+    expect(getElement('.ngx-bar')).toBeNull();
   });
 });
 
