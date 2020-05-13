@@ -96,7 +96,7 @@ export class LoadingBarState {
           state$ = timer(0, 250).pipe(
             map(t => t === 0
               ? { ...s, value: this.state.value || s.initialValue }
-              : { ...s, value: this._increment() }
+              : { ...s, value: this._increment() },
             ),
           );
         }
