@@ -14,7 +14,7 @@ import { LoadingBarModule, LoadingBarService } from '@ngx-loading-bar/core';
 })
 export class LoadingBarRouterModule {
   constructor(router: Router, loader: LoadingBarService) {
-    const state = loader.useRef('router');
+    const ref = loader.useRef('router');
     router.events.subscribe(event => {
       const navState = this.getCurrentNavigationState(router);
       if (navState && navState.ignoreLoadingBar) {
@@ -22,11 +22,11 @@ export class LoadingBarRouterModule {
       }
 
       if (event instanceof NavigationStart) {
-        state.start();
+        ref.start();
       }
 
       if ((event instanceof NavigationError || event instanceof NavigationEnd || event instanceof NavigationCancel)) {
-        state.complete();
+        ref.complete();
       }
     });
   }

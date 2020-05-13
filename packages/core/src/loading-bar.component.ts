@@ -1,4 +1,4 @@
-import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { Component, Input, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
 import { LoadingBarService } from './loading-bar.service';
 
 @Component({
@@ -16,6 +16,7 @@ import { LoadingBarService } from './loading-bar.service';
     </ng-container>
   `,
   preserveWhitespaces: false,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.Emulated,
   styleUrls: ['./loading-bar.component.scss'],
   host: {

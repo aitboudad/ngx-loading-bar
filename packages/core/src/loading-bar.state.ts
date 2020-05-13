@@ -62,25 +62,16 @@ export class LoadingBarState {
         if (this.requests > 0) {
           return;
         }
-
         break;
       case 'stop':
         this.requests = 0;
         break;
-      default:
-        if (state.action === 'increment') {
-          state.value = this._increment(state.value);
-        }
+      case 'increment':
+        state.value = this._increment(state.value);
         break;
     }
 
-    const newState = {
-      ...this.state,
-      action: null,
-      ...state,
-    };
-
-    this.state = newState;
+    this.state = { ...this.state, action: null, ...state };
     if (emitEvent) {
       this.stream$.next(this.state);
     }
