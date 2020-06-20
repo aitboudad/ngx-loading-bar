@@ -7,29 +7,45 @@
       <p>
         Automatic loading bar with zero configuration (http and router)
       </p>
-      <img width="300" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+      <img
+        width="300"
+        src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="
+      />
     </div>
     <div class="col">
       <ul>
         <li>
           Display loading-bar on http request
           <div>
-            <button class="btn btn-sm btn-outline-primary" (click)="startHttpClientRequest()" type="button" name="button">Load</button>
+            <button
+              class="btn btn-sm btn-outline-primary"
+              (click)="startHttpClientRequest()"
+              type="button"
+              name="button"
+            >
+              Load
+            </button>
           </div>
         </li>
         <li>
           Display loading-bar on route navigation
           <div>
-            <a class="btn btn-sm btn-outline-primary" role="button"
+            <a
+              class="btn btn-sm btn-outline-primary"
+              role="button"
               [routerLink]="['']"
               routerLinkActive="disabled"
-              [routerLinkActiveOptions]="{ exact:true }">
+              [routerLinkActiveOptions]="{ exact: true }"
+            >
               page '/'
             </a>
-            <a class="btn btn-sm btn-outline-primary" role="button"
+            <a
+              class="btn btn-sm btn-outline-primary"
+              role="button"
               [routerLink]="['home']"
               routerLinkActive="disabled"
-              [routerLinkActiveOptions]="{ exact:true }">
+              [routerLinkActiveOptions]="{ exact: true }"
+            >
               page '/test'
             </a>
           </div>
@@ -37,11 +53,21 @@
         <li>
           Manage manually loading bar
           <div>
-            <button class="btn btn-sm btn-outline-primary" (click)="start()" type="button" name="button">Start</button>
-            <button class="btn btn-sm btn-outline-primary" (click)="set()" type="button" name="button">set to 50%</button>
-            <button class="btn btn-sm btn-outline-primary" (click)="increment()" type="button" name="button">increment by 10%</button>
-            <button class="btn btn-sm btn-outline-primary" (click)="complete()" type="button" name="button">Complete</button>
-            <button class="btn btn-sm btn-outline-primary" (click)="stop()" type="button" name="button">Stop</button>
+            <button class="btn btn-sm btn-outline-primary" (click)="start()" type="button" name="button">
+              Start
+            </button>
+            <button class="btn btn-sm btn-outline-primary" (click)="set()" type="button" name="button">
+              set to 50%
+            </button>
+            <button class="btn btn-sm btn-outline-primary" (click)="increment()" type="button" name="button">
+              increment by 10%
+            </button>
+            <button class="btn btn-sm btn-outline-primary" (click)="complete()" type="button" name="button">
+              Complete
+            </button>
+            <button class="btn btn-sm btn-outline-primary" (click)="stop()" type="button" name="button">
+              Stop
+            </button>
           </div>
         </li>
         <li>
@@ -53,17 +79,22 @@
         <li>
           Manage manually loading bar: using rxjs observable (timer 3 seconds)
           <div>
-            <button class="btn btn-sm btn-outline-primary" (click)="startTimer()" type="button" name="button">Start Timer ({{ timer }})</button>
+            <button class="btn btn-sm btn-outline-primary" (click)="startTimer()" type="button" name="button">
+              Start Timer ({{ timer }})
+            </button>
           </div>
         </li>
         <li>
-          Using <a href="https://material.angular.io/components/progress-bar/overview" target="_blank">Material Progress bar</a>
-          <mat-progress-bar mode="determinate" [value]="loader.progress$|async"></mat-progress-bar>
+          Using
+          <a href="https://material.angular.io/components/progress-bar/overview" target="_blank"
+            >Material Progress bar</a
+          >
+          <mat-progress-bar mode="determinate" [value]="loader.progress$ | async"></mat-progress-bar>
         </li>
         <li>
           Only show loader when a request has taken more than 500ms
 
-          <ngx-loading-bar [value]="(delayedProgress$|async) || 0" [color]="'blue'" [fixed]="false"></ngx-loading-bar>
+          <ngx-loading-bar [value]="(delayedProgress$ | async) || 0" [color]="'blue'" [fixed]="false"></ngx-loading-bar>
         </li>
         <li>
           Http requests

@@ -4,16 +4,14 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoadingBarInterceptor } from './loading-bar.interceptor';
 
 @NgModule({
-  imports: [
-    HttpClientModule,
-    LoadingBarModule,
-  ],
-  exports: [
-    HttpClientModule,
-    LoadingBarModule,
-  ],
+  imports: [HttpClientModule, LoadingBarModule],
+  exports: [HttpClientModule, LoadingBarModule],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: LoadingBarInterceptor, multi: true },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoadingBarInterceptor,
+      multi: true,
+    },
   ],
 })
 export class LoadingBarHttpClientModule {}

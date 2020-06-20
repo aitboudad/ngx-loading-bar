@@ -11,13 +11,13 @@ describe('LoadingBarService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [LoadingBarService]
+      providers: [LoadingBarService],
     });
   });
 
   beforeEach(inject([LoadingBarService], (loaderService: LoadingBarService) => {
     loader = loaderService;
-    progressSubscription = loaderService.value$.subscribe(v => progessValue = v);
+    progressSubscription = loaderService.value$.subscribe((v) => (progessValue = v));
   }));
 
   afterEach(() => {
@@ -45,7 +45,6 @@ describe('LoadingBarService', () => {
     loader.start();
     loader.complete();
     expect(progessValue).toEqual(0);
-
 
     loader.start();
     loader.stop();
@@ -142,7 +141,6 @@ describe('LoadingBarService', () => {
 
     tick(500);
     expect(progessValue).toBeGreaterThan(2);
-
 
     loader.complete();
     tick(500);

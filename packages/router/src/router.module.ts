@@ -1,21 +1,22 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Router, NavigationStart, NavigationError, NavigationEnd, NavigationCancel } from '@angular/router';
+import {
+  RouterModule,
+  Router,
+  NavigationStart,
+  NavigationError,
+  NavigationEnd,
+  NavigationCancel,
+} from '@angular/router';
 import { LoadingBarModule, LoadingBarService } from '@ngx-loading-bar/core';
 
 @NgModule({
-  imports: [
-    RouterModule,
-    LoadingBarModule,
-  ],
-  exports: [
-    RouterModule,
-    LoadingBarModule,
-  ],
+  imports: [RouterModule, LoadingBarModule],
+  exports: [RouterModule, LoadingBarModule],
 })
 export class LoadingBarRouterModule {
   constructor(router: Router, loader: LoadingBarService) {
     const ref = loader.useRef('router');
-    router.events.subscribe(event => {
+    router.events.subscribe((event) => {
       const navState = this.getCurrentNavigationState(router);
       if (navState && navState.ignoreLoadingBar) {
         return;
@@ -25,7 +26,7 @@ export class LoadingBarRouterModule {
         ref.start();
       }
 
-      if ((event instanceof NavigationError || event instanceof NavigationEnd || event instanceof NavigationCancel)) {
+      if (event instanceof NavigationError || event instanceof NavigationEnd || event instanceof NavigationCancel) {
         ref.complete();
       }
     });

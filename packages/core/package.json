@@ -2,7 +2,16 @@
   "name": "@ngx-loading-bar/core",
   "version": "LOADING-BAR-VERSION",
   "description": "Automatic page loading / progress bar for Angular",
-  "keywords": ["angular", "angular2", "ng", "ng2", "loading", "loadingbar", "progress", "progressbar"],
+  "keywords": [
+    "angular",
+    "angular2",
+    "ng",
+    "ng2",
+    "loading",
+    "loadingbar",
+    "progress",
+    "progressbar"
+  ],
   "license": "MIT",
   "repository": {
     "url": "https://github.com/aitboudad/ngx-loading-bar.git",

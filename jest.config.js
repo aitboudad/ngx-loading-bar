@@ -7,9 +7,6 @@ module.exports = {
   testMatch: ['**/?(*.)+(spec|test).ts'],
   setupFilesAfterEnv: ['<rootDir>/jestSetup.ts'],
   coverageReporters: ['html'],
-  testPathIgnorePatterns: [
-    '/node_modules/',
-    'schematics/.*/files/(.*)$'
-  ],
-  moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths)
+  testPathIgnorePatterns: ['/node_modules/', 'schematics/.*/files/(.*)$'],
+  moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths),
 };

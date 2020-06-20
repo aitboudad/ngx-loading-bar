@@ -10,10 +10,7 @@ import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HelloComponent,
-  ],
+  declarations: [AppComponent, HelloComponent],
   imports: [
     BrowserModule,
     RouterModule.forRoot([
@@ -30,5 +27,4 @@ import { HelloComponent } from './hello.component';
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {
-}
+export class AppModule {}

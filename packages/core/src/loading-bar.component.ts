@@ -4,15 +4,17 @@ import { LoadingBarService } from './loading-bar.service';
 @Component({
   selector: 'ngx-loading-bar',
   template: `
-    <ng-container *ngIf="(value != null ? value : value$|async) as progress">
+    <ng-container *ngIf="value != null ? value : (value$ | async) as progress">
       <div *ngIf="includeSpinner" class="ngx-spinner">
         <div [style.width]="diameter" [style.height]="diameter" class="ngx-spinner-icon"></div>
       </div>
-      <div *ngIf="includeBar" class="ngx-bar"
+      <div
+        *ngIf="includeBar"
+        class="ngx-bar"
         [style.background]="color"
         [style.height]="height"
-        [style.width]="progress + '%'">
-      </div>
+        [style.width]="progress + '%'"
+      ></div>
     </ng-container>
   `,
   preserveWhitespaces: false,
@@ -35,9 +37,7 @@ export class LoadingBarComponent {
   @Input() diameter: string;
 
   get value$() {
-    return this.ref
-      ? this.loader.useRef(this.ref).value$
-      : this.loader.value$;
+    return this.ref ? this.loader.useRef(this.ref).value$ : this.loader.value$;
   }
 
   constructor(private loader: LoadingBarService) {}

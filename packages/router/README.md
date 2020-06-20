@@ -3,6 +3,7 @@
 A fully automatic loading bar with zero configuration for angular app (http, http-client and router).
 
 #### 1. Install @ngx-loading-bar/router
+
 ```bash
   npm install @ngx-loading-bar/router --save
 ```
@@ -44,10 +45,10 @@ import { Component } from '@angular/core';
   `,
 })
 export class AppComponent {}
-
 ```
 
 ## Related packages
+
 - [@ngx-loading-bar/http-client](./../../packages/http-client/README.md) - Display the progress of your `@angular/common/http` requests.
 - [@ngx-loading-bar/http](./../../packages/http/README.md) - Display the progress of your `@angular/http` requests.
 - [@ngx-loading-bar/core](./../../packages/core/README.md) - Core module to manage the progress bar manually.

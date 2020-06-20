@@ -5,19 +5,15 @@ import { LoadingBarComponent } from './loading-bar.component';
 import { LoadingBarService } from './loading-bar.service';
 
 describe('LoadingBarComponent', () => {
-  let component: LoadingBarComponent,
-    fixture: ComponentFixture<LoadingBarComponent>,
-    loader: MockLoadingBarService;
-  const getElement: (selector: string) => HTMLDivElement = (selector) => fixture.elementRef.nativeElement.querySelector(selector);
+  let component: LoadingBarComponent, fixture: ComponentFixture<LoadingBarComponent>, loader: MockLoadingBarService;
+  const getElement: (selector: string) => HTMLDivElement = (selector) =>
+    fixture.elementRef.nativeElement.querySelector(selector);
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [LoadingBarComponent],
-      providers: [
-        { provide: LoadingBarService, useClass: MockLoadingBarService },
-      ]
-    })
-    .compileComponents();
+      providers: [{ provide: LoadingBarService, useClass: MockLoadingBarService }],
+    }).compileComponents();
   }));
 
   beforeEach(inject([LoadingBarService], (loaderService: MockLoadingBarService) => {

@@ -31,13 +31,13 @@
     border-bottom-right-radius: 1px;
     border-top-right-radius: 1px;
 
-    [dir="rtl"] & {
+    [dir='rtl'] & {
       right: 0;
       left: unset;
     }
   }
 
-  &[fixed=true] {
+  &[fixed='true'] {
     z-index: 10002;
     .ngx-bar {
       position: fixed;
@@ -47,7 +47,7 @@
       top: 10px;
       left: 10px;
 
-      [dir="rtl"] & {
+      [dir='rtl'] & {
         right: 10px;
         left: unset;
       }
@@ -56,6 +56,10 @@
 }
 
 @keyframes loading-bar-spinner {
-  0%   { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

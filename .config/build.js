@@ -1,13 +1,9 @@
-const fs = require("fs"),
-  packages = [
-    'core',
-    'http-client',
-    'router',
-  ];
+const fs = require('fs'),
+  packages = ['core', 'http-client', 'router'];
 
 // update `LOADING-BAR-VERSION` in package.json for all sub-packages
 const version = JSON.parse(fs.readFileSync('package.json', 'utf8')).version;
-packages.map(package => {
+packages.map((package) => {
   const packagePath = `dist/@ngx-loading-bar/${package}/package.json`;
 
   package = fs.readFileSync(packagePath, 'utf8');
