@@ -1,6 +1,45 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [5.0.0](https://github.com/aitboudad/ngx-loading-bar/compare/v4.2.0...v5.0.0) (2020-06-20)
+
+
+### ⚠ BREAKING CHANGES
+
+* **core:** The library now requires Angular 9
+
+* **core:** The loading bar internal selectors has been changed:
+
+Before:
+```html
+<ngx-loading-bar>
+  <div id="loading-bar-spinner"><div class="spinner-icon"></div></div>
+  <div id="loading-bar"><div class="bar"><div class="peg"></div></div></div>
+</ngx-loading-bar>
+```
+
+After:
+```html
+<ngx-loading-bar>
+  <div class="ngx-bar"></div>
+  <div class="ngx-spinner"><div class="ngx-spinner-icon"></div></div>
+</ngx-loading-bar>
+```
+
+
+### Features
+
+* **core:** change bar and spinner selector + unset z-index when fixed is false ([#159](https://github.com/aitboudad/ngx-loading-bar/issues/159)) ([f1ad7a8](https://github.com/aitboudad/ngx-loading-bar/commit/f1ad7a83f97b26fd2d82aa8f8b2474938b12ca69))
+* **core:** set peerDependency to angular >=9.0 ([185f1e2](https://github.com/aitboudad/ngx-loading-bar/commit/185f1e2d87c79d763362939c28cec5304a02169f)), closes [#151](https://github.com/aitboudad/ngx-loading-bar/issues/151)
+* **core:** support managing multiple loading bars ([c59863f](https://github.com/aitboudad/ngx-loading-bar/commit/c59863f8c1b4498d3a85b8563d2cef5be6829ae6)), closes [#121](https://github.com/aitboudad/ngx-loading-bar/issues/121)
+* **core:** use OnPush change detection ([47d8cff](https://github.com/aitboudad/ngx-loading-bar/commit/47d8cff6fa4844ad0fb9ff6556a3cbad61fd5a04))
+* 🎸 remove deprecated @angular/http package ([#139](https://github.com/aitboudad/ngx-loading-bar/issues/139)) ([666e341](https://github.com/aitboudad/ngx-loading-bar/commit/666e3412175485fd40392930d0a450cbdcead411))
+
+
+### Bug Fixes
+
+* 🐛 prevent start when the timer is not triggered yet ([88f5254](https://github.com/aitboudad/ngx-loading-bar/commit/88f52549961cfa86d6a6d6399b269ec39b9c4c0f)), closes [#143](https://github.com/aitboudad/ngx-loading-bar/issues/143)
 
 <a name="4.2.0"></a>
 
