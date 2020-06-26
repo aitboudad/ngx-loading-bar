@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.0.1](https://github.com/aitboudad/ngx-loading-bar/compare/v5.0.0...v5.0.1) (2020-06-26)
+
+
+### Bug Fixes
+
+* **core:** move tslib to direct dependencies ([#162](https://github.com/aitboudad/ngx-loading-bar/issues/162)) ([1bb544b](https://github.com/aitboudad/ngx-loading-bar/commit/1bb544bba494811f2d690c976fd7d8a1bd6d1054)), closes [#161](https://github.com/aitboudad/ngx-loading-bar/issues/161)
+
 ## [5.0.0](https://github.com/aitboudad/ngx-loading-bar/compare/v4.2.0...v5.0.0) (2020-06-20)
 
 
