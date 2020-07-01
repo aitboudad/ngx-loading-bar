@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.0.2](https://github.com/aitboudad/ngx-loading-bar/compare/v5.0.1...v5.0.2) (2020-07-01)
+
+
+### Bug Fixes
+
+* **core:** take account of state updates during initial render ([#164](https://github.com/aitboudad/ngx-loading-bar/issues/164)) ([dd1e6a0](https://github.com/aitboudad/ngx-loading-bar/commit/dd1e6a067c30631c6ac3c5e17f218e137ba93d3c)), closes [#163](https://github.com/aitboudad/ngx-loading-bar/issues/163)
+
 ### [5.0.1](https://github.com/aitboudad/ngx-loading-bar/compare/v5.0.0...v5.0.1) (2020-06-26)
 
 
