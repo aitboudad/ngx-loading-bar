@@ -2,14 +2,15 @@ import { Injectable } from '@angular/core';
 import { PLATFORM_ID, Inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { LoadingBarState } from './loading-bar.state';
-import { Observable, Subject, combineLatest } from 'rxjs';
-import { switchMap, map } from 'rxjs/operators';
+import { Subject, combineLatest } from 'rxjs';
+import { switchMap, map, startWith } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
 export class LoadingBarService {
   private refs: { [id: string]: LoadingBarState } = {};
   private streams$ = new Subject<void>();
   readonly value$ = this.streams$.asObservable().pipe(
+    startWith(null),
     switchMap(() => combineLatest(...Object.keys(this.refs).map((s) => this.refs[s].value$))),
     map((v) => Math.max(0, ...v)),
   );
