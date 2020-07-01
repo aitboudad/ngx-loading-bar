@@ -1,8 +1,7 @@
 import { TestBed, inject, fakeAsync, tick } from '@angular/core/testing';
-
 import { LoadingBarService } from './loading-bar.service';
 import { Subscription } from 'rxjs';
-import { ɵPLATFORM_SERVER_ID } from '@angular/common';
+import { ɵPLATFORM_SERVER_ID, ɵPLATFORM_BROWSER_ID } from '@angular/common';
 
 describe('LoadingBarService', () => {
   let loader: LoadingBarService;
@@ -160,5 +159,19 @@ describe('LoadingBarService', () => {
 
     tick(500);
     expect(progessValue).toBe(0);
+  }));
+
+  it('should preserve the emitted action before subscribe', fakeAsync(() => {
+    const loader = new LoadingBarService(ɵPLATFORM_BROWSER_ID);
+    loader.start(50);
+
+    const spy = jest.fn();
+    const subscription = loader.value$.subscribe(spy);
+    tick(500);
+
+    expect(spy).toHaveBeenCalledTimes(3);
+    subscription.unsubscribe();
+    loader.complete();
+    tick(500);
   }));
 });
