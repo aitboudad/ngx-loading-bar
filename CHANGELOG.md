@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.1.0](https://github.com/aitboudad/ngx-loading-bar/compare/v5.0.2...v5.1.0) (2020-07-11)
+
+
+### Features
+
+* **core:** add option to customise latency threshold ([#167](https://github.com/aitboudad/ngx-loading-bar/issues/167)) ([dffd503](https://github.com/aitboudad/ngx-loading-bar/commit/dffd5036a441263b5a1db3725c08b3c6225c8b2b)), closes [#158](https://github.com/aitboudad/ngx-loading-bar/issues/158) [#166](https://github.com/aitboudad/ngx-loading-bar/issues/166)
+
 ### [5.0.2](https://github.com/aitboudad/ngx-loading-bar/compare/v5.0.1...v5.0.2) (2020-07-01)
 
 
