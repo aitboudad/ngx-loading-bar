@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { LoadingBarService } from '@ngx-loading-bar/core';
-import { interval } from 'rxjs';
+import { interval, timer } from 'rxjs';
 import { map, take, delay, withLatestFrom, finalize, tap } from 'rxjs/operators';
 
 @Component({
@@ -53,7 +53,8 @@ export class AppComponent {
   }
 
   startTimer() {
-    interval(1000)
+    this.timer = 0;
+    timer(5000, 5000)
       .pipe(
         take(3),
         tap((value) => {

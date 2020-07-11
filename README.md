@@ -29,6 +29,7 @@
   - [1. Install @ngx-loading-bar](#1-install-ngx-loading-bar)
   - [2. Import the installed libraries](#2-import-the-installed-libraries)
   - [3. Include `ngx-loading-bar` in your app component](#3-include-ngx-loading-bar-in-your-app-component)
+- [Global config](#global-config)
 - [Ignoring particular requests](#ignoring-particular-requests)
 - [Manage multi loading bars separately](#manage-multi-Loading-bars-separately)
 - [Manually manage loading service](#manually-manage-loading-service)
@@ -100,7 +101,7 @@ import { Component } from '@angular/core';
 export class AppComponent {}
 ```
 
-## Customize `ngx-loading-bar`
+##### Customize `ngx-loading-bar`
 
 You can pass the following inputs to customize the view:
 
@@ -114,6 +115,24 @@ You can pass the following inputs to customize the view:
 | fixed          | set loading bar on the top of the screen or inside a container. Default value is `true`. |
 | value          | Set the value of the progress bar.                                                       |
 | ref            | Select the ref of a loading bar instance to display (`http`, `router`, ...)              |
+
+## Global config
+
+The global config can be adjusted by providing a value for `LOADING_BAR_CONFIG` in your application's root module.
+
+```ts
+import { LOADING_BAR_CONFIG } from '@ngx-loading-bar/core';
+
+@NgModule({
+  providers: [
+    providers: [{ provide: LOADING_BAR_CONFIG, useValue: { latencyThreshold: 100 } }],
+  ]
+})
+```
+
+| Option           | Description                                                                             |
+| ---------------- | --------------------------------------------------------------------------------------- |
+| latencyThreshold | The initial delay time to wait before displaying the loading bar. Default value is `0`. |
 
 ## Ignoring particular requests
 

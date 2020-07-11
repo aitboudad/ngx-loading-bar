@@ -1,9 +1,10 @@
-import { Injectable } from '@angular/core';
+import { Injectable, InjectionToken, Optional } from '@angular/core';
 import { PLATFORM_ID, Inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { LoadingBarState } from './loading-bar.state';
 import { Subject, combineLatest } from 'rxjs';
 import { switchMap, map, startWith } from 'rxjs/operators';
+import { LOADING_BAR_CONFIG, LoadingBarConfig } from './loading-bar.config';
 
 @Injectable({ providedIn: 'root' })
 export class LoadingBarService {
@@ -20,7 +21,10 @@ export class LoadingBarService {
     return this.value$;
   }
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: Object,
+    @Optional() @Inject(LOADING_BAR_CONFIG) private config: LoadingBarConfig = {},
+  ) {}
 
   /** @deprecated use `useRef` instead. */
   start(initialValue = 2) {
@@ -49,7 +53,7 @@ export class LoadingBarService {
 
   useRef(id: string = 'default'): LoadingBarState {
     if (!this.refs[id]) {
-      this.refs[id] = new LoadingBarState();
+      this.refs[id] = new LoadingBarState(this.config);
       this.streams$.next();
 
       if (!isPlatformBrowser(this.platformId)) {

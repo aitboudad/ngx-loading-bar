@@ -1,5 +1,6 @@
 import { Subject, timer, of, Observable } from 'rxjs';
 import { map, switchMap, take, tap, startWith, shareReplay } from 'rxjs/operators';
+import { LoadingBarConfig } from './loading-bar.config';
 
 interface ILoadingBarState {
   action: 'start' | 'complete' | 'set' | 'stop' | 'increment';
@@ -17,6 +18,13 @@ export class LoadingBarState {
   private disabled = false;
   private stream$ = new Subject<ILoadingBarState>();
   private _value$ = null;
+
+  constructor(private config: LoadingBarConfig = {}) {
+    this.config = {
+      latencyThreshold: 0,
+      ...config,
+    };
+  }
 
   get value$() {
     if (this._value$) {
@@ -90,11 +98,13 @@ export class LoadingBarState {
       case 'start':
       case 'increment':
       case 'set': {
+        if (s.action === 'start' && this.config.latencyThreshold === 0 && s.value === 0) {
+          s.value = s.initialValue;
+        }
+
         if (this.requests > 0) {
-          state$ = timer(0, 250).pipe(
-            map((t) =>
-              t === 0 ? { ...s, value: this.state.value || s.initialValue } : { ...s, value: this._increment() },
-            ),
+          state$ = timer(this.config.latencyThreshold, 250).pipe(
+            map((t) => ({ ...s, value: t === 0 ? this.state.value || s.initialValue : this._increment() })),
           );
         }
         break;
