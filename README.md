@@ -6,7 +6,7 @@
 
 [![Npm version](https://badge.fury.io/js/%40ngx-loading-bar%2Fcore.svg)](https://npmjs.org/package/@ngx-loading-bar/core)
 [![Downloads](https://img.shields.io/npm/dm/@ngx-loading-bar/core.svg)](https://npmjs.org/package/@ngx-loading-bar/core)
-[![Build Status](https://api.travis-ci.org/aitboudad/ngx-loading-bar.svg?branch=master)](https://api.travis-ci.org/aitboudad/ngx-loading-bar.svg?branch=master)
+[![Build Status](https://api.travis-ci.org/aitboudad/ngx-loading-bar.svg?branch=main)](https://api.travis-ci.org/aitboudad/ngx-loading-bar.svg?branch=master)
 
 </div>
 

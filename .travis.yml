@@ -18,7 +18,7 @@ script:
   - npm run bundlesize
 
 after_success:
-  - test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master" && npm run gh-pages
+  - test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "main" && npm run gh-pages
   - if [ -n "$TRAVIS_TAG" ]; then npm run github-release; fi
 
 env:
