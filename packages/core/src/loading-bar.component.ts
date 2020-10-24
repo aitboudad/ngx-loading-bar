@@ -10,14 +10,14 @@ import { LoadingBarService } from './loading-bar.service';
           [style.width]="diameter"
           [style.height]="diameter"
           class="ngx-spinner-icon"
-          [ngClass]="{ spinnerClass: spinnerClass }"
+          [ngClass]="[spinnerClass]"
         ></div>
       </div>
       <div
         *ngIf="includeBar"
         class="ngx-bar"
-        [ngClass]="{ barClass: barClass }"
-        [style.background]="color"
+        [ngClass]="[barClass]"
+        [style.background]="barClass ? null : color"
         [style.height]="height"
         [style.width]="progress + '%'"
       ></div>
