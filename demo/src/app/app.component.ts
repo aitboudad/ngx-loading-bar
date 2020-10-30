@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { LoadingBarService } from '@ngx-loading-bar/core';
-import { interval, timer } from 'rxjs';
+import { timer } from 'rxjs';
 import { map, take, delay, withLatestFrom, finalize, tap } from 'rxjs/operators';
 
 @Component({
@@ -20,9 +20,9 @@ import { map, take, delay, withLatestFrom, finalize, tap } from 'rxjs/operators'
 export class AppComponent {
   timer = 0;
 
-  delayedProgress$ = this.loader.progress$.pipe(
+  delayedProgress$ = this.loader.value$.pipe(
     delay(1000),
-    withLatestFrom(this.loader.progress$),
+    withLatestFrom(this.loader.value$),
     map((v) => v[1]),
   );
 
@@ -33,23 +33,23 @@ export class AppComponent {
   }
 
   start() {
-    this.loader.start(10);
+    this.loader.useRef().start(10);
   }
 
   set() {
-    this.loader.set(50);
+    this.loader.useRef().set(50);
   }
 
   increment() {
-    this.loader.increment(10);
+    this.loader.useRef().increment(10);
   }
 
   complete() {
-    this.loader.complete();
+    this.loader.useRef().complete();
   }
 
   stop() {
-    this.loader.stop();
+    this.loader.useRef().stop();
   }
 
   startTimer() {
@@ -60,11 +60,11 @@ export class AppComponent {
         tap((value) => {
           this.timer = value + 1;
         }),
-        finalize(() => this.loader.complete()),
+        finalize(() => this.loader.useRef().complete()),
       )
       .subscribe();
 
     // We're sure that subscription has been made, we can start loading bar service
-    this.loader.start();
+    this.loader.useRef().start();
   }
 }

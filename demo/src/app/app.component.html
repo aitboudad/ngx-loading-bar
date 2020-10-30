@@ -4,9 +4,7 @@
       <h1>@ngx-loading-bar/*</h1>
       <ngx-loading-bar [color]="'red'"></ngx-loading-bar>
       <router-outlet></router-outlet>
-      <p>
-        Automatic loading bar with zero configuration (http and router)
-      </p>
+      <p>Automatic loading bar with zero configuration (http and router)</p>
       <img
         width="300"
         src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="
@@ -52,6 +50,7 @@
         </li>
         <li>
           Manage manually loading bar
+          <!-- prettier-ignore -->
           <div>
             <button class="btn btn-sm btn-outline-primary" (click)="start()" type="button" name="button">
               Start
@@ -72,7 +71,7 @@
         </li>
         <li>
           With disabled fixed position `[fixed]="false"`
-          <div style="height: 20px;">
+          <div style="height: 20px">
             <ngx-loading-bar [color]="'black'" [fixed]="false"></ngx-loading-bar>
           </div>
         </li>
