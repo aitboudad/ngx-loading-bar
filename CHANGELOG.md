@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.1.1](https://github.com/aitboudad/ngx-loading-bar/compare/v5.1.0...v5.1.1) (2020-12-05)
+
+
+### Bug Fixes
+
+* **core:** move tslib to peerDependencies ([fa354ee](https://github.com/aitboudad/ngx-loading-bar/commit/fa354eee604bd6f7564118f464e85344ede732f4))
+
 ## [5.1.0](https://github.com/aitboudad/ngx-loading-bar/compare/v5.0.2...v5.1.0) (2020-07-11)
 
 

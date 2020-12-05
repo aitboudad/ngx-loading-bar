@@ -1,4 +1,4 @@
-<div style="padding: 4rem 2rem;">
+<div style="padding: 4rem 2rem">
   <div class="d-flex flex-column align-items-center">
     <div class="text-center">
       <h1>@ngx-loading-bar/*</h1>
@@ -12,30 +12,21 @@
     </div>
 
     <div class="d-flex flex-wrap justify-content-center">
-      <div class="card m-2" style="width: 310px;">
+      <div class="card m-2" style="width: 310px">
         <ngx-loading-bar fixed ref="http" color="#17a2b8"></ngx-loading-bar>
         <div class="card-body">
-          <h4 class="card-title text-center">
-            @ngx-loading-bar/http
-          </h4>
+          <h4 class="card-title text-center">@ngx-loading-bar/http</h4>
           <p class="card-text">Display loading-bar on http request</p>
-          <button
-            class="btn btn-block btn-sm btn-info"
-            (click)="startHttpRequest()"
-            type="button"
-            name="button"
-          >
+          <button class="btn btn-block btn-sm btn-info" (click)="startHttpRequest()" type="button" name="button">
             Load
           </button>
         </div>
       </div>
 
-      <div class="card m-2" style="width: 310px;">
+      <div class="card m-2" style="width: 310px">
         <ngx-loading-bar fixed ref="router" color="#17a2b8"></ngx-loading-bar>
         <div class="card-body">
-          <h4 class="card-title text-center">
-            @ngx-loading-bar/router
-          </h4>
+          <h4 class="card-title text-center">@ngx-loading-bar/router</h4>
           <p class="card-text">Display loading-bar on route navigation</p>
           <a
             class="btn btn-block btn-sm btn-info mr-2"
@@ -60,37 +51,23 @@
     </div>
 
     <div class="d-flex flex-wrap justify-content-center">
-      <div class="card m-2" style="width: 310px;">
+      <div class="card m-2" style="width: 310px">
         <ngx-loading-bar fixed ref="default" color="#17a2b8"></ngx-loading-bar>
         <div class="card-body">
-          <h4 class="card-title text-center">
-            @ngx-loading-bar/core
-          </h4>
+          <h4 class="card-title text-center">@ngx-loading-bar/core</h4>
           <p class="card-text">Manage manually loading bar</p>
           <div class="d-flex flex-wrap">
-            <button class="btn btn-sm btn-info m-1" (click)="start()" type="button" name="button">
-              Start
-            </button>
-            <button class="btn btn-sm btn-info m-1" (click)="set()" type="button" name="button">
-              50%
-            </button>
-            <button class="btn btn-sm btn-info m-1" (click)="increment()" type="button" name="button">
-              +10%
-            </button>
-            <button class="btn btn-sm btn-info m-1" (click)="complete()" type="button" name="button">
-              Complete
-            </button>
-            <button class="btn btn-sm btn-info m-1" (click)="stop()" type="button" name="button">
-              Stop
-            </button>
+            <button class="btn btn-sm btn-info m-1" (click)="start()" type="button" name="button">Start</button>
+            <button class="btn btn-sm btn-info m-1" (click)="set()" type="button" name="button">50%</button>
+            <button class="btn btn-sm btn-info m-1" (click)="increment()" type="button" name="button">+10%</button>
+            <button class="btn btn-sm btn-info m-1" (click)="complete()" type="button" name="button">Complete</button>
+            <button class="btn btn-sm btn-info m-1" (click)="stop()" type="button" name="button">Stop</button>
           </div>
-          <div class="d-flex justify-content-between mt-2">
-
-          </div>
+          <div class="d-flex justify-content-between mt-2"></div>
         </div>
       </div>
 
-      <div class="card m-2" style="width: 310px;">
+      <div class="card m-2" style="width: 310px">
         <mat-progress-bar mode="determinate" [value]="loader.progress$ | async"></mat-progress-bar>
         <div class="card-body">
           <p class="card-text">
@@ -99,19 +76,11 @@
               >Material Progress bar</a
             >
           </p>
-          <button
-            class="btn btn-block btn-sm btn-info"
-            (click)="startHttpRequest()"
-            type="button"
-            name="button"
-          >
+          <button class="btn btn-block btn-sm btn-info" (click)="startHttpRequest()" type="button" name="button">
             Load
           </button>
         </div>
       </div>
-
     </div>
-
-
   </div>
 </div>
