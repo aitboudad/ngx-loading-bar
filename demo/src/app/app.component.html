@@ -1,107 +1,117 @@
-<div class="container">
-  <div class="row">
-    <div class="text-center col">
+<div style="padding: 4rem 2rem;">
+  <div class="d-flex flex-column align-items-center">
+    <div class="text-center">
       <h1>@ngx-loading-bar/*</h1>
       <ngx-loading-bar [color]="'red'"></ngx-loading-bar>
       <router-outlet></router-outlet>
-      <p>
-        Automatic loading bar with zero configuration (http and router)
-      </p>
+      <p>Automatic loading bar with zero configuration (http and router)</p>
       <img
-        width="300"
+        height="200"
         src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="
       />
     </div>
-    <div class="col">
-      <ul>
-        <li>
-          Display loading-bar on http request
-          <div>
-            <button
-              class="btn btn-sm btn-outline-primary"
-              (click)="startHttpClientRequest()"
-              type="button"
-              name="button"
-            >
-              Load
-            </button>
-          </div>
-        </li>
-        <li>
-          Display loading-bar on route navigation
-          <div>
-            <a
-              class="btn btn-sm btn-outline-primary"
-              role="button"
-              [routerLink]="['']"
-              routerLinkActive="disabled"
-              [routerLinkActiveOptions]="{ exact: true }"
-            >
-              page '/'
-            </a>
-            <a
-              class="btn btn-sm btn-outline-primary"
-              role="button"
-              [routerLink]="['home']"
-              routerLinkActive="disabled"
-              [routerLinkActiveOptions]="{ exact: true }"
-            >
-              page '/test'
-            </a>
-          </div>
-        </li>
-        <li>
-          Manage manually loading bar
-          <div>
-            <button class="btn btn-sm btn-outline-primary" (click)="start()" type="button" name="button">
+
+    <div class="d-flex flex-wrap justify-content-center">
+      <div class="card m-2" style="width: 310px;">
+        <ngx-loading-bar fixed ref="http" color="#17a2b8"></ngx-loading-bar>
+        <div class="card-body">
+          <h4 class="card-title text-center">
+            @ngx-loading-bar/http
+          </h4>
+          <p class="card-text">Display loading-bar on http request</p>
+          <button
+            class="btn btn-block btn-sm btn-info"
+            (click)="startHttpRequest()"
+            type="button"
+            name="button"
+          >
+            Load
+          </button>
+        </div>
+      </div>
+
+      <div class="card m-2" style="width: 310px;">
+        <ngx-loading-bar fixed ref="router" color="#17a2b8"></ngx-loading-bar>
+        <div class="card-body">
+          <h4 class="card-title text-center">
+            @ngx-loading-bar/router
+          </h4>
+          <p class="card-text">Display loading-bar on route navigation</p>
+          <a
+            class="btn btn-block btn-sm btn-info mr-2"
+            role="button"
+            [routerLink]="['']"
+            routerLinkActive="disabled"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            page '/'
+          </a>
+          <a
+            class="btn btn-block btn-sm btn-info"
+            role="button"
+            [routerLink]="['home']"
+            routerLinkActive="disabled"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            page '/home'
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex flex-wrap justify-content-center">
+      <div class="card m-2" style="width: 310px;">
+        <ngx-loading-bar fixed ref="default" color="#17a2b8"></ngx-loading-bar>
+        <div class="card-body">
+          <h4 class="card-title text-center">
+            @ngx-loading-bar/core
+          </h4>
+          <p class="card-text">Manage manually loading bar</p>
+          <div class="d-flex flex-wrap">
+            <button class="btn btn-sm btn-info m-1" (click)="start()" type="button" name="button">
               Start
             </button>
-            <button class="btn btn-sm btn-outline-primary" (click)="set()" type="button" name="button">
-              set to 50%
+            <button class="btn btn-sm btn-info m-1" (click)="set()" type="button" name="button">
+              50%
             </button>
-            <button class="btn btn-sm btn-outline-primary" (click)="increment()" type="button" name="button">
-              increment by 10%
+            <button class="btn btn-sm btn-info m-1" (click)="increment()" type="button" name="button">
+              +10%
             </button>
-            <button class="btn btn-sm btn-outline-primary" (click)="complete()" type="button" name="button">
+            <button class="btn btn-sm btn-info m-1" (click)="complete()" type="button" name="button">
               Complete
             </button>
-            <button class="btn btn-sm btn-outline-primary" (click)="stop()" type="button" name="button">
+            <button class="btn btn-sm btn-info m-1" (click)="stop()" type="button" name="button">
               Stop
             </button>
           </div>
-        </li>
-        <li>
-          With disabled fixed position `[fixed]="false"`
-          <div style="height: 20px;">
-            <ngx-loading-bar [color]="'black'" [fixed]="false"></ngx-loading-bar>
+          <div class="d-flex justify-content-between mt-2">
+
           </div>
-        </li>
-        <li>
-          Manage manually loading bar: using rxjs observable (timer 3 seconds)
-          <div>
-            <button class="btn btn-sm btn-outline-primary" (click)="startTimer()" type="button" name="button">
-              Start Timer ({{ timer }})
-            </button>
-          </div>
-        </li>
-        <li>
-          Using
-          <a href="https://material.angular.io/components/progress-bar/overview" target="_blank"
-            >Material Progress bar</a
+        </div>
+      </div>
+
+      <div class="card m-2" style="width: 310px;">
+        <mat-progress-bar mode="determinate" [value]="loader.progress$ | async"></mat-progress-bar>
+        <div class="card-body">
+          <p class="card-text">
+            Using
+            <a href="https://material.angular.io/components/progress-bar/overview" target="_blank"
+              >Material Progress bar</a
+            >
+          </p>
+          <button
+            class="btn btn-block btn-sm btn-info"
+            (click)="startHttpRequest()"
+            type="button"
+            name="button"
           >
-          <mat-progress-bar mode="determinate" [value]="loader.progress$ | async"></mat-progress-bar>
-        </li>
-        <li>
-          Only show loader when a request has taken more than 500ms
+            Load
+          </button>
+        </div>
+      </div>
 
-          <ngx-loading-bar [value]="(delayedProgress$ | async) || 0" [color]="'blue'" [fixed]="false"></ngx-loading-bar>
-        </li>
-        <li>
-          Http requests
-
-          <ngx-loading-bar ref="http" [color]="'blue'" [fixed]="false"></ngx-loading-bar>
-        </li>
-      </ul>
     </div>
+
+
   </div>
 </div>
