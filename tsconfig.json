@@ -17,5 +17,8 @@
       "@ngx-loading-bar/*": ["packages/*/src/public_api"]
     }
   },
+  "angularCompilerOptions": {
+    "strictTemplates": true
+  },
   "exclude": ["dist/**/*", "node_modules/**/*"]
 }
