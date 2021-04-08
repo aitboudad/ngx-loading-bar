@@ -8,6 +8,9 @@ import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
+import { NgxsModule } from '@ngxs/store';
+import { environment } from '../environments/environment';
+import { ApiState } from './api.store';
 
 @NgModule({
   declarations: [AppComponent, HelloComponent],
@@ -24,6 +27,8 @@ import { HelloComponent } from './hello.component';
 
     LoadingBarHttpClientModule,
     LoadingBarRouterModule,
+
+    NgxsModule.forRoot([ApiState], { developmentMode: !environment.production }),
   ],
   bootstrap: [AppComponent],
 })

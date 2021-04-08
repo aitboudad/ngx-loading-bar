@@ -6,6 +6,8 @@ import { finalize, tap } from 'rxjs/operators';
 
 @Injectable()
 export class LoadingBarInterceptor implements HttpInterceptor {
+  private started: boolean;
+
   constructor(private loader: LoadingBarService) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -14,16 +16,19 @@ export class LoadingBarInterceptor implements HttpInterceptor {
       return next.handle(req.clone({ headers: req.headers.delete('ignoreLoadingBar') }));
     }
 
-    let started = false;
+    this.started = false;
     const ref = this.loader.useRef('http');
     return next.handle(req).pipe(
       tap(() => {
-        if (!started) {
+        if (!this.started) {
           ref.start();
-          started = true;
+          this.started = true;
         }
       }),
-      finalize(() => started && ref.complete()),
+      finalize(() => {
+        if (this.started) ref.complete();
+        console.log('finalized');
+      }),
     );
   }
 }

@@ -45,6 +45,7 @@
     "@angular/platform-browser": "^9.0.4",
     "@angular/platform-browser-dynamic": "^9.0.4",
     "@angular/router": "^9.0.4",
+    "@ngxs/store": "^3.7.1",
     "bootstrap": "^4.5.3",
     "core-js": "^3.6.4",
     "rxjs": "^6.5.4",
