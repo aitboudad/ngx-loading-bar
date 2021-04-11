@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.1.2](https://github.com/aitboudad/ngx-loading-bar/compare/v5.1.1...v5.1.2) (2021-04-11)
+
+
+### Bug Fixes
+
+* **core:** detect changes of actions outside zones ([#186](https://github.com/aitboudad/ngx-loading-bar/issues/186)) ([66722f0](https://github.com/aitboudad/ngx-loading-bar/commit/66722f01230353bdfb17e1def504bcc0752a2dfa)), closes [#184](https://github.com/aitboudad/ngx-loading-bar/issues/184)
+
 ### [5.1.1](https://github.com/aitboudad/ngx-loading-bar/compare/v5.1.0...v5.1.1) (2020-12-05)
 
 
