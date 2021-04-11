@@ -6,12 +6,18 @@ import { LoadingBarService } from './loading-bar.service';
   template: `
     <ng-container *ngIf="value != null ? value : (value$ | async) as progress">
       <div *ngIf="includeSpinner" class="ngx-spinner">
-        <div [style.width]="diameter" [style.height]="diameter" class="ngx-spinner-icon"></div>
+        <div
+          [style.width]="diameter"
+          [style.height]="diameter"
+          class="ngx-spinner-icon"
+          [ngClass]="[spinnerClass]"
+        ></div>
       </div>
       <div
         *ngIf="includeBar"
         class="ngx-bar"
-        [style.background]="color"
+        [ngClass]="[barClass]"
+        [style.background]="barClass ? null : color"
         [style.height]="height"
         [style.width]="progress + '%'"
       ></div>
@@ -31,6 +37,8 @@ export class LoadingBarComponent {
   @Input() includeBar = true;
   @Input() fixed = true;
   @Input() color = '#29d';
+  @Input() spinnerClass: string;
+  @Input() barClass: string;
   @Input() value: number;
   @Input() ref: string;
   @Input() height: string;
