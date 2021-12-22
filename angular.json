@@ -79,13 +79,6 @@
             "styles": ["demo/src/styles.scss"],
             "assets": ["demo/src/assets", "demo/src/favicon.ico"]
           }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": ["packages/tsconfig.app.json", "packages/tsconfig.spec.json"],
-            "exclude": ["**/node_modules/**"]
-          }
         }
       }
     },
@@ -113,13 +106,6 @@
             "main": "packages/core/src/test.ts",
             "tsConfig": "packages/core/tsconfig.spec.json",
             "karmaConfig": "packages/core/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": ["packages/core/tsconfig.lib.json", "packages/core/tsconfig.spec.json"],
-            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -149,13 +135,6 @@
             "tsConfig": "packages/http-client/tsconfig.spec.json",
             "karmaConfig": "packages/http-client/karma.conf.js"
           }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": ["packages/http-client/tsconfig.lib.json", "packages/http-client/tsconfig.spec.json"],
-            "exclude": ["**/node_modules/**"]
-          }
         }
       }
     },
@@ -183,13 +162,6 @@
             "main": "packages/router/src/test.ts",
             "tsConfig": "packages/router/tsconfig.spec.json",
             "karmaConfig": "packages/router/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": ["packages/router/tsconfig.lib.json", "packages/router/tsconfig.spec.json"],
-            "exclude": ["**/node_modules/**"]
           }
         }
       }

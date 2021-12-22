@@ -11,9 +11,10 @@ describe('LoadingBarComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [LoadingBarComponent],
-      providers: [{ provide: LoadingBarService, useClass: MockLoadingBarService }],
-    }).compileComponents();
+    declarations: [LoadingBarComponent],
+    providers: [{ provide: LoadingBarService, useClass: MockLoadingBarService }],
+    teardown: { destroyAfterEach: false }
+}).compileComponents();
   }));
 
   beforeEach(inject([LoadingBarService], (loaderService: MockLoadingBarService) => {

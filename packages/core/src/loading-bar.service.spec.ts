@@ -10,8 +10,9 @@ describe('LoadingBarService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [LoadingBarService],
-    });
+    providers: [LoadingBarService],
+    teardown: { destroyAfterEach: false }
+});
   });
 
   beforeEach(inject([LoadingBarService], (loaderService: LoadingBarService) => {
