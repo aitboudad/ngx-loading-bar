@@ -17,9 +17,11 @@
     "url": "https://github.com/aitboudad/ngx-loading-bar.git",
     "type": "git"
   },
+  "dependencies": {
+    "tslib": "^2.0.0"
+  },
   "peerDependencies": {
-    "@angular/common": ">=9.0.0",
-    "tslib": ">=1.7.1",
+    "@angular/common": ">=10.0.0",
     "rxjs": ">=6.3.0"
   }
 }
