@@ -140,12 +140,10 @@ The loading bar can also be forced to ignore certain requests, for example, when
 
 #### http-client:
 
-Http client doesn't allow passing [custom option](https://github.com/angular/angular/issues/18155), in order to achieve that we made a temporary solution (by passing the option throught the header) that will be removed once http-client come with a proper solution.
-
 ```ts
 // ignore a particular $http GET:
 httpClient.get('/status', {
-  headers: { ignoreLoadingBar: '' },
+  context: new HttpContext().set(NGX_LOADING_BAR_IGNORED, true)
 });
 ```
 

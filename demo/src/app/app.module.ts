@@ -8,6 +8,7 @@ import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [AppComponent, HelloComponent],
@@ -21,6 +22,7 @@ import { HelloComponent } from './hello.component';
     BrowserAnimationsModule,
     MatProgressBarModule,
     MatProgressSpinnerModule,
+    MatSnackBarModule,
 
     LoadingBarHttpClientModule,
     LoadingBarRouterModule,
