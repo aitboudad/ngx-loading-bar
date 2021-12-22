@@ -22,6 +22,6 @@
   },
   "peerDependencies": {
     "@angular/common": ">=13.0.0",
-    "rxjs": ">=6.3.0"
+    "rxjs": ">=7.4.0"
   }
 }

@@ -16,8 +16,8 @@ export class LoadingBarState {
   };
   private requests = null;
   private disabled = false;
-  private stream$ = new Subject<ILoadingBarState>();
-  private _value$ = null;
+  private readonly stream$ = new Subject<ILoadingBarState>();
+  private _value$: Observable<number> | null = null;
 
   constructor(private config: LoadingBarConfig = {}) {
     this.config = {
@@ -31,7 +31,7 @@ export class LoadingBarState {
       return this._value$;
     }
 
-    return (this._value$ = this.stream$.asObservable().pipe(
+    return (this._value$ = this.stream$.pipe(
       startWith(this.state),
       switchMap((s) => this.timer$(s)),
       shareReplay(),

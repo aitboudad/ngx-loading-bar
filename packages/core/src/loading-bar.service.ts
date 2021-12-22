@@ -8,11 +8,11 @@ import { LOADING_BAR_CONFIG, LoadingBarConfig } from './loading-bar.config';
 
 @Injectable({ providedIn: 'root' })
 export class LoadingBarService {
-  private refs: { [id: string]: LoadingBarState } = {};
-  private streams$ = new Subject<void>();
-  readonly value$ = this.streams$.asObservable().pipe(
+  private readonly refs: { [id: string]: LoadingBarState } = {};
+  private readonly streams$ = new Subject<void>();
+  readonly value$ = this.streams$.pipe(
     startWith(null),
-    switchMap(() => combineLatest(...Object.keys(this.refs).map((s) => this.refs[s].value$))),
+    switchMap(() => combineLatest(Object.keys(this.refs).map((s) => this.refs[s].value$))),
     runInZone(this.zone),
     map((v) => Math.max(0, ...v)),
   );
