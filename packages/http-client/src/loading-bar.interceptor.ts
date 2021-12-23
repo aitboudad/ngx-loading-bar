@@ -13,10 +13,12 @@ export class LoadingBarInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     // https://github.com/angular/angular/issues/18155
     if (req.headers.has('ignoreLoadingBar')) {
-      console.warn('Using http headers to ignore loading bar is deprecated. Use "NGX_LOADING_BAR_IGNORED" HttpContextToken instead.')
+      console.warn(
+        'Using http headers to ignore loading bar is deprecated. Use "NGX_LOADING_BAR_IGNORED" HttpContextToken instead.',
+      );
       return next.handle(req.clone({ headers: req.headers.delete('ignoreLoadingBar') }));
     }
-    if(req.context.get(NGX_LOADING_BAR_IGNORED) === true){
+    if (req.context.get(NGX_LOADING_BAR_IGNORED) === true) {
       return next.handle(req);
     }
 

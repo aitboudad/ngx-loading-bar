@@ -1,12 +1,11 @@
 @use '@angular/material' as mat;
 @use '@angular/cdk' as cdk;
+
 @import '~bootstrap/scss/bootstrap-reboot';
+@import '~bootstrap/scss/bootstrap-grid';
+@import '~bootstrap/scss/bootstrap-utilities';
 @import '~bootstrap/scss/buttons';
 @import '~bootstrap/scss/card';
-@import '~bootstrap/scss/utilities/display';
-@import '~bootstrap/scss/utilities/spacing';
-@import '~bootstrap/scss/utilities/text';
-@import '~bootstrap/scss/utilities/flex';
 
 // Material progress bar
 @import '@angular/material/theming';
@@ -16,6 +15,10 @@ $theme: mat.define-light-theme($primary, $accent);
 @include mat.progress-bar-theme($theme);
 @include mat.snack-bar-theme($theme);
 @include cdk.overlay();
+
+.btn {
+  margin: 0.25rem;
+}
 
 // github-corner
 .github-corner {

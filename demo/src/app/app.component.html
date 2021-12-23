@@ -1,26 +1,31 @@
 <div style="padding: 4rem 2rem">
-  <div class="d-flex flex-column align-items-center">
-    <div class="text-center">
-      <h1>@ngx-loading-bar/*</h1>
+  <div class="d-flex flex-column align-items-center text-center">
+    <div>
+      <img
+        height="120"
+        src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="
+      />
+      <h2>@ngx-loading-bar/*</h2>
       <ngx-loading-bar [color]="'red'"></ngx-loading-bar>
       <router-outlet></router-outlet>
       <p>Automatic loading bar with zero configuration (http and router)</p>
-      <img
-        height="200"
-        src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="
-      />
     </div>
 
     <div class="d-flex flex-wrap justify-content-center">
       <div class="card m-2" style="width: 310px">
         <ngx-loading-bar fixed ref="http" color="#17a2b8"></ngx-loading-bar>
         <div class="card-body">
-          <h4 class="card-title text-center">@ngx-loading-bar/http</h4>
+          <h5 class="card-title text-center">@ngx-loading-bar/http</h5>
           <p class="card-text">Display loading-bar on http request</p>
-          <button class="btn btn-block btn-sm btn-info" (click)="startHttpRequest()" type="button" name="button">
+          <button class="btn btn-block btn-sm btn-primary" (click)="startHttpRequest()" type="button" name="button">
             Load
           </button>
-          <button class="btn btn-block btn-sm btn-info" (click)="startHttpRequestWithoutLoadingBar()" type="button" name="button">
+          <button
+            class="btn btn-block btn-sm btn-primary"
+            (click)="startHttpRequestWithoutLoadingBar()"
+            type="button"
+            name="button"
+          >
             Load without bar
           </button>
         </div>
@@ -29,10 +34,10 @@
       <div class="card m-2" style="width: 310px">
         <ngx-loading-bar fixed ref="router" color="#17a2b8"></ngx-loading-bar>
         <div class="card-body">
-          <h4 class="card-title text-center">@ngx-loading-bar/router</h4>
+          <h5 class="card-title text-center">@ngx-loading-bar/router</h5>
           <p class="card-text">Display loading-bar on route navigation</p>
           <a
-            class="btn btn-block btn-sm btn-info mr-2"
+            class="btn btn-block btn-sm btn-primary mr-2"
             role="button"
             [routerLink]="['']"
             routerLinkActive="disabled"
@@ -41,7 +46,7 @@
             page '/'
           </a>
           <a
-            class="btn btn-block btn-sm btn-info"
+            class="btn btn-block btn-sm btn-primary"
             role="button"
             [routerLink]="['home']"
             routerLinkActive="disabled"
@@ -57,29 +62,28 @@
       <div class="card m-2" style="width: 310px">
         <ngx-loading-bar fixed ref="default" color="#17a2b8"></ngx-loading-bar>
         <div class="card-body">
-          <h4 class="card-title text-center">@ngx-loading-bar/core</h4>
+          <h5 class="card-title text-center">@ngx-loading-bar/core</h5>
           <p class="card-text">Manage manually loading bar</p>
           <div class="d-flex flex-wrap">
-            <button class="btn btn-sm btn-info m-1" (click)="start()" type="button" name="button">Start</button>
-            <button class="btn btn-sm btn-info m-1" (click)="set()" type="button" name="button">50%</button>
-            <button class="btn btn-sm btn-info m-1" (click)="increment()" type="button" name="button">+10%</button>
-            <button class="btn btn-sm btn-info m-1" (click)="complete()" type="button" name="button">Complete</button>
-            <button class="btn btn-sm btn-info m-1" (click)="stop()" type="button" name="button">Stop</button>
+            <button class="btn btn-sm btn-primary" (click)="start()" type="button" name="button">Start</button>
+            <button class="btn btn-sm btn-primary" (click)="set()" type="button" name="button">50%</button>
+            <button class="btn btn-sm btn-primary" (click)="increment()" type="button" name="button">+10%</button>
+            <button class="btn btn-sm btn-primary" (click)="complete()" type="button" name="button">Complete</button>
+            <button class="btn btn-sm btn-primary" (click)="stop()" type="button" name="button">Stop</button>
           </div>
-          <div class="d-flex justify-content-between mt-2"></div>
         </div>
       </div>
 
       <div class="card m-2" style="width: 310px">
         <mat-progress-bar mode="determinate" [value]="loader.progress$ | async"></mat-progress-bar>
         <div class="card-body">
-          <p class="card-text">
+          <h5 class="card-title text-center">
             Using
             <a href="https://material.angular.io/components/progress-bar/overview" target="_blank"
               >Material Progress bar</a
             >
-          </p>
-          <button class="btn btn-block btn-sm btn-info" (click)="startHttpRequest()" type="button" name="button">
+          </h5>
+          <button class="btn btn-block btn-sm btn-primary" (click)="startHttpRequest()" type="button" name="button">
             Load
           </button>
         </div>

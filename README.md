@@ -143,7 +143,7 @@ The loading bar can also be forced to ignore certain requests, for example, when
 ```ts
 // ignore a particular $http GET:
 httpClient.get('/status', {
-  context: new HttpContext().set(NGX_LOADING_BAR_IGNORED, true)
+  context: new HttpContext().set(NGX_LOADING_BAR_IGNORED, true),
 });
 ```
 

@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.0.0](https://github.com/aitboudad/ngx-loading-bar/compare/v5.1.2...v6.0.0) (2021-12-23)
+
+
+### ⚠ BREAKING CHANGES
+
+* **core:** The library now requires Angular 13
+
+### Features
+
+* **core:** update to angular 13 ([#191](https://github.com/aitboudad/ngx-loading-bar/issues/191)) ([fe51b29](https://github.com/aitboudad/ngx-loading-bar/commit/fe51b2972440e0508afd7deb75149af2f2e2abd0)), closes [#190](https://github.com/aitboudad/ngx-loading-bar/issues/190)
+
 ### [5.1.2](https://github.com/aitboudad/ngx-loading-bar/compare/v5.1.1...v5.1.2) (2021-04-11)
 
 
