@@ -1,6 +1,8 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpContext } from '@angular/common/http';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { LoadingBarService } from '@ngx-loading-bar/core';
+import { NGX_LOADING_BAR_IGNORED } from '@ngx-loading-bar/http-client';
 
 @Component({
   selector: 'app-root',
@@ -8,10 +10,24 @@ import { LoadingBarService } from '@ngx-loading-bar/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
-  constructor(private httpClient: HttpClient, public loader: LoadingBarService) {}
+  constructor(
+    private readonly httpClient: HttpClient,
+    public readonly loader: LoadingBarService,
+    private readonly matSnackBar: MatSnackBar,
+  ) {}
 
   startHttpRequest() {
     this.httpClient.get('https://jsonplaceholder.typicode.com/users').subscribe();
+  }
+  startHttpRequestWithoutLoadingBar() {
+    this.matSnackBar.open('Load started', undefined, { duration: 1000 });
+    this.httpClient
+      .get('https://jsonplaceholder.typicode.com/users?delay=2000', {
+        context: new HttpContext().set(NGX_LOADING_BAR_IGNORED, true),
+      })
+      .subscribe({
+        complete: () => this.matSnackBar.open('Load finished', undefined, { duration: 1000 }),
+      });
   }
 
   start() {

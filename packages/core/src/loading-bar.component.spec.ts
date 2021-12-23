@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed, inject } from '@angular/core/testing';
+import { waitForAsync, ComponentFixture, TestBed, inject } from '@angular/core/testing';
 import { Subject } from 'rxjs';
 
 import { LoadingBarComponent } from './loading-bar.component';
@@ -9,12 +9,15 @@ describe('LoadingBarComponent', () => {
   const getElement: (selector: string) => HTMLDivElement = (selector) =>
     fixture.elementRef.nativeElement.querySelector(selector);
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [LoadingBarComponent],
-      providers: [{ provide: LoadingBarService, useClass: MockLoadingBarService }],
-    }).compileComponents();
-  }));
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        declarations: [LoadingBarComponent],
+        providers: [{ provide: LoadingBarService, useClass: MockLoadingBarService }],
+        teardown: { destroyAfterEach: false },
+      }).compileComponents();
+    }),
+  );
 
   beforeEach(inject([LoadingBarService], (loaderService: MockLoadingBarService) => {
     fixture = TestBed.createComponent(LoadingBarComponent);

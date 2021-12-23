@@ -1,7 +1,7 @@
-import { TestBed, inject, fakeAsync, tick } from '@angular/core/testing';
-import { LoadingBarService } from './loading-bar.service';
+import { ɵPLATFORM_BROWSER_ID, ɵPLATFORM_SERVER_ID } from '@angular/common';
+import { fakeAsync, inject, TestBed, tick } from '@angular/core/testing';
 import { Subscription } from 'rxjs';
-import { ɵPLATFORM_SERVER_ID, ɵPLATFORM_BROWSER_ID } from '@angular/common';
+import { LoadingBarService } from './loading-bar.service';
 
 describe('LoadingBarService', () => {
   let loader: LoadingBarService;
@@ -11,6 +11,7 @@ describe('LoadingBarService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [LoadingBarService],
+      teardown: { destroyAfterEach: false },
     });
   });
 
