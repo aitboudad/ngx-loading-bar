@@ -22,6 +22,6 @@
   },
   "peerDependencies": {
     "@ngx-loading-bar/core": "LOADING-BAR-VERSION",
-    "@angular/router": ">=7.0.0"
+    "@angular/router": ">=13.0.0"
   }
 }
