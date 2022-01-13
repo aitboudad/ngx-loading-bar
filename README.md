@@ -20,8 +20,7 @@
 
 ## Demo
 
-- online demo: https://angular-sypacw.stackblitz.io
-- [demo-app](./demo): Example utilizing all @ngx-loading-bar libraries.
+- https://aitboudad.github.io/ngx-loading-bar/
 
 # Table of contents
 
@@ -50,6 +49,14 @@
   # to manage loading-bar manually
   npm install @ngx-loading-bar/core --save
 ```
+
+**Which Version to use?**
+
+| Angular version | @ngx-loading-bar/core |
+| --------------- | --------------------- |
+| >=13.0          | 6.x                   |
+| >=9.0           | 5.x                   |
+| >=7.0           | 4.x                   |
 
 #### 2. Import the installed libraries:
 
