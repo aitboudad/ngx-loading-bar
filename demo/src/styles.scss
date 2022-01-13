@@ -1,11 +1,12 @@
 @use '@angular/material' as mat;
 @use '@angular/cdk' as cdk;
 
-@import '~bootstrap/scss/bootstrap-reboot';
-@import '~bootstrap/scss/bootstrap-grid';
-@import '~bootstrap/scss/bootstrap-utilities';
-@import '~bootstrap/scss/buttons';
-@import '~bootstrap/scss/card';
+@import 'bootstrap/scss/bootstrap-reboot';
+@import 'bootstrap/scss/bootstrap-grid';
+@import 'bootstrap/scss/utilities/flex';
+@import 'bootstrap/scss/utilities/text';
+@import 'bootstrap/scss/buttons';
+@import 'bootstrap/scss/card';
 
 // Material progress bar
 @import '@angular/material/theming';
