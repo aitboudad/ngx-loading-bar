@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.0.1](https://github.com/aitboudad/ngx-loading-bar/compare/v6.0.0...v6.0.1) (2022-01-13)
+
+
+### Bug Fixes
+
+* **router:** update peer dependencies ([7e9c6ee](https://github.com/aitboudad/ngx-loading-bar/commit/7e9c6ee07f7710ace518d776dced7dcee7b0abc8))
+
 ## [6.0.0](https://github.com/aitboudad/ngx-loading-bar/compare/v5.1.2...v6.0.0) (2021-12-23)
 
 
