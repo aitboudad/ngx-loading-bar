@@ -1,0 +1,45 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
+    - name: Cache node modules
+      uses: actions/cache@v2
+      env:
+        cache-name: cache-node-modules
+      with:
+        path: |
+          ~/.npm
+          ./node_modules
+        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-build-${{ env.cache-name }}-
+          ${{ runner.os }}-build-
+          ${{ runner.os }}-
+
+    - uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+        registry-url: 'https://registry.npmjs.org'
+
+    - name: Install Dependencies
+      run: npm install
+
+    - name: Build
+      run: npm run build
+
+    - name: Lint & Format
+      run: |
+        npm run format
+        npm run lint
+
+    - name: Test
+      run: npm run test
