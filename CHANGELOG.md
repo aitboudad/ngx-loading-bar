@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.0.2](https://github.com/aitboudad/ngx-loading-bar/compare/v6.0.1...v6.0.2) (2022-02-16)
+
+
+### Bug Fixes
+
+* **http-client:** console deprecation log on DevMode only. ([#193](https://github.com/aitboudad/ngx-loading-bar/issues/193)) ([74ac02e](https://github.com/aitboudad/ngx-loading-bar/commit/74ac02ed44c65b55756dad5d9a42f693a4f454b1))
+
 ### [6.0.1](https://github.com/aitboudad/ngx-loading-bar/compare/v6.0.0...v6.0.1) (2022-01-13)
 
 
