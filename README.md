@@ -93,6 +93,20 @@ import { AppComponent } from './app';
 export class AppModule {}
 ```
 
+**Note:** If using `LoadingBarHttpClientModule` with Angular Standalone APIs, ensure you import the providers from the module in the `ApplicationConfig` `providers` array:
+
+```ts
+import { ApplicationConfig, importProvidersFrom } from '@angular/core';
+import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
+
+export const appConfig: ApplicationConfig = {
+  providers: [
+    ...
+    importProvidersFrom(LoadingBarHttpClientModule),
+  ],
+};
+```
+
 #### 3. Include `ngx-loading-bar` in your app component:
 
 ```ts
