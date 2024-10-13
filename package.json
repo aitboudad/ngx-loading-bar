@@ -1,6 +1,6 @@
 {
   "name": "@ngx-loading-bar/common",
-  "version": "6.0.2",
+  "version": "7.0.0",
   "license": "MIT",
   "author": "Abdellatif Ait boudad",
   "description": "A fully automatic loading bar / progress bar with zero configuration for Angular app (http, http-client and router).",
@@ -23,7 +23,8 @@
     "lint:fix": "tslint --fix 'src/**/*.ts' 'demo/**/*.ts' -p tsconfig.json",
     "format": "prettier --list-different \"**/*.{js,ts,json,css,scss,md,html}\"",
     "format:fix": "prettier --write \"**/*.{js,ts,json,css,scss,md,html}\"",
-    "release": "standard-version && npm run build && node .config/publish.js",
+    "release": "standard-version",
+    "publish": "node .config/publish.js",
     "start": "ng serve --port 4501 --open",
     "build": "npm run build:core && npm run build:http-client && npm run build:router && node .config/build.js",
     "build:core": "ng build --configuration production @ngx-loading-bar/core",
@@ -33,7 +34,7 @@
     "test": "jest --coverage",
     "test:watch": "jest --watch",
     "bundlesize": "bundlesize",
-    "github-release": "conventional-github-releaser -p angular -t $GH_TOKEN --draft"
+    "github-release": "conventional-github-releaser -p angular --draft"
   },
   "dependencies": {
     "@angular/animations": "^16.2.12",

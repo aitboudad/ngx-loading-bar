@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.0.0](https://github.com/aitboudad/ngx-loading-bar/compare/v6.0.2...v7.0.0) (2024-10-13)
+
+
+### Features
+
+* **core:** update to angular 16 ([b8f0992](https://github.com/aitboudad/ngx-loading-bar/commit/b8f099229c685124ea674d8f48ec680e61d0eb47)), closes [#202](https://github.com/aitboudad/ngx-loading-bar/issues/202) [#200](https://github.com/aitboudad/ngx-loading-bar/issues/200)
+* **http:** remove depracated http headers ignoreLoadingBar ([c4aee89](https://github.com/aitboudad/ngx-loading-bar/commit/c4aee8937bdef1d8c897c700912a42912045a30b)), closes [#201](https://github.com/aitboudad/ngx-loading-bar/issues/201)
+
 ### [6.0.2](https://github.com/aitboudad/ngx-loading-bar/compare/v6.0.1...v6.0.2) (2022-02-16)
 
 
