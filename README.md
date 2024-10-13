@@ -54,6 +54,7 @@
 
 | Angular version | @ngx-loading-bar/core |
 | --------------- | --------------------- |
+| >=16.0          | 7.x                   |
 | >=13.0          | 6.x                   |
 | >=9.0           | 5.x                   |
 | >=7.0           | 4.x                   |
@@ -61,59 +62,38 @@
 #### 2. Import the installed libraries:
 
 ```ts
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+// app.config.ts
+import { ApplicationConfig, importProvidersFrom } from '@angular/core';
 
 // for HttpClient import:
-import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { provideLoadingBarInterceptor } from '@ngx-loading-bar/http-client';
 
 // for Router import:
-import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
-
-// for Core import:
-import { LoadingBarModule } from '@ngx-loading-bar/core';
-
-import { AppComponent } from './app';
-
-@NgModule({
-  ...
-  imports: [
-    ...
-
-    // for HttpClient use:
-    LoadingBarHttpClientModule,
-
-    // for Router use:
-    LoadingBarRouterModule,
-
-    // for Core use:
-    LoadingBarModule
-  ],
-})
-export class AppModule {}
-```
-
-**Note:** If using `LoadingBarHttpClientModule` with Angular Standalone APIs, ensure you import the providers from the module in the `ApplicationConfig` `providers` array:
-
-```ts
-import { ApplicationConfig, importProvidersFrom } from '@angular/core';
-import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
+import { provideLoadingBarRouter } from '@ngx-loading-bar/router';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    ...
-    importProvidersFrom(LoadingBarHttpClientModule),
+    // for HttpClient use:
+    provideHttpClient(withInterceptorsFromDi()),
+    provideLoadingBarInterceptor(),
+
+    // for Router use:
+    provideLoadingBarRouter(),
   ],
 };
 ```
 
-#### 3. Include `ngx-loading-bar` in your app component:
+#### 3. use `ngx-loading-bar` in your app component:
 
 ```ts
 import { Component } from '@angular/core';
+import { NgxLoadingBar } from '@ngx-loading-bar/core';
 
 @Component({
   selector: 'app',
+  imports: [NgxLoadingBar],
+  standalone: true,
   template: `
     ...
     <ngx-loading-bar></ngx-loading-bar>
@@ -139,16 +119,15 @@ You can pass the following inputs to customize the view:
 
 ## Global config
 
-The global config can be adjusted by providing a value for `LOADING_BAR_CONFIG` in your application's root module.
+The global config can be adjusted using `provideLoadingBar` in the application's config.
 
 ```ts
-import { LOADING_BAR_CONFIG } from '@ngx-loading-bar/core';
+import { ApplicationConfig, importProvidersFrom } from '@angular/core';
+import { provideLoadingBar } from '@ngx-loading-bar/core';
 
-@NgModule({
-  providers: [
-    providers: [{ provide: LOADING_BAR_CONFIG, useValue: { latencyThreshold: 100 } }],
-  ]
-})
+export const appConfig: ApplicationConfig = {
+  providers: [provideLoadingBar({ latencyThreshold: 100 })],
+};
 ```
 
 | Option           | Description                                                                             |
@@ -214,32 +193,14 @@ const value$ = state.value$;
 
 ## Manually manage loading service
 
-#### 1. Import the `LoadingBarModule`
-
-```ts
-import { NgModule } from '@angular/core';
-
-import { LoadingBarModule } from '@ngx-loading-bar/core';
-
-@NgModule({
-  ...
-  imports: [
-    ...
-
-    LoadingBarModule,
-  ],
-})
-export class AppModule {}
-```
-
-#### 2. Inject/Use LoadingBarService
-
 ```ts
 import { Component } from '@angular/core';
-import { LoadingBarService } from '@ngx-loading-bar/core';
+import { NgxLoadingBar, LoadingBarService } from '@ngx-loading-bar/core';
 
 @Component({
   selector: 'app',
+  imports: [NgxLoadingBar],
+  standalone: true,
   template: `
     ...
     <ngx-loading-bar></ngx-loading-bar>

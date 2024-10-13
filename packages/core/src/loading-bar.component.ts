@@ -16,7 +16,7 @@ import { AsyncPipe, NgIf } from '@angular/common';
     '[style.color]': 'color',
   },
 })
-export abstract class NgxLoadingBar {
+export class NgxLoadingBar {
   @Input() includeSpinner = true;
   @Input() includeBar = true;
   @Input() fixed = true;

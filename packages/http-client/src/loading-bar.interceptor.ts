@@ -7,7 +7,6 @@ import { Provider } from '@angular/core';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 export const NGX_LOADING_BAR_IGNORED = new HttpContextToken<boolean>(() => false);
-declare const ngDevMode: boolean;
 
 @Injectable()
 export class LoadingBarInterceptor implements HttpInterceptor {

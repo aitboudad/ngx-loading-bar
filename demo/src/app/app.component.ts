@@ -1,12 +1,17 @@
+import { AsyncPipe } from '@angular/common';
 import { HttpClient, HttpContext } from '@angular/common/http';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { LoadingBarService } from '@ngx-loading-bar/core';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { RouterModule } from '@angular/router';
+import { NgxLoadingBar, LoadingBarService } from '@ngx-loading-bar/core';
 import { NGX_LOADING_BAR_IGNORED } from '@ngx-loading-bar/http-client';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
+  standalone: true,
+  imports: [AsyncPipe, MatProgressBarModule, MatSnackBarModule, NgxLoadingBar, RouterModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
