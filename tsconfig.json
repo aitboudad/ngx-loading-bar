@@ -10,12 +10,20 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
-    "target": "es2015",
-    "typeRoots": ["node_modules/@types"],
-    "lib": ["es2018", "dom"],
+    "target": "ES2022",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2018",
+      "dom"
+    ],
     "paths": {
-      "@ngx-loading-bar/*": ["packages/*/src/public_api"]
-    }
+      "@ngx-loading-bar/*": [
+        "packages/*/src/public_api"
+      ]
+    },
+    "useDefineForClassFields": false
   },
   "exclude": ["dist/**/*", "node_modules/**/*"]
 }

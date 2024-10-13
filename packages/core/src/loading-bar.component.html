@@ -1,0 +1,12 @@
+<ng-container *ngIf="value != null ? value : (value$ | async) as progress">
+  <div *ngIf="includeSpinner" class="ngx-spinner">
+    <div [style.width]="diameter" [style.height]="diameter" class="ngx-spinner-icon"></div>
+  </div>
+  <div
+    *ngIf="includeBar"
+    class="ngx-bar"
+    [style.background]="color"
+    [style.height]="height"
+    [style.width]="progress + '%'"
+  ></div>
+</ng-container>

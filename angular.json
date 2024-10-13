@@ -167,7 +167,6 @@
       }
     }
   },
-  "defaultProject": "@ngx-loading-bar-demo",
   "cli": {
     "analytics": false,
     "packageManager": "npm"

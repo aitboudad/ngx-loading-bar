@@ -1,32 +1,22 @@
-import { Component, Input, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
+import { Component, Directive, Input, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
 import { LoadingBarService } from './loading-bar.service';
+import { AsyncPipe, NgIf } from '@angular/common';
 
 @Component({
   selector: 'ngx-loading-bar',
-  template: `
-    <ng-container *ngIf="value != null ? value : (value$ | async) as progress">
-      <div *ngIf="includeSpinner" class="ngx-spinner">
-        <div [style.width]="diameter" [style.height]="diameter" class="ngx-spinner-icon"></div>
-      </div>
-      <div
-        *ngIf="includeBar"
-        class="ngx-bar"
-        [style.background]="color"
-        [style.height]="height"
-        [style.width]="progress + '%'"
-      ></div>
-    </ng-container>
-  `,
+  standalone: true,
+  imports: [AsyncPipe, NgIf],
   preserveWhitespaces: false,
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.Emulated,
   styleUrls: ['./loading-bar.component.scss'],
+  templateUrl: './loading-bar.component.html',
   host: {
     '[attr.fixed]': 'fixed',
     '[style.color]': 'color',
   },
 })
-export class LoadingBarComponent {
+export abstract class NgxLoadingBar {
   @Input() includeSpinner = true;
   @Input() includeBar = true;
   @Input() fixed = true;

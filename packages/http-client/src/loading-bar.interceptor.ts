@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HttpContextToken } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { finalize, tap } from 'rxjs/operators';
+import { Provider } from '@angular/core';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 export const NGX_LOADING_BAR_IGNORED = new HttpContextToken<boolean>(() => false);
 declare const ngDevMode: boolean;
@@ -38,4 +40,12 @@ export class LoadingBarInterceptor implements HttpInterceptor {
       finalize(() => started && ref.complete()),
     );
   }
+}
+
+export function provideLoadingBarInterceptor(): Provider {
+  return {
+    provide: HTTP_INTERCEPTORS,
+    useClass: LoadingBarInterceptor,
+    multi: true,
+  };
 }
