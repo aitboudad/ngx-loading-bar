@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.0.1](https://github.com/aitboudad/ngx-loading-bar/compare/v7.0.0...v7.0.1) (2025-12-07)
+
+
+### Bug Fixes
+
+* Export LoadingBarState in public_api.ts ([#206](https://github.com/aitboudad/ngx-loading-bar/issues/206)) ([23282c8](https://github.com/aitboudad/ngx-loading-bar/commit/23282c863b47a58b77b5b0f2870b79ccc850c394)), closes [#205](https://github.com/aitboudad/ngx-loading-bar/issues/205)
+
 ## [7.0.0](https://github.com/aitboudad/ngx-loading-bar/compare/v6.0.2...v7.0.0) (2024-10-13)
 
 
