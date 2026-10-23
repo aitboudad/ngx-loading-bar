@@ -69,9 +69,14 @@ export class LoadingBarState {
 
   private next(state: Partial<ILoadingBarState>, emitEvent = true) {
     switch (state.action) {
-      case 'start':
+      case 'start': {
+        const alreadyStarted = this.requests > 0;
         this.requests = (this.requests || 0) + 1;
+        if (alreadyStarted) {
+          return;
+        }
         break;
+      }
       case 'complete':
         this.requests = (this.requests || 1) - 1;
         if (this.requests > 0) {
