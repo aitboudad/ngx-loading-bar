@@ -107,6 +107,25 @@ describe('LoadingBarService', () => {
     tick(500);
   }));
 
+  it('should not restart the latency threshold for a concurrent request', fakeAsync(() => {
+    loader = new LoadingBarService(ɵPLATFORM_BROWSER_ID, { latencyThreshold: 100 });
+    const ref = loader.useRef();
+    let value: number;
+    const subscription = ref.value$.subscribe((v) => (value = v));
+
+    ref.start();
+    tick(80);
+    ref.start();
+    tick(20);
+
+    expect(value).toBe(2);
+
+    ref.complete();
+    ref.complete();
+    tick(500);
+    subscription.unsubscribe();
+  }));
+
   it('should complete after all pending requests is completed', fakeAsync(() => {
     loader.start();
     loader.start();
